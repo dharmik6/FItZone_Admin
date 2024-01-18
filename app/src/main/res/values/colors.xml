@@ -8,4 +8,5 @@
 
     <color name="button_background_color">#FA5B0F</color>
     <color name="hint_color">#7D7D7D</color>
+    <color name="edit_text_background">#E3E3E3</color>
 </resources>
