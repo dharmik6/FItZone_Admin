@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/start"
                     android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_15ssp"
                     android:textStyle="normal"
                     tools:ignore="HardcodedText,TextContrastCheck" />
 
@@ -168,14 +168,14 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_forgot"
+                    android:id="@+id/tv_forgot_pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/forgot_pass"
                     android:textAlignment="center"
                     android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_15ssp"
                     android:textStyle="normal"
                     tools:ignore="HardcodedText,TextContrastCheck,TextSizeCheck" />
 
