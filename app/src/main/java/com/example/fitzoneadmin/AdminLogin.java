@@ -24,7 +24,7 @@ public class AdminLogin extends AppCompatActivity {
         emailEditText = findViewById(R.id.et_email);
         passwordEditText = findViewById(R.id.et_pass);
         signInButton = findViewById(R.id.btn_singIn);
-        forgetPasswordTextView = findViewById(R.id.tv_forgot);
+        forgetPasswordTextView = findViewById(R.id.tv_forgot_pass);
 
         signInButton.setOnClickListener(view -> validateCredentials());
 
