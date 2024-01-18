@@ -48,7 +48,8 @@
             android:text="@string/sing_in_title"
             android:textColor="@color/white"
             android:textSize="@dimen/_30sdp"
-            android:textStyle="bold|normal|italic"
+            android:fontFamily="@font/opensans_semicondensed_extrabold"
+            android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
 
@@ -94,6 +95,7 @@
                     android:text="@string/hello_admin"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_20ssp"
+                    android:fontFamily="@font/opensans_condensed_bold"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
@@ -101,6 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/start"
+                    android:fontFamily="@font/nunito_medium"
                     android:textColor="@color/text"
                     android:textSize="@dimen/_12sdp"
                     android:textStyle="normal"
@@ -174,9 +177,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/forgot_pass"
+                    android:fontFamily="@font/nunito_medium"
                     android:textAlignment="center"
                     android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:textStyle="normal"
                     tools:ignore="HardcodedText,TextContrastCheck,TextSizeCheck" />
 
