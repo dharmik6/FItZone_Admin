@@ -126,7 +126,7 @@
                     app:boxBackgroundColor="@color/edit_text_background"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="@dimen/_2sdp"
-                    app:hintTextColor="#4E4A4A"
+                    app:hintTextColor="@color/hint_color"
                     app:shapeAppearanceOverlay="@style/Button4"
                     tools:ignore="HardcodedText">
 
@@ -149,7 +149,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:hint="@string/password"
                     app:boxBackgroundColor="@color/edit_text_background"
-                    app:boxStrokeColor="#4E4A4A"
+                    app:boxStrokeColor="@color/hint_color"
                     app:boxStrokeWidth="@dimen/_2sdp"
                     app:endIconMode="password_toggle"
                     app:hintTextColor="#4E4A4A"
