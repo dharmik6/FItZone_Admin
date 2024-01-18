@@ -42,7 +42,7 @@
         tools:ignore="MissingConstraints,TextSizeCheck" />
 
     <ProgressBar
-        android:id="@+id/progress_bar"
+        android:id="@+id/progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
