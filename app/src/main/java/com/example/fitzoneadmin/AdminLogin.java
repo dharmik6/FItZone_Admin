@@ -21,10 +21,10 @@ public class AdminLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
-        emailEditText = findViewById(R.id.et_email);
-        passwordEditText = findViewById(R.id.et_pass);
+        emailEditText = findViewById(R.id.id_email);
+        passwordEditText = findViewById(R.id.id_pass);
         signInButton = findViewById(R.id.btn_singIn);
-        forgetPasswordTextView = findViewById(R.id.tv_forgot_pass);
+        forgetPasswordTextView = findViewById(R.id.id_forgot_pass);
 
         signInButton.setOnClickListener(view -> validateCredentials());
 
