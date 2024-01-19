@@ -1,9 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FitZoneAdmin" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FitZoneAdmin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimaryDark">@color/Reddish_orange</item>
+         <item name="colorPrimary">@color/Reddish_orange</item>
     </style>
 
-    <style name="Theme.FitZoneAdmin" parent="Base.Theme.FitZoneAdmin" />
+    <style name="Theme.FitZoneAdmin" parent="Base.Theme.FitZoneAdmin" >
+        <item name="colorPrimaryDark">@color/Reddish_orange</item>
+    </style>
 </resources>
