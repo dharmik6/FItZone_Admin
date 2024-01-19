@@ -163,4 +163,5 @@ public class AdminLogin extends AppCompatActivity {
     private boolean isValidEmail(String email) {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+    //********************************************
 }
