@@ -43,6 +43,7 @@
             android:layout_marginTop="@dimen/_20sdp">
 
             <ImageButton
+                android:id="@+id/add"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -51,6 +52,7 @@
                 tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
             <TextView
+                android:id="@+id/add_members"
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -63,6 +65,7 @@
                 tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
             <ImageButton
+                android:id="@+id/filter"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_5sdp"
