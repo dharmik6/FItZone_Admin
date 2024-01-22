@@ -23,10 +23,13 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
             )
         }
+    }
+    buildFeatures {
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -41,6 +44,9 @@ dependencies {
 
     //ssp
     implementation("com.intuit.ssp:ssp-android:1.1.0")
+
+    //image circle
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
 
     implementation("androidx.appcompat:appcompat:1.6.1")

@@ -64,7 +64,7 @@ public class AdminLogin extends AppCompatActivity {
         // and navigate to the HomeActivity
         Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(AdminLogin.this, DashboardScreen.class);
+        Intent intent = new Intent(AdminLogin.this, MainActivity.class);
         startActivity(intent);
         finish();  // Optional: Close the current activity to prevent going back
 
