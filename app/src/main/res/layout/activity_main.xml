@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,64 +13,65 @@
       android:id="@+id/drawerLayout"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:elevation="@dimen/_10sdp"
+      android:scrollbars="vertical"
       tools:openDrawer="start">
-    <!-- create a header file name is drawer_header xml and list file in menu xml -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+      <ImageView
+          android:id="@+id/show_menu"
+          android:layout_width="@dimen/_20sdp"
+          android:layout_height="@dimen/_20sdp"
+          android:layout_marginTop="@dimen/_15sdp"
+          android:layout_marginStart="@dimen/_10sdp"
+          android:src="@drawable/ic_menu_burger"
+          tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+      <TextView
+          android:layout_width="@dimen/_180sdp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_15sdp"
+          android:layout_marginStart="@dimen/_10sdp"
+          android:text="FitZone"
+          android:textStyle="bold"
+          android:textColor="@color/black"
+          android:textSize="@dimen/_15ssp"
+          tools:ignore="HardcodedText" />
+
+      <ImageView
+          android:layout_width="@dimen/_20sdp"
+          android:layout_height="@dimen/_20sdp"
+          android:layout_marginStart="@dimen/_10sdp"
+          android:layout_marginTop="@dimen/_15sdp"
+          android:src="@drawable/ic_bell"
+          tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+      <ImageView
+          android:layout_width="@dimen/_20sdp"
+          android:layout_height="@dimen/_20sdp"
+          android:layout_marginStart="@dimen/_15sdp"
+          android:layout_marginTop="@dimen/_15sdp"
+          android:src="@drawable/ic_settings"
+          tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </LinearLayout>
+
+
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/drawer_heder"
         android:scrollbars="vertical"
+        app:headerLayout="@layout/drawer_header"
         app:menu="@menu/menu" />
 
 
   </androidx.drawerlayout.widget.DrawerLayout>
 
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="?actionBarSize"
-      android:orientation="horizontal" >
-
-    <ImageView
-        android:id="@+id/show_menu"
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:src="@drawable/ic_menu_burger"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    <TextView
-        android:layout_width="@dimen/_180sdp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:text="FitZone"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_15ssp"
-        tools:ignore="HardcodedText" />
-
-    <ImageView
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:src="@drawable/ic_bell"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    <ImageView
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:src="@drawable/ic_settings"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-  </LinearLayout>
 
 
   <ScrollView
@@ -90,4 +91,4 @@
 
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,4 +12,6 @@
 
     <color name="active">#459A15</color>
     <color name="notactive">#CD080B</color>
+    <color name="navigation_title">#FA5B0F</color>
+
 </resources>
