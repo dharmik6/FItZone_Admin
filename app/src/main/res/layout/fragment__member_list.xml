@@ -18,17 +18,19 @@
         app:layout_constraintVertical_bias="0.114"
         tools:ignore="MissingConstraints">
 
-        <android.widget.SearchView
-            android:id="@+id/searchView"
+        <EditText
+            android:id="@+id/searchbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_38sdp"
             android:layout_marginVertical="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@drawable/search_bg"
-            android:elevation="@dimen/_20sdp"
-            android:queryHint="Search..."
-            android:searchHintIcon="@drawable/ic_search"
+            android:hint="Search"
+            android:fontFamily="@font/nunito_medium"
+            android:textColorHint="@color/hint_color"
+            android:paddingHorizontal="@dimen/_20sdp"
+            android:drawableEnd="@drawable/ic_search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -41,7 +43,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
-            android:layout_below="@+id/searchView"
+            android:layout_below="@+id/searchbar"
             android:layout_marginHorizontal="@dimen/_28sdp"
             android:layout_marginVertical="@dimen/_5sdp"
             android:gravity="center">

@@ -16,12 +16,6 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminMembersList"
-            android:exported="false" />
-        <activity
-            android:name=".DashboardScreen"
-            android:exported="false" />
-        <activity
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
