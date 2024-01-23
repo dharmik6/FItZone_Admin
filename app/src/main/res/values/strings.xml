@@ -36,4 +36,7 @@
     <!-- header file-->
     <string name="person_name">Person Name</string>
 
+    <!-- main activity title -->
+    <string name="Fit_Zone_title">Fit Zone</string>
+
 </resources>
