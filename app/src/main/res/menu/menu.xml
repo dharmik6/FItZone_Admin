@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ExtraText">
     <item
         android:id="@+id/nav_dashbord"
         android:title="@string/Dash_bord_title"
@@ -8,58 +9,18 @@
     <item
         android:id="@+id/nav_members"
         android:title="@string/Members_title"
-        tools:ignore="HardcodedText" >
-        <menu>
-            <group android:checkableBehavior="single">
+        tools:ignore="HardcodedText" />
 
-                <item
-                    android:id="@+id/nav_members_list"
-                    android:title="@string/Members_List" />
-                <item
-                    android:id="@+id/nav_membership_list"
-                    android:title="@string/Membership_list" />
-            </group>
-        </menu>
-
-    </item>
-    <item
+      <item
         android:id="@+id/nav_Trainers"
         android:title="@string/Trainers_title"
-        tools:ignore="HardcodedText" >
+        tools:ignore="HardcodedText"/> >
 
-        <menu>
-            <group android:checkableBehavior="single">
-
-                <item
-                    android:id="@+id/nav_trainers"
-                    android:title="@string/Trainers" />
-                <item
-                    android:id="@+id/nav_booking_details"
-                    android:title="@string/Booking_details" />
-            </group>
-        </menu>
-
-    </item>
     <item
         android:id="@+id/nav_workout_exercises"
         android:title="@string/Workout_Exercises_title"
-        tools:ignore="HardcodedText" >
+        tools:ignore="HardcodedText" />
 
-        <menu>
-            <group android:checkableBehavior="single">
-
-                <item
-                    android:id="@+id/nav_workout_plans"
-                    android:title="@string/Workout_plans" />
-                <item
-                    android:id="@+id/nav_exercises"
-                    android:title= "@string/Exercises"/>
-
-            </group>
-        </menu>
-
-
-    </item>
     <item
         android:id="@+id/nav_diet_plans"
         android:title="@string/Diet_Plans_title"
@@ -67,22 +28,6 @@
     <item
         android:id="@+id/nav_packages_payments"
         android:title="@string/Packages_payments_title"
-        tools:ignore="HardcodedText" >
+        tools:ignore="HardcodedText" />
+    </menu>
 
-        <menu>
-            <group android:checkableBehavior="single">
-
-                <item
-                    android:id="@+id/nav_packages"
-                    android:title="@string/Packages" />
-                <item
-                    android:id="@+id/nav_payments"
-                    android:title= "@string/Payments"/>
-
-            </group>
-        </menu>
-
-
-    </item>
-
-</menu>
