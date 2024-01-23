@@ -100,10 +100,7 @@ public class AdminLogin extends AppCompatActivity {
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
 
-        ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("Loading...");
-        pd.setCancelable(false);
-        pd.show();
+
 
         // start validation
         if (TextUtils.isEmpty(emailEditText.getText().toString())) {
@@ -114,6 +111,11 @@ public class AdminLogin extends AppCompatActivity {
         }else if (!isValidEmail(email)) {
             Toast.makeText(AdminLogin.this, "Invalid Email Address!", Toast.LENGTH_SHORT).show();
         }else {
+
+            ProgressDialog pd = new ProgressDialog(this);
+            pd.setMessage("Loading...");
+            pd.setCancelable(false);
+            pd.show();
 
             // Check if the email exists in Firestore
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -133,12 +135,11 @@ public class AdminLogin extends AppCompatActivity {
                                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                                     if (task.isSuccessful()) {
                                                         // Sign in success, update UI with the signed-in user's information
-                                                        Toast.makeText(AdminLogin.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(AdminLogin.this, "Sign in Successful!", Toast.LENGTH_SHORT).show();
                                                         startActivity(new Intent(AdminLogin.this, DashboardScreen.class));
                                                     } else {
                                                         // If sign in fails, display a message to the user.
-                                                        Toast.makeText(AdminLogin.this, "Sign in  failed: " + task.getException().getMessage(),
-                                                                Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(AdminLogin.this, "Please Enter the Correct Email id and Password" ,Toast.LENGTH_SHORT).show(); //+ task.getException().getMessage()
                                                         pd.dismiss();
                                                     }
                                                 }
