@@ -142,7 +142,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size"
                         android:textStyle="bold"
-                        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+                        tools:ignore="RtlSymmetry,TextContrastCheck,TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -169,7 +169,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size"
                         android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
+                        tools:ignore="RtlSymmetry,TextContrastCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -197,17 +197,18 @@
                 android:layout_marginEnd="@dimen/_24sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/btn_background"
-                android:shadowColor="@color/black"
+                android:backgroundTint="@color/button_background_color"
                 android:elevation="@dimen/button_elevation"
-                android:gravity="center"
-                android:text="@string/sing_in"
-                android:textStyle="normal|bold"
                 android:fontFamily="@font/nunito_medium"
+                android:gravity="center"
+                android:shadowColor="@color/black"
+                android:text="@string/sing_in"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
+                android:textStyle="normal|bold"
                 app:cardElevation="@dimen/button_card_elevation"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
 
         </LinearLayout>
