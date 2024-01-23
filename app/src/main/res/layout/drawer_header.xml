@@ -15,7 +15,7 @@
         android:layout_width="@dimen/_60sdp"
         android:layout_height="@dimen/_60sdp"
         app:cardCornerRadius="@dimen/_40sdp"
-        android:elevation="@dimen/_5sdp"
+        android:elevation="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_40sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:backgroundTint="#81776E6E">
@@ -23,7 +23,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/kacha"
+            android:src="@drawable/ic_profile_circle"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
     </androidx.cardview.widget.CardView>
