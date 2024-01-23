@@ -33,12 +33,12 @@
       <TextView
           android:layout_width="@dimen/_180sdp"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/_15sdp"
+          android:layout_marginTop="@dimen/_10sdp"
           android:layout_marginStart="@dimen/_10sdp"
-          android:text="FitZone"
-          android:textStyle="bold"
+          android:text="@string/Fit_Zone_title"
+          android:fontFamily="@font/opensans_bold"
           android:textColor="@color/black"
-          android:textSize="@dimen/_15ssp"
+          android:textSize="@dimen/_18sdp"
           tools:ignore="HardcodedText" />
 
       <ImageView
