@@ -3,15 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="text">#7D7D7D</color>
-    <color name="Reddish_orange">#FA5B0F</color>
+    <color name="Reddish_orange">#191645</color>
     <color name="back_ground">#EDEBEB</color>
 
-    <color name="button_background_color">#FA5B0F</color>
+    <color name="button_background_color">#43C6AC</color>
     <color name="hint_color">#4E4A4A</color>
     <color name="edit_text_background">#E3E3E3</color>
 
     <color name="active">#459A15</color>
     <color name="notactive">#CD080B</color>
-    <color name="navigation_title">#FA5B0F</color>
+    <color name="navigation_title">#191645</color>
 
 </resources>
