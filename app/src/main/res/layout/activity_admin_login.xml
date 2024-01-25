@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_ground"
+    android:layout_gravity="center"
     tools:context=".AdminLogin">
 
 
@@ -13,7 +14,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_350sdp"
-        android:background="@color/Reddish_orange"
+        android:background="@color/dark_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +26,8 @@
             android:id="@+id/img_sing_in_logo"
             android:layout_width="@dimen/_151sdp"
             android:layout_height="@dimen/_149sdp"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
             android:layout_marginStart="105dp"
             android:layout_marginTop="@dimen/_24sdp"
             android:layout_marginEnd="@dimen/_80sdp"
@@ -188,7 +188,7 @@
             </LinearLayout>
 
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_singIn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
@@ -197,7 +197,6 @@
                 android:layout_marginEnd="@dimen/_24sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/btn_background"
-                android:backgroundTint="@color/button_background_color"
                 android:elevation="@dimen/button_elevation"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center"

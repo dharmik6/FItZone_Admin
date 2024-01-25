@@ -3,10 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="text">#7D7D7D</color>
-    <color name="Reddish_orange">#191645</color>
+    <color name="dark_blue">#191645</color>
     <color name="back_ground">#EDEBEB</color>
-
-    <color name="button_background_color">#43C6AC</color>
+    <color name="dark_cyan">#029791</color>
+    <color name="greenish_cyan">#43C6AC</color>
     <color name="hint_color">#4E4A4A</color>
     <color name="edit_text_background">#E3E3E3</color>
 
