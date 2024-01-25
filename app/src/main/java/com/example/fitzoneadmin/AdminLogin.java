@@ -157,12 +157,9 @@ public class AdminLogin extends AppCompatActivity {
                         }
                     });
 
-            // You can add additional validation logic if needed
-
         }
     }
     private boolean isValidEmail(String email) {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
-    //********************************************
 }
