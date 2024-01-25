@@ -36,6 +36,8 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
+                app:civ_border_width="@dimen/_1sdp"
+                app:civ_border_color="@color/text"
                 android:src="@drawable/ic_profile_circle"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
