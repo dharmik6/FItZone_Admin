@@ -39,4 +39,23 @@
     <!-- main activity title -->
     <string name="Fit_Zone_title">Fit Zone</string>
 
+    <!-- Member Profile -->
+    <!-- Member Profile top -->
+    <string name="Member_Name">Member Name</string>
+    <string name="Active">Active</string>
+
+    <!-- Member Profile information -->
+    <string name="Email">Email</string>
+    <string name="Mobile">Mobile</string>
+    <string name="Gender">Gender</string>
+    <string name="Age">Age</string>
+    <string name="Address">Address</string>
+    <string name="Activity_level">Activity level</string>
+    <string name="Joining_Date">Joining Date</string>
+
+    <!-- Member Profile button -->
+    <string name="Delete">Delete</string>
+    <string name="Update">Update</string>
+
+
 </resources>
