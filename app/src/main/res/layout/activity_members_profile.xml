@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/member_profile_bg"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints,UselessParent">
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:src="@drawable/ic_arrow_small_left"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Member Profile"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:backgroundTint="#81CDC8C8"
+            android:elevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_40sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@string/Member_Name"
+            android:textStyle="bold"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:gravity="center"
+            android:text="@string/Active"
+            android:textColor="#43C6AC"
+            android:fontFamily="@font/nunito_bold"
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:elevation="@dimen/_20sdp"
+        android:background="@drawable/profile_information_bg"
+        android:paddingTop="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="Orientation">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:text="@string/Email"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/profile_information_text_bg"
+                android:paddingStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:text="dharmik@gmail.com"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/Mobile"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/profile_information_text_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="0000000000"
+                android:paddingStart="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/Gender"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/profile_information_text_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Male"
+                android:paddingStart="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/Age"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/profile_information_text_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="00"
+                android:paddingStart="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/Address"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/text"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/profile_information_text_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="00, xyz socity, xyz."
+                android:paddingStart="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/Activity_level"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/text"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/profile_information_text_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="beginner"
+                android:paddingStart="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/Joining_Date"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/profile_information_text_bg"
+                android:paddingStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="21-5-2023"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10sp"
+                    android:background="@drawable/delete_btn_bg"
+                    android:text="@string/Delete"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/update_btn_bg"
+                    android:text="@string/Update"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
