@@ -188,7 +188,7 @@
             </LinearLayout>
 
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_singIn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
@@ -197,7 +197,6 @@
                 android:layout_marginEnd="@dimen/_24sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/btn_background"
-                android:backgroundTint="@color/button_background_color"
                 android:elevation="@dimen/button_elevation"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center"
