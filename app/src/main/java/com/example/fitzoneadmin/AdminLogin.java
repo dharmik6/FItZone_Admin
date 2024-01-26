@@ -136,7 +136,8 @@ public class AdminLogin extends AppCompatActivity {
                                                     if (task.isSuccessful()) {
                                                         // Sign in success, update UI with the signed-in user's information
                                                         Toast.makeText(AdminLogin.this, "Sign in Successful!", Toast.LENGTH_SHORT).show();
-                                                        startActivity(new Intent(AdminLogin.this, DashboardScreen.class));
+                                                        Intent login = new Intent(AdminLogin.this,MainActivity.class);
+                                                        startActivity(login);
                                                     } else {
                                                         // If sign in fails, display a message to the user.
                                                         Toast.makeText(AdminLogin.this, "Please Enter the Correct Email id and Password" ,Toast.LENGTH_SHORT).show(); //+ task.getException().getMessage()
