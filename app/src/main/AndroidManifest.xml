@@ -13,10 +13,7 @@
         android:theme="@style/Theme.FitZoneAdmin"
         tools:targetApi="31">
         <activity
-            android:name=".AdminMembersList"
-            android:exported="false" />
-        <activity
-            android:name=".DashboardScreen"
+            android:name=".MembersProfile"
             android:exported="false" />
         <activity
             android:name=".AdminLogin"
