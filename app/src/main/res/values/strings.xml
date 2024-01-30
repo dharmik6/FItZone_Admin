@@ -57,5 +57,15 @@
     <string name="Delete">Delete</string>
     <string name="Update">Update</string>
 
+    <!-- Add Member -->
+    <string name="member_profile">Member Profile</string>
+    <string name="Member_Information">Member Information</string>
+    <string name="Name">Name</string>
+    <string name="Member_Data">Member Data</string>
+    <string name="Goal">Goal</string>
+    <string name="Height">Height</string>
+    <string name="Weight">Weight</string>
+    <string name="Submit">Submit</string>
+
 
 </resources>
