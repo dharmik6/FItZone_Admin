@@ -9,12 +9,10 @@
     android:background="@color/back_ground"
     tools:context=".MainActivity">
 
-  <androidx.drawerlayout.widget.DrawerLayout
-      android:id="@+id/drawerLayout"
+  <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:scrollbars="vertical"
-      tools:openDrawer="start">
+      android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -59,6 +57,28 @@
 
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+
+
+      <FrameLayout
+          android:id="@+id/fragment_container"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:ignore="ScrollViewSize" />
+
+    </ScrollView>
+  </LinearLayout>
+
+  <androidx.drawerlayout.widget.DrawerLayout
+      android:id="@+id/drawerLayout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="vertical"
+      tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -70,25 +90,6 @@
 
 
   </androidx.drawerlayout.widget.DrawerLayout>
-
-
-
-
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      tools:ignore="SpeakableTextPresentCheck">
-
-
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="ScrollViewSize" />
-
-  </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
