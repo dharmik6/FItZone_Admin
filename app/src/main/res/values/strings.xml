@@ -43,6 +43,7 @@
     <!-- Member Profile top -->
     <string name="Member_Name">Member Name</string>
     <string name="Active">Active</string>
+    <string name="Not_Active">Not Active</string>
 
     <!-- Member Profile information -->
     <string name="Email">Email</string>
