@@ -68,5 +68,8 @@
     <string name="Weight">Weight</string>
     <string name="Submit">Submit</string>
 
+    <!-- members home -->
+    <string name="Member_List">Member List</string>
+
 
 </resources>
