@@ -23,37 +23,37 @@
 
       <ImageView
           android:id="@+id/show_menu"
-          android:layout_width="@dimen/_20sdp"
-          android:layout_height="@dimen/_20sdp"
-          android:layout_marginTop="@dimen/_15sdp"
-          android:layout_marginStart="@dimen/_10sdp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          android:layout_marginTop="18dp"
           android:src="@drawable/ic_menu_burger"
-          tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+          tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
       <TextView
-          android:layout_width="@dimen/_180sdp"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/_10sdp"
-          android:layout_marginStart="@dimen/_10sdp"
-          android:text="@string/Fit_Zone_title"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
           android:fontFamily="@font/opensans_bold"
+          android:text="@string/Fit_Zone_title"
           android:textColor="@color/black"
-          android:textSize="@dimen/_18sdp"
-          tools:ignore="HardcodedText" />
+          android:textSize="25dp"
+          tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
       <ImageView
-          android:layout_width="@dimen/_20sdp"
-          android:layout_height="@dimen/_20sdp"
-          android:layout_marginStart="@dimen/_10sdp"
-          android:layout_marginTop="@dimen/_15sdp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="150dp"
+          android:layout_marginTop="18dp"
           android:src="@drawable/ic_bell"
           tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
       <ImageView
-          android:layout_width="@dimen/_20sdp"
-          android:layout_height="@dimen/_20sdp"
-          android:layout_marginStart="@dimen/_15sdp"
-          android:layout_marginTop="@dimen/_15sdp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="18dp"
           android:src="@drawable/ic_settings"
           tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
