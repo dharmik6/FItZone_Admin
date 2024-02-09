@@ -1,294 +1,315 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_ground"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/dark_blue"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints,UselessParent">
-
-        <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/ic_arrow_small_left"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="@dimen/_180sdp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:paddingStart="@dimen/_10sdp"
-            android:text="@string/member_profile"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
-
-
-        <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
-
-    </LinearLayout>
-
-
     <RelativeLayout
-        android:id="@+id/profile_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_below="@id/linearLayout"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints,UselessLeaf">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/ic_profile_circle"
-            tools:ignore="ExtraText,UselessParent,ImageContrastCheck" />
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_alignEnd="@+id/circleImageView"
-            android:layout_alignBottom="@+id/circleImageView"
-            android:layout_marginStart="@dimen/_170sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:background="@drawable/camera_bg">
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginBottom="10dp"
+            android:background="@color/dark_blue"
+            android:orientation="horizontal"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            tools:ignore="MissingConstraints,UselessParent">
 
             <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:background="@drawable/ic_photo_camera"
-                tools:ignore="ContentDescription" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_arrow_small_left"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:text="@string/add_member"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TextSizeCheck" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_popup_menu"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
         </LinearLayout>
 
-    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profile_layout"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp">
-
-        <ScrollView
+        <RelativeLayout
+            android:id="@+id/profile_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_10sdp"
-            tools:ignore="UselessParent">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints,UselessLeaf">
 
-            <RelativeLayout
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_profile_circle"
+                tools:ignore="ExtraText,UselessParent,ImageContrastCheck" />
+
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignEnd="@+id/circleImageView"
+                android:layout_alignBottom="@+id/circleImageView"
+                android:layout_marginStart="170dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/camera_bg">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/ic_photo_camera"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_20sdp"
-                tools:ignore="ScrollViewSize">
+                android:layout_below="@id/profile_layout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="UselessParent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    tools:ignore="ObsoleteLayoutParam,ScrollViewSize">
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:background="@drawable/add_member_layout_bg"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_25sdp"
-                            android:paddingStart="@dimen/_10sdp"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="10dp"
                             android:text="@string/Member_Information"
                             android:textColor="@color/text"
-                            android:textSize="@dimen/_15ssp"
-                            android:fontFamily="@font/opensans_bold"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
 
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="10dp"
                             android:text="@string/Name"
-                            android:paddingStart="@dimen/_20sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_14ssp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            android:textColor="@color/text"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:background="@drawable/search_bg"
-                            android:padding="@dimen/_5sdp"
                             android:hint="@string/Name"
-                            android:textSize="@dimen/_12ssp"
-                            app:cardCornerRadius="@dimen/_10sdp"
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
+                            android:textColor="@color/text"
+                            android:textSize="18sp"
+                            app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:text="User Name"
-                            android:paddingStart="@dimen/_20sdp"
+                            android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_14ssp"
+                            android:paddingStart="10dp"
+                            android:text="@string/user_name"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:background="@drawable/search_bg"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            android:textColor="@color/text"
                             android:hint="@string/user_name"
-                            android:padding="@dimen/_5sdp"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:textSize="@dimen/_12ssp"
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
+                            android:textColor="@color/text"
+                            android:textSize="18sp"
+                            app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="10dp"
                             android:text="@string/Email"
-                            android:paddingStart="@dimen/_20sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_14ssp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            android:textColor="@color/text"
-                            android:background="@drawable/search_bg"
                             android:hint="@string/Email"
-                            android:padding="@dimen/_5sdp"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:textSize="@dimen/_12ssp"
-                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
+                            android:textColor="@color/text"
+                            android:textSize="18sp"
+                            app:cardCornerRadius="10dp"
+                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="10dp"
                             android:text="@string/Mobile"
-                            android:paddingStart="@dimen/_20sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_14ssp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            android:textColor="@color/text"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:background="@drawable/search_bg"
                             android:hint="@string/Mobile"
-                            android:padding="@dimen/_5sdp"
-                            android:textSize="@dimen/_12ssp"
-                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
+                            android:textColor="@color/text"
+                            android:textSize="18sp"
+                            app:cardCornerRadius="10dp"
+                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="10dp"
                             android:text="@string/password"
-                            android:paddingStart="@dimen/_20sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_14ssp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            android:textColor="@color/text"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:background="@drawable/search_bg"
                             android:hint="@string/password"
-                            android:padding="@dimen/_5sdp"
-                            android:textSize="@dimen/_12ssp"
-                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
+                            android:textColor="@color/text"
+                            android:textSize="18sp"
+                            app:cardCornerRadius="10dp"
+                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:text="@string/Address"
-                            android:paddingStart="@dimen/_20sdp"
+                            android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_12ssp"
+                            android:paddingStart="10dp"
+                            android:text="@string/Address"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:background="@drawable/search_bg"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
+                            android:hint="@string/Address"
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
                             android:textColor="@color/text"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:hint="Address"
-                            android:padding="@dimen/_5sdp"
-                            android:textSize="@dimen/_12ssp"
-                            tools:ignore="HardcodedText,RtlSymmetry,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+                            android:textSize="18sp"
+                            app:cardCornerRadius="10dp"
+                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -296,250 +317,244 @@
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="@dimen/_140sdp"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
                                 android:orientation="vertical">
 
 
                                 <androidx.appcompat.widget.AppCompatCheckedTextView
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/opensans_bold"
+                                    android:paddingStart="10dp"
                                     android:text="@string/Gender"
-                                    android:paddingStart="@dimen/_20sdp"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:textSize="@dimen/_14ssp"
+                                    android:textSize="16sp"
                                     android:textStyle="bold"
                                     tools:ignore="HardcodedText,RtlSymmetry" />
 
                                 <Spinner
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="@dimen/_10sdp"
-                                    android:layout_marginTop="@dimen/_10sdp"
-                                    android:layout_marginEnd="@dimen/_25sdp"
-                                    android:layout_marginBottom="@dimen/_20sdp"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:background="@drawable/text_bg"
                                     android:fontFamily="@font/opensans_bold"
-                                    android:textStyle="bold"
+                                    android:padding="10dp"
+                                    android:paddingStart="15dp"
                                     android:textColor="@color/text"
-                                    android:paddingStart="@dimen/_15sdp"
-                                    android:background="@drawable/search_bg"
-                                    android:padding="@dimen/_5sdp"
                                     tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="@dimen/_150sdp"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="40dp"
                                 android:orientation="vertical">
 
 
                                 <androidx.appcompat.widget.AppCompatCheckedTextView
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/_20sdp"
-                                    android:text="@string/Age"
-                                    android:paddingStart="@dimen/_20sdp"
+                                    android:layout_marginTop="25dp"
                                     android:fontFamily="@font/opensans_bold"
-                                    android:textSize="@dimen/_14ssp"
+                                    android:paddingStart="10dp"
+                                    android:text="@string/Age"
+                                    android:textSize="16sp"
                                     android:textStyle="bold"
                                     tools:ignore="HardcodedText,RtlSymmetry" />
 
                                 <Spinner
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="@dimen/_10sdp"
-                                    android:layout_marginTop="@dimen/_10sdp"
-                                    android:layout_marginEnd="@dimen/_25sdp"
-                                    android:layout_marginBottom="@dimen/_20sdp"
-
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:background="@drawable/text_bg"
                                     android:fontFamily="@font/opensans_bold"
-                                    android:textStyle="bold"
+                                    android:padding="10dp"
+                                    android:paddingStart="15dp"
                                     android:textColor="@color/text"
-                                    android:paddingStart="@dimen/_15sdp"
-                                    android:background="@drawable/search_bg"
-                                    android:padding="@dimen/_5sdp"
                                     tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
                             </LinearLayout>
-
-
                         </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:background="@drawable/add_member_layout_bg"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_25sdp"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:text="@string/Member_Data"
-                            android:textColor="@color/text"
-                            android:textSize="@dimen/_15ssp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:text="@string/Activity_level"
-                            android:paddingStart="@dimen/_20sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_14ssp"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,RtlSymmetry" />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            android:textColor="@color/text"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:background="@drawable/search_bg"
-                            android:padding="@dimen/_5sdp"
-                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:text="Goal"
-                            android:paddingStart="@dimen/_20sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textSize="@dimen/_14ssp"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,RtlSymmetry" />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:fontFamily="@font/opensans_bold"
-                            android:textStyle="bold"
-                            android:textColor="@color/text"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:background="@drawable/search_bg"
-                            android:padding="@dimen/_5sdp"
-                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:fontFamily="@font/opensans_bold"
+                                android:paddingStart="10dp"
+                                android:text="@string/Member_Data"
+                                android:textColor="@color/text"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
+
+                            <androidx.appcompat.widget.AppCompatCheckedTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:fontFamily="@font/opensans_bold"
+                                android:paddingStart="10dp"
+                                android:text="@string/Activity_level"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,RtlSymmetry" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginBottom="20dp"
+                                android:background="@drawable/text_bg"
+                                android:fontFamily="@font/opensans_bold"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:textColor="@color/text"
+                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+
+                            <androidx.appcompat.widget.AppCompatCheckedTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:fontFamily="@font/opensans_bold"
+                                android:paddingStart="10dp"
+                                android:text="@string/Goal"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,RtlSymmetry" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginBottom="20dp"
+                                android:background="@drawable/text_bg"
+                                android:fontFamily="@font/opensans_bold"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:textColor="@color/text"
+                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                             <LinearLayout
-                                android:layout_width="@dimen/_150sdp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="horizontal">
 
-
-                                <androidx.appcompat.widget.AppCompatCheckedTextView
-                                    android:layout_width="match_parent"
+                                <LinearLayout
+                                    android:layout_width="150dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/_20sdp"
-                                    android:text="@string/Height"
-                                    android:paddingStart="@dimen/_20sdp"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:textSize="@dimen/_14ssp"
-                                    android:textStyle="bold"
-                                    tools:ignore="HardcodedText,RtlSymmetry" />
+                                    android:layout_marginStart="10dp"
+                                    android:orientation="vertical">
 
-                                <Spinner
-                                    android:layout_width="match_parent"
+
+                                    <androidx.appcompat.widget.AppCompatCheckedTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="25dp"
+                                        android:fontFamily="@font/opensans_bold"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/Height"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="HardcodedText,RtlSymmetry" />
+
+                                    <Spinner
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/text_bg"
+                                        android:fontFamily="@font/opensans_bold"
+                                        android:padding="10dp"
+                                        android:paddingStart="15dp"
+                                        android:textColor="@color/text"
+                                        tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="150dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="@dimen/_10sdp"
-                                    android:layout_marginTop="@dimen/_10sdp"
-                                    android:layout_marginEnd="@dimen/_25sdp"
-                                    android:layout_marginBottom="@dimen/_20sdp"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/text"
-                                    android:paddingStart="@dimen/_15sdp"
-                                    android:background="@drawable/search_bg"
-                                    android:padding="@dimen/_5sdp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="@dimen/_150sdp"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                    android:layout_marginStart="30dp"
+                                    android:orientation="vertical">
 
 
-                                <androidx.appcompat.widget.AppCompatCheckedTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/_20sdp"
-                                    android:text="@string/Weight"
-                                    android:paddingStart="@dimen/_20sdp"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:textSize="@dimen/_14ssp"
-                                    android:textStyle="bold"
-                                    tools:ignore="HardcodedText,RtlSymmetry" />
+                                    <androidx.appcompat.widget.AppCompatCheckedTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="25dp"
+                                        android:fontFamily="@font/opensans_bold"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/Weight"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="HardcodedText,RtlSymmetry" />
 
-                                <Spinner
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="@dimen/_10sdp"
-                                    android:layout_marginTop="@dimen/_10sdp"
-                                    android:layout_marginEnd="@dimen/_25sdp"
-                                    android:layout_marginBottom="@dimen/_20sdp"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/text"
-                                    android:paddingStart="@dimen/_15sdp"
-                                    android:background="@drawable/search_bg"
-                                    android:padding="@dimen/_5sdp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+                                    <Spinner
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/text_bg"
+                                        android:fontFamily="@font/opensans_bold"
+                                        android:padding="10dp"
+                                        android:paddingStart="15dp"
+                                        android:textColor="@color/text"
+                                        tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+                                </LinearLayout>
+
+
                             </LinearLayout>
 
 
                         </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/btn_background"
+                            android:elevation="@dimen/button_elevation"
+                            android:fontFamily="@font/opensans_bold"
+                            android:gravity="center"
+                            android:shadowColor="@color/black"
+                            android:text="@string/Submit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/button_text_size"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
 
 
                     </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_20sdp"
-                        android:layout_marginStart="@dimen/_24sdp"
-                        android:layout_marginEnd="@dimen/_24sdp"
-                        android:text="@string/Submit"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/button_text_size"
-                        android:textStyle="bold"
-                        android:background="@drawable/btn_background"
-                        android:elevation="@dimen/button_elevation"
-                        android:fontFamily="@font/opensans_bold"
-                        android:gravity="center"
-                        tools:ignore="HardcodedText" />
-
-
                 </LinearLayout>
 
-            </RelativeLayout>
+            </ScrollView>
 
-        </ScrollView>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
