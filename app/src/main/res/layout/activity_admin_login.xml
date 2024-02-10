@@ -8,8 +8,6 @@
     android:background="@color/back_ground"
     android:layout_gravity="center"
     tools:context=".AdminLogin">
-
-
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
@@ -21,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
-
         <ImageView
             android:id="@+id/img_sing_in_logo"
             android:layout_width="match_parent"
@@ -32,11 +29,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="120dp"
             android:background="@drawable/logo_round_edge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription,ObsoleteLayoutParam" />
-
         <TextView
             android:id="@+id/tv_sing_in_title"
             android:layout_width="match_parent"
@@ -51,25 +44,16 @@
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintStart_toTopOf="@+id/img_sing_in_logo"
             tools:ignore="HardcodedText" />
-
-
     </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="380dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         tools:ignore="MissingConstraints" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
