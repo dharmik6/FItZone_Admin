@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,16 +17,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginBottom="10dp"
             android:background="@color/dark_blue"
             android:orientation="horizontal"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
             tools:ignore="MissingConstraints,UselessParent">
 
             <ImageView
@@ -61,51 +63,60 @@
 
         </LinearLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearLayout">
 
         <RelativeLayout
-            android:id="@+id/profile_layout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayout"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints,UselessLeaf">
+            android:layout_marginTop="5dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/ic_profile_circle"
-                tools:ignore="ExtraText,UselessParent,ImageContrastCheck" />
+            <RelativeLayout
+                android:id="@+id/profile_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints,UselessLeaf">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleImageView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_profile_circle"
+                    tools:ignore="ExtraText,UselessParent,ImageContrastCheck" />
+
+                <LinearLayout
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignEnd="@+id/circleImageView"
+                    android:layout_alignBottom="@+id/circleImageView"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/camera_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/ic_photo_camera"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
 
             <LinearLayout
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignEnd="@+id/circleImageView"
-                android:layout_alignBottom="@+id/circleImageView"
-                android:layout_marginStart="170dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/camera_bg">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:background="@drawable/ic_photo_camera"
-                    tools:ignore="ContentDescription" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/profile_layout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
@@ -113,35 +124,33 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                tools:ignore="UselessParent">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    tools:ignore="ObsoleteLayoutParam,ScrollViewSize">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:elevation="10dp"
+                    android:background="@color/card_view"
+                    android:shadowColor="@color/black"
+                    app:cardCornerRadius="20dp">
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:background="@drawable/add_member_layout_bg"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        tools:ignore="ScrollViewSize">
+
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:paddingStart="10dp"
+                            android:paddingStart="15dp"
                             android:text="@string/Member_Information"
                             android:textColor="@color/text"
                             android:textSize="20sp"
@@ -154,7 +163,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:paddingStart="10dp"
+                            android:paddingStart="15dp"
                             android:text="@string/Name"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -171,7 +180,8 @@
                             android:hint="@string/Name"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:textColor="@color/text"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text"
                             android:textSize="18sp"
                             app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
@@ -181,7 +191,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:paddingStart="10dp"
+                            android:paddingStart="15dp"
                             android:text="@string/user_name"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -198,7 +208,8 @@
                             android:hint="@string/user_name"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:textColor="@color/text"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text"
                             android:textSize="18sp"
                             app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
@@ -208,7 +219,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:paddingStart="10dp"
+                            android:paddingStart="15dp"
                             android:text="@string/Email"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -225,7 +236,8 @@
                             android:hint="@string/Email"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:textColor="@color/text"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text"
                             android:textSize="18sp"
                             app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
@@ -235,7 +247,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:paddingStart="10dp"
+                            android:paddingStart="15dp"
                             android:text="@string/Mobile"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -252,7 +264,8 @@
                             android:hint="@string/Mobile"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:textColor="@color/text"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text"
                             android:textSize="18sp"
                             app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
@@ -262,7 +275,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:paddingStart="10dp"
+                            android:paddingStart="15dp"
                             android:text="@string/password"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -279,7 +292,8 @@
                             android:hint="@string/password"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:textColor="@color/text"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text"
                             android:textSize="18sp"
                             app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
@@ -289,7 +303,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/opensans_bold"
-                            android:paddingStart="10dp"
+                            android:paddingStart="15dp"
                             android:text="@string/Address"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -306,14 +320,17 @@
                             android:hint="@string/Address"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:textColor="@color/text"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text"
                             android:textSize="18sp"
                             app:cardCornerRadius="10dp"
                             tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -328,23 +345,23 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="25dp"
                                     android:fontFamily="@font/opensans_bold"
-                                    android:paddingStart="10dp"
+                                    android:paddingStart="15dp"
                                     android:text="@string/Gender"
                                     android:textSize="16sp"
                                     android:textStyle="bold"
-                                    tools:ignore="HardcodedText,RtlSymmetry" />
+                                    tools:ignore="HardcodedText,RtlSymmetry,TooDeepLayout" />
 
                                 <Spinner
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
+                                    android:layout_marginStart="15dp"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="20dp"
                                     android:background="@drawable/text_bg"
                                     android:fontFamily="@font/opensans_bold"
                                     android:padding="10dp"
                                     android:paddingStart="15dp"
-                                    android:textColor="@color/text"
+                                    android:textColor="@color/black"
                                     tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
                             </LinearLayout>
 
@@ -360,8 +377,135 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="25dp"
                                     android:fontFamily="@font/opensans_bold"
-                                    android:paddingStart="10dp"
+                                    android:paddingStart="15dp"
                                     android:text="@string/Age"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+                                <Spinner
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:background="@drawable/text_bg"
+                                    android:fontFamily="@font/opensans_bold"
+                                    android:padding="10dp"
+                                    android:paddingStart="15dp"
+                                    android:textColor="@color/black"
+                                    tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:elevation="10dp"
+                    android:background="@color/card_view"
+                    android:shadowColor="@color/black"
+                    app:cardCornerRadius="20dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="15dp"
+                            android:text="@string/Member_Data"
+                            android:textColor="@color/text"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
+
+                        <androidx.appcompat.widget.AppCompatCheckedTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="15dp"
+                            android:text="@string/Activity_level"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText,RtlSymmetry" />
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/text_bg"
+                            android:fontFamily="@font/opensans_bold"
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
+                            android:textColor="@color/black"
+                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+
+                        <androidx.appcompat.widget.AppCompatCheckedTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/opensans_bold"
+                            android:paddingStart="15dp"
+                            android:text="@string/Goal"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText,RtlSymmetry" />
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/text_bg"
+                            android:fontFamily="@font/opensans_bold"
+                            android:padding="10dp"
+                            android:paddingStart="15dp"
+                            android:textColor="@color/black"
+                            tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:orientation="vertical">
+
+
+                                <androidx.appcompat.widget.AppCompatCheckedTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/opensans_bold"
+                                    android:paddingStart="15dp"
+                                    android:text="@string/Height"
                                     android:textSize="16sp"
                                     android:textStyle="bold"
                                     tools:ignore="HardcodedText,RtlSymmetry" />
@@ -376,184 +520,75 @@
                                     android:fontFamily="@font/opensans_bold"
                                     android:padding="10dp"
                                     android:paddingStart="15dp"
-                                    android:textColor="@color/text"
+                                    android:textColor="@color/black"
                                     tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
                             </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:orientation="vertical">
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:paddingStart="10dp"
-                                android:text="@string/Member_Data"
-                                android:textColor="@color/text"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
-
-                            <androidx.appcompat.widget.AppCompatCheckedTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:paddingStart="10dp"
-                                android:text="@string/Activity_level"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry" />
-
-                            <Spinner
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="20dp"
-                                android:background="@drawable/text_bg"
-                                android:fontFamily="@font/opensans_bold"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/text"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-
-                            <androidx.appcompat.widget.AppCompatCheckedTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:paddingStart="10dp"
-                                android:text="@string/Goal"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry" />
-
-                            <Spinner
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="20dp"
-                                android:background="@drawable/text_bg"
-                                android:fontFamily="@font/opensans_bold"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/text"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:layout_marginStart="30dp"
+                                android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="150dp"
+
+                                <androidx.appcompat.widget.AppCompatCheckedTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/opensans_bold"
+                                    android:paddingStart="15dp"
+                                    android:text="@string/Weight"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+                                <Spinner
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="10dp"
-                                    android:orientation="vertical">
-
-
-                                    <androidx.appcompat.widget.AppCompatCheckedTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="25dp"
-                                        android:fontFamily="@font/opensans_bold"
-                                        android:paddingStart="10dp"
-                                        android:text="@string/Height"
-                                        android:textSize="16sp"
-                                        android:textStyle="bold"
-                                        tools:ignore="HardcodedText,RtlSymmetry" />
-
-                                    <Spinner
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="10dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginBottom="20dp"
-                                        android:background="@drawable/text_bg"
-                                        android:fontFamily="@font/opensans_bold"
-                                        android:padding="10dp"
-                                        android:paddingStart="15dp"
-                                        android:textColor="@color/text"
-                                        tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="150dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
-                                    android:orientation="vertical">
-
-
-                                    <androidx.appcompat.widget.AppCompatCheckedTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="25dp"
-                                        android:fontFamily="@font/opensans_bold"
-                                        android:paddingStart="10dp"
-                                        android:text="@string/Weight"
-                                        android:textSize="16sp"
-                                        android:textStyle="bold"
-                                        tools:ignore="HardcodedText,RtlSymmetry" />
-
-                                    <Spinner
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="10dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginBottom="20dp"
-                                        android:background="@drawable/text_bg"
-                                        android:fontFamily="@font/opensans_bold"
-                                        android:padding="10dp"
-                                        android:paddingStart="15dp"
-                                        android:textColor="@color/text"
-                                        tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-                                </LinearLayout>
-
-
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:background="@drawable/text_bg"
+                                    android:fontFamily="@font/opensans_bold"
+                                    android:padding="10dp"
+                                    android:paddingStart="15dp"
+                                    android:textColor="@color/black"
+                                    tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
                             </LinearLayout>
 
 
                         </LinearLayout>
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="25dp"
-                            android:layout_marginBottom="20dp"
-                            android:background="@drawable/btn_background"
-                            android:elevation="@dimen/button_elevation"
-                            android:fontFamily="@font/opensans_bold"
-                            android:gravity="center"
-                            android:shadowColor="@color/black"
-                            android:text="@string/Submit"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/button_text_size"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText" />
 
 
                     </LinearLayout>
 
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            </ScrollView>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/btn_background"
+                    android:elevation="@dimen/button_elevation"
+                    android:fontFamily="@font/opensans_bold"
+                    android:gravity="center"
+                    android:shadowColor="@color/black"
+                    android:text="@string/Submit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/button_text_size"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        </ScrollView>
 
     </RelativeLayout>
 
