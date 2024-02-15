@@ -46,6 +46,7 @@
     <string name="Not_Active">Not Active</string>
 
     <!-- Member Profile information -->
+    <string name="member_profile">Member Profile</string>
     <string name="Email">Email</string>
     <string name="Mobile">Mobile</string>
     <string name="Gender">Gender</string>
@@ -72,11 +73,7 @@
     <string name="Member_List">Member List</string>
 
 
-    <!-- Trainer pending list -->
-    <string name="trainer_name">Trainer Name</string>
-    <string name="specialization">Specialization</string>
-    <string name="experience">experience</string>
-    
+
     <!-- Trainer home -->
     <string name="pending_trainer">Pending Trainer</string>
     <string name="approved_trainer">Approved Trainer</string>
