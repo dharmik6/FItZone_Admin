@@ -59,7 +59,7 @@
     <string name="Update">Update</string>
 
     <!-- Add Member -->
-    <string name="member_profile">Member Profile</string>
+    <string name="add_member">Add Member</string>
     <string name="Member_Information">Member Information</string>
     <string name="Name">Name</string>
     <string name="Member_Data">Member Data</string>
@@ -70,6 +70,20 @@
 
     <!-- members home -->
     <string name="Member_List">Member List</string>
+
+
+    <!-- Trainer pending list -->
+    <string name="trainer_name">Trainer Name</string>
+    <string name="specialization">Specialization</string>
+    <string name="experience">experience</string>
+    
+    <!-- Trainer home -->
+    <string name="pending_trainer">Pending Trainer</string>
+    <string name="approved_trainer">Approved Trainer</string>
+    <string name="rejected_trainer">Rejected Trainer</string>
+    <string name="trainer_booking">Trainer Booking</string>
+    <string name="rating_review">Rating &amp; Review</string>
+
 
 
 </resources>
