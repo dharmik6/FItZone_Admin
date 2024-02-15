@@ -64,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="@string/trainer_name"
+                        android:text="trainer_name"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -74,7 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="@string/specialization"
+                        android:text="specialization"
                         android:textColor="@color/text"
                         android:textSize="12sp"
                         tools:ignore="HardcodedText,SmallSp,TextContrastCheck,TextSizeCheck" />
@@ -83,7 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="@string/experience"
+                        android:text="experience"
                         android:textColor="@color/greenish_cyan"
                         android:textSize="12sp"
                         tools:ignore="HardcodedText,SmallSp,TextContrastCheck,TextSizeCheck" />
