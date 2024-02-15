@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -24,7 +26,9 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout ;
     NavigationView navigationView;
+    TextView text_title;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationview);
+        text_title = findViewById(R.id.text_title);
         ImageView menu = findViewById(R.id.show_menu);
 
         menu.setOnClickListener(new View.OnClickListener() {
@@ -110,10 +115,23 @@ public class MainActivity extends AppCompatActivity {
         else
             ft.replace(R.id.fragment_container,fragment);
         ft.commit();
+
+        // Set title based on the loaded fragment
+        if (fragment instanceof FragmentMember) {
+            text_title.setText("Members List");
+        }
+//        else if (fragment instanceof ) {
+//            text_title.setText("Some Other Title");
+//        }
+        else {
+            // Handle other fragments accordingly
+        }
     }
 
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+
 }
