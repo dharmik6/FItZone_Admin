@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="UselessLeaf,UselessParent"
@@ -20,19 +20,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
             tools:layout_editor_absoluteY="0dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/active_card_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/card_view"
                 android:shadowColor="@color/black"
                 app:cardCornerRadius="20dp"
@@ -40,13 +37,12 @@
                 tools:ignore="MissingConstraints">
 
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
                     android:background="@drawable/member_ic_bg"
+                    android:layout_marginVertical="20dp"
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck">
 
                     <ImageView
@@ -58,15 +54,15 @@
                         android:layout_marginBottom="20dp"
                         android:src="@drawable/pending_trainer_image" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="140dp"
+                    android:layout_marginStart="120dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="25dp"
                     android:orientation="vertical"
@@ -77,11 +73,11 @@
                         android:layout_height="wrap_content"
                         android:text="@string/pending_trainer"
                         android:textColor="@color/black"
-                        android:textSize="30sp"
+                        android:textSize="25dp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,TextSizeCheck" />
+                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -89,13 +85,8 @@
                 android:id="@+id/active_card_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/active_card_1"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_marginVertical="8dp"
                 android:backgroundTint="@color/card_view"
                 android:shadowColor="@color/black"
                 app:cardCornerRadius="20dp"
@@ -103,10 +94,10 @@
                 tools:ignore="MissingConstraints">
 
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="10dp"
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/member_ic_bg"
@@ -121,16 +112,15 @@
                         android:layout_marginBottom="20dp"
                         android:src="@drawable/approved_trainer_iamge" />
 
+                </RelativeLayout>
 
-                </LinearLayout>
 
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="140dp"
+                    android:layout_marginStart="120dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="25dp"
                     android:orientation="vertical"
@@ -141,12 +131,11 @@
                         android:layout_height="wrap_content"
                         android:text="@string/approved_trainer"
                         android:textColor="@color/black"
-                        android:textSize="30sp"
+                        android:textSize="25dp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,TextSizeCheck" />
+                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
-                </LinearLayout>
-
+                </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -154,13 +143,8 @@
                 android:id="@+id/active_card_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@id/active_card_2"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="8dp"
                 android:backgroundTint="@color/card_view"
                 android:shadowColor="@color/black"
                 app:cardCornerRadius="20dp"
@@ -168,10 +152,10 @@
                 tools:ignore="MissingConstraints">
 
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="10dp"
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/member_ic_bg"
@@ -181,20 +165,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
                         android:src="@drawable/rejected_trainer_image" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="140dp"
+                    android:layout_marginStart="120dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="25dp"
                     android:orientation="vertical"
@@ -205,11 +189,11 @@
                         android:layout_height="wrap_content"
                         android:text="@string/rejected_trainer"
                         android:textColor="@color/black"
-                        android:textSize="30sp"
+                        android:textSize="25dp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,TextSizeCheck" />
+                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -217,13 +201,8 @@
                 android:id="@+id/active_card_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/active_card_3"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_marginVertical="8dp"
                 android:backgroundTint="@color/card_view"
                 android:shadowColor="@color/black"
                 app:cardCornerRadius="20dp"
@@ -231,10 +210,10 @@
                 tools:ignore="MissingConstraints">
 
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="10dp"
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/member_ic_bg"
@@ -243,22 +222,21 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="20dp"
                         android:src="@drawable/trainer_booking_image" />
 
+                </RelativeLayout>
 
-                </LinearLayout>
 
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="140dp"
+                    android:layout_marginStart="120dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="25dp"
                     android:orientation="vertical"
@@ -269,12 +247,11 @@
                         android:layout_height="wrap_content"
                         android:text="@string/trainer_booking"
                         android:textColor="@color/black"
-                        android:textSize="30sp"
+                        android:textSize="25dp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,TextSizeCheck" />
+                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
-                </LinearLayout>
-
+                </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -282,13 +259,8 @@
                 android:id="@+id/active_card_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/active_card_4"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_marginVertical="8dp"
                 android:backgroundTint="@color/card_view"
                 android:shadowColor="@color/black"
                 app:cardCornerRadius="20dp"
@@ -296,10 +268,10 @@
                 tools:ignore="MissingConstraints">
 
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="10dp"
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/member_ic_bg"
@@ -308,22 +280,21 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="20dp"
                         android:src="@drawable/rating_review_image" />
 
+                </RelativeLayout>
 
-                </LinearLayout>
 
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="140dp"
+                    android:layout_marginStart="120dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="25dp"
                     android:orientation="vertical"
@@ -334,16 +305,15 @@
                         android:layout_height="wrap_content"
                         android:text="@string/rating_review"
                         android:textColor="@color/black"
-                        android:textSize="30sp"
+                        android:textSize="25dp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,TextSizeCheck" />
+                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
-                </LinearLayout>
-
+                </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
