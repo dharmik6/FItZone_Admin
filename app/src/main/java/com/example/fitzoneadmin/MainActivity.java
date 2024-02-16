@@ -10,9 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     //   loadFragment(new HomeFragment(), false);
                     showToast("Dashbord");
                 } else if (itemId == R.id.nav_members) {
-                    loadFragment(new FragmentMember(), false);
+                    loadFragment(new Fragment_Member_list(), false);
                 } else if (itemId == R.id.nav_Trainers) {
                     //  loadFragment(new SettingsFragment(), false);
                     showToast("Traines");
@@ -117,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
 
         // Set title based on the loaded fragment
-        if (fragment instanceof FragmentMember) {
+        if (fragment instanceof Fragment_Member_list) {
             text_title.setText("Members List");
         }
 //        else if (fragment instanceof ) {

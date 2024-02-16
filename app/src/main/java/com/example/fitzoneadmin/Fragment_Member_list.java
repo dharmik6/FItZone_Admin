@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ import java.util.List;
  * create an instance of this fragment.
  */
 
-public class FragmentMember extends Fragment {
+public class Fragment_Member_list extends Fragment {
 
    // Inside FragmentMember class
     private RecyclerView recyclerView;

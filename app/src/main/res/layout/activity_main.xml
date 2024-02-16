@@ -10,7 +10,7 @@
     android:id="@+id/drawerLayout"
     android:scrollbars="vertical"
     tools:context=".MainActivity"
-    tools:openDrawer="">
+    >
 
 
   <LinearLayout
