@@ -29,7 +29,8 @@
                 android:src="@drawable/ic_arrow_small_left"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/text_title"
@@ -138,7 +139,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="@string/Email"
@@ -152,7 +153,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:textColor="@color/black"
@@ -160,10 +160,17 @@
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="@string/Mobile"
@@ -177,7 +184,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="0000000000"
@@ -185,10 +191,18 @@
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="@string/Gender"
@@ -202,18 +216,24 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="Male"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="@string/Age"
@@ -227,7 +247,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="20"
@@ -235,10 +254,18 @@
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="@string/Address"
@@ -252,7 +279,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="xyz"
@@ -260,10 +286,18 @@
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="@string/Activity_level"
@@ -277,7 +311,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="Beginner"
@@ -285,10 +318,18 @@
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="@string/Joining_Date"
@@ -302,13 +343,20 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="21-05-2023"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
