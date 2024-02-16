@@ -35,7 +35,8 @@
                 android:src="@drawable/ic_arrow_small_left"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/text_title"
@@ -182,6 +183,7 @@
                             android:layout_marginEnd="15dp"
                             android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
+                            android:inputType="text"
                             android:hint="@string/Name"
                             android:padding="10dp"
                             android:paddingStart="15dp"
@@ -211,6 +213,7 @@
                             android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
                             android:hint="@string/user_name"
+                            android:inputType="text"
                             android:padding="10dp"
                             android:paddingStart="15dp"
                             android:textColor="@color/black"
@@ -239,6 +242,7 @@
                             android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
                             android:hint="@string/Email"
+                            android:inputType="textEmailAddress"
                             android:padding="10dp"
                             android:paddingStart="15dp"
                             android:textColor="@color/black"
@@ -267,6 +271,7 @@
                             android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
                             android:hint="@string/Mobile"
+                            android:inputType="phone"
                             android:padding="10dp"
                             android:paddingStart="15dp"
                             android:textColor="@color/black"
@@ -295,6 +300,7 @@
                             android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
                             android:hint="@string/password"
+                            android:inputType="text"
                             android:padding="10dp"
                             android:paddingStart="15dp"
                             android:textColor="@color/black"
@@ -323,6 +329,7 @@
                             android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"
                             android:hint="@string/Address"
+                            android:inputType="textMultiLine"
                             android:padding="10dp"
                             android:paddingStart="15dp"
                             android:textColor="@color/black"

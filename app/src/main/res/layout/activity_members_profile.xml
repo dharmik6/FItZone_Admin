@@ -64,295 +64,289 @@
 
 
         <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/linearLayout"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#81CDC8C8"
-            android:elevation="10dp"
-            app:cardCornerRadius="50dp">
+            android:layout_below="@id/linearLayout"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:background="@drawable/ic_profile_circle"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
-        </androidx.cardview.widget.CardView>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensans_bold"
+                android:gravity="center"
+                android:text="@string/Member_Name"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SpUsage" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/Member_Name"
-            android:textStyle="bold"
-            android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            tools:ignore="HardcodedText,SpUsage" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/user_name"
-            android:textStyle="bold"
-            android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText,SpUsage" />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensans_bold"
+                android:gravity="center"
+                android:text="@string/user_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SpUsage" />
 
 
-        <com.google.android.material.textview.MaterialTextView
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="@string/Active"
+                android:textStyle="bold"
+                android:textColor="#43C6AC"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/Active"
-            android:textColor="#43C6AC"
-            android:fontFamily="@font/nunito_bold"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_marginTop="20dp"
-        android:elevation="10dp"
-        android:background="@drawable/profile_information_bg"
-        android:paddingTop="20dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="Orientation">
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/Email"
-                android:fontFamily="@font/opensans_bold"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/search_bg"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:text="dharmik@gmail.com"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/Mobile"
-                android:fontFamily="@font/opensans_bold"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/search_bg"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:text="0000000000"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/Gender"
-                android:fontFamily="@font/opensans_bold"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/search_bg"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:text="Male"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/Age"
-                android:fontFamily="@font/opensans_bold"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/search_bg"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:text="20"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/Address"
-                android:fontFamily="@font/opensans_bold"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/search_bg"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:text="xyz"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/Activity_level"
-                android:fontFamily="@font/opensans_bold"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/search_bg"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:text="Beginner"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/Joining_Date"
-                android:fontFamily="@font/opensans_bold"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/search_bg"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:text="21-05-2023"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/profile_information_bg"
+            android:elevation="10dp"
+            android:paddingTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                tools:ignore="Orientation">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:elevation="10dp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/delete_btn_bg"
-                    android:text="@string/Delete"
-                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Email"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:elevation="10dp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:background="@drawable/update_btn_bg"
-                    android:text="@string/Update"
-                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="dharmik@gmail.com"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Mobile"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="0000000000"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Gender"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="Male"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Age"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="20"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Address"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="xyz"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Activity_level"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="Beginner"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Joining_Date"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="21-05-2023"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="140dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/delete_btn_bg"
+                        android:elevation="10dp"
+                        android:text="@string/Delete"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="140dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/update_btn_bg"
+                        android:elevation="10dp"
+                        android:text="@string/Update"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
 
-
-
-    </ScrollView>
+        </ScrollView>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
