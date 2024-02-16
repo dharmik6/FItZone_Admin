@@ -73,14 +73,12 @@
     <string name="Member_List">Member List</string>
 
 
-
     <!-- Trainer home -->
     <string name="pending_trainer">Pending Trainer</string>
     <string name="approved_trainer">Approved Trainer</string>
     <string name="rejected_trainer">Rejected Trainer</string>
     <string name="trainer_booking">Trainer Booking</string>
     <string name="rating_review">Rating &amp; Review</string>
-
 
 
 </resources>
