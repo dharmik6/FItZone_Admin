@@ -1,5 +1,6 @@
 package com.example.fitzoneadmin;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,12 +30,16 @@ public class FragmentMember extends Fragment {
     private RecyclerView recyclerView;
     private MemberAdapter adapter;
     private List<MemberList> memberList;
+    ProgressDialog progressDialog;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment__member_list, container, false);
+
+
 
         recyclerView = view.findViewById(R.id.recyc_members);
         recyclerView.setHasFixedSize(true);
@@ -44,6 +49,12 @@ public class FragmentMember extends Fragment {
         adapter = new MemberAdapter(memberList);
         recyclerView.setAdapter(adapter);
 
+        // Show ProgressDialog
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users").get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -52,11 +63,20 @@ public class FragmentMember extends Fragment {
                 String email = documentSnapshot.getString("email");
                 memberList.add(new MemberList(name, email));
             }
+
             adapter.notifyDataSetChanged();
+            // Dismiss ProgressDialog when data is loaded
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
         }).addOnFailureListener(e -> {
             // Handle failures
-        });
 
+            // Dismiss ProgressDialog on failure
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        });
         return view; // Return the inflated view
     }
 
