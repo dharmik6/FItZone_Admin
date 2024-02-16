@@ -9,10 +9,11 @@
     android:background="@color/back_ground"
     android:id="@+id/drawerLayout"
     android:scrollbars="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+   >
 
 
-  <RelativeLayout
+  <LinearLayout
       android:id="@+id/linearLayout2"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -94,7 +95,7 @@
 
       </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-  </RelativeLayout>
+  </LinearLayout>
   <com.google.android.material.navigation.NavigationView
       android:id="@+id/navigationview"
       android:layout_width="wrap_content"
