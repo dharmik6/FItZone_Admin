@@ -39,4 +39,46 @@
     <!-- main activity title -->
     <string name="Fit_Zone_title">Fit Zone</string>
 
+    <!-- Member Profile -->
+    <!-- Member Profile top -->
+    <string name="Member_Name">Member Name</string>
+    <string name="Active">Active</string>
+    <string name="Not_Active">Not Active</string>
+
+    <!-- Member Profile information -->
+    <string name="member_profile">Member Profile</string>
+    <string name="Email">Email</string>
+    <string name="Mobile">Mobile</string>
+    <string name="Gender">Gender</string>
+    <string name="Age">Age</string>
+    <string name="Address">Address</string>
+    <string name="Activity_level">Activity level</string>
+    <string name="Joining_Date">Joining Date</string>
+
+    <!-- Member Profile button -->
+    <string name="Delete">Delete</string>
+    <string name="Update">Update</string>
+
+    <!-- Add Member -->
+    <string name="add_member">Add Member</string>
+    <string name="Member_Information">Member Information</string>
+    <string name="Name">Name</string>
+    <string name="Member_Data">Member Data</string>
+    <string name="Goal">Goal</string>
+    <string name="Height">Height</string>
+    <string name="Weight">Weight</string>
+    <string name="Submit">Submit</string>
+
+    <!-- members home -->
+    <string name="Member_List">Member List</string>
+
+
+    <!-- Trainer home -->
+    <string name="pending_trainer">Pending Trainer</string>
+    <string name="approved_trainer">Approved Trainer</string>
+    <string name="rejected_trainer">Rejected Trainer</string>
+    <string name="trainer_booking">Trainer Booking</string>
+    <string name="rating_review">Rating &amp; Review</string>
+
+
 </resources>

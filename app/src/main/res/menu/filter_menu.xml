@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/menu/filter_menu.xml -->
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_item1"
+        android:title="@string/Active"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/action_item2"
+        android:title="@string/Not_Active"
+        tools:ignore="HardcodedText" />
+    <!-- Add more options as needed -->
+</menu>

@@ -16,6 +16,12 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".AddMember"
+            android:exported="false" />
+        <activity
+            android:name=".MembersProfile"
+            android:exported="false" />
+        <activity
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
