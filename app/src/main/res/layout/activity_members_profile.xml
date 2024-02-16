@@ -155,6 +155,7 @@
                     android:background="@drawable/search_bg"
                     android:padding="10dp"
                     android:paddingStart="15dp"
+                    android:textColor="@color/black"
                     android:text="dharmik@gmail.com"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -180,6 +181,7 @@
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="0000000000"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
@@ -204,6 +206,7 @@
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="Male"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
@@ -228,6 +231,7 @@
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="20"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
@@ -252,6 +256,7 @@
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="xyz"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
@@ -276,6 +281,7 @@
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="Beginner"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
@@ -300,6 +306,7 @@
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="21-05-2023"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
