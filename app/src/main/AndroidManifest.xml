@@ -16,7 +16,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".AddMember"
             android:exported="false" />
         <activity
             android:name=".MembersProfile"
@@ -25,7 +25,7 @@
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
-            android:name=".AddMember"
+            android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Base.Theme.FitZoneAdmin">
             <intent-filter>
