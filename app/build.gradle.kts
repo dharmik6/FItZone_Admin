@@ -39,6 +39,12 @@ dependencies {
 
     //image circle
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    //graph chart
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    //BMI
+    implementation ("com.github.Gruzer:simple-gauge-android:0.3.1")
+
+
 
 
     implementation("androidx.appcompat:appcompat:1.6.1")
