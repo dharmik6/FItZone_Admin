@@ -80,5 +80,11 @@
     <string name="trainer_booking">Trainer Booking</string>
     <string name="rating_review">Rating &amp; Review</string>
 
+    <!-- Member Data Profile -->
+    <string name="member_data_profile">Member Data Profile</string>
+    <string name="current">Current</string>
+    <string name="heaviest">Heaviest</string>
+    <string name="lightest">Lightest</string>
+    <string name="bmi">BMI</string>
 
 </resources>
