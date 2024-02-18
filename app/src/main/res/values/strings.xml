@@ -104,5 +104,10 @@
     <string name="back_side">Aadhaar Card Back Side</string>
     <string name="description">Description</string>
 
+    <!-- add trainer -->
+    <string name="add_trainer">Add Trainer</string>
+    <string name="trainer_information">Trainer Information</string>
+    <string name="specialist">Specialist</string>
+
 
 </resources>

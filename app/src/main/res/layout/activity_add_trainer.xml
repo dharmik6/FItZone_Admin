@@ -376,7 +376,7 @@
                                 android:text="@string/Exercises"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry" />
+                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                             <Spinner
                                 android:layout_width="match_parent"
@@ -400,12 +400,15 @@
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="25dp"
                         android:layout_marginBottom="20dp"
-                        android:padding="10dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:background="@drawable/btn_background"
                         android:elevation="@dimen/button_elevation"
                         android:fontFamily="@font/opensans_bold"
