@@ -87,4 +87,22 @@
     <string name="lightest">Lightest</string>
     <string name="bmi">BMI</string>
 
+    <!-- trainer pendding profile -->
+    <string name="bio">BIO</string>
+    <string name="registration_date">Registration Date</string>
+    <string name="documents">Documents</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+    <string name="change">Change</string>
+
+    <!-- Document -->
+    <string name="aadhaar_card">Aadhaar card</string>
+    <string name="certificates">Certificates</string>
+
+    <!--Aadhaar card-->
+    <string name="front_side">Aadhaar Card Front Side</string>
+    <string name="back_side">Aadhaar Card Back Side</string>
+    <string name="description">Description</string>
+
+
 </resources>
