@@ -52,7 +52,7 @@
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".AddTrainer"
             android:exported="true"
             android:theme="@style/Base.Theme.FitZoneAdmin">
             <intent-filter>
