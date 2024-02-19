@@ -111,7 +111,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
-                        android:src="@drawable/member_list_image" />
+                        android:src="@drawable/aadhaar_img" />
 
                 </RelativeLayout>
 
@@ -170,7 +170,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
-                        android:src="@drawable/member_data_image" />
+                        android:src="@drawable/certificate_img" />
 
                 </RelativeLayout>
 

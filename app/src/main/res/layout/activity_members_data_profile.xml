@@ -81,7 +81,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:background="@drawable/ic_profile_circle"
+                android:src="@drawable/people_imge"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -128,6 +128,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout2"
             android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:background="@drawable/profile_information_bg"
             android:elevation="10dp"
             android:paddingTop="20dp">
@@ -457,7 +460,7 @@
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
                         app:cardCornerRadius="25dp"
                         android:background="@color/card_view"
@@ -471,6 +474,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
                             android:layout_alignParentStart="true"
                             android:layout_marginBottom="20dp"
                             tools:ignore="UselessLeaf">
@@ -567,7 +571,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20dp"
-                                android:layout_marginBottom="30dp"
+                                android:layout_marginTop="10dp"
                                 android:layout_below="@+id/rl_halfGauge"
                                 android:layout_alignParentBottom="true"
                                 android:layout_alignParentEnd="true"

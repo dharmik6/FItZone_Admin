@@ -45,7 +45,7 @@
                 android:layout_toEndOf="@+id/back"
                 android:fontFamily="@font/opensans_bold"
                 android:gravity="center"
-                android:text="Booking  details"
+                android:text="@string/booking_details"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -127,7 +127,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Booking Details "
+                                android:text="@string/booking_details"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -140,7 +140,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Booking ID"
+                                android:text="@string/booking_id"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -172,7 +172,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Trainer Name"
+                                android:text="@string/trainer_name"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -205,7 +205,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Member Name "
+                                android:text="@string/member_name"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -238,7 +238,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Booking time"
+                                android:text="@string/booking_time"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -271,7 +271,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Status"
+                                android:text="@string/status"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -331,7 +331,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Payments Details  "
+                                android:text="@string/payments_details"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -344,7 +344,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Payment ID"
+                                android:text="@string/payment_id"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -376,7 +376,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Member Name "
+                                android:text="@string/member_name"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -409,7 +409,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Amount"
+                                android:text="@string/amount"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -442,7 +442,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Payment Method"
+                                android:text="@string/payment_method"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -475,7 +475,7 @@
                                 android:layout_marginStart="30dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="Payment Date"
+                                android:text="@string/payment_date"
                                 android:textColor="@color/text"
                                 android:textSize="16sp"
                                 tools:ignore="HardcodedText,SpUsage" />
@@ -638,7 +638,7 @@
                                 android:textStyle="bold"
                                 android:textSize="16sp"
                                 android:textColor="@color/dark_cyan"
-                                android:text="See all details"
+                                android:text="@string/see_all_details"
                                 tools:ignore="HardcodedText" />
 
                             <ImageView
@@ -743,7 +743,7 @@
                                 android:textStyle="bold"
                                 android:textSize="16sp"
                                 android:textColor="@color/dark_cyan"
-                                android:text="See all details"
+                                android:text="@string/see_all_details"
                                 tools:ignore="HardcodedText" />
 
                             <ImageView
@@ -777,7 +777,7 @@
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/delete_btn_bg"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="Cancel request"
+                        android:text="@string/cancel_request"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"

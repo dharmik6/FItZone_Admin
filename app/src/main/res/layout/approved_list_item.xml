@@ -44,7 +44,7 @@
                     android:layout_marginBottom="5dp"
                     app:civ_border_width="1dp"
                     app:civ_border_color="@color/text"
-                    android:src="@drawable/ic_profile_circle"
+                    android:src="@drawable/people_imge"
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
                 <LinearLayout
