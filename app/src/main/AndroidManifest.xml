@@ -13,13 +13,22 @@
         android:theme="@style/Theme.FitZoneAdmin"
         tools:targetApi="31">
         <activity
+            android:name=".Aadhaar"
+            android:exported="false" />
+        <activity
+            android:name=".BookingList"
+            android:exported="false" />
+        <activity
+            android:name=".Review_List"
+            android:exported="false" />
+        <activity
             android:name=".Certificates"
             android:exported="false" />
         <activity
             android:name=".CertificatesList"
             android:exported="false" />
         <activity
-            android:name=".Aadhaar"
+            android:name=".ApprovedTrainerProfile"
             android:exported="false" />
         <activity
             android:name=".AddMember"
@@ -34,10 +43,10 @@
             android:name=".PenddingTrainerProfile"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".BookingDetail"
             android:exported="false" />
         <activity
-            android:name=".ApprovedTrainerProfile"
+            android:name=".AddTrainer"
             android:exported="false" />
         <activity
             android:name=".MembersDataProfile"
@@ -52,7 +61,7 @@
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
-            android:name=".AddTrainer"
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Base.Theme.FitZoneAdmin">
             <intent-filter>
