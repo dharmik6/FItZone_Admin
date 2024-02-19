@@ -1,12 +1,16 @@
 package com.example.fitzoneadmin;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,33 +19,15 @@ import android.view.ViewGroup;
  */
 public class FragmentMembersHome extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    TextView text_title;
     public FragmentMembersHome() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentMembersHome.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FragmentMembersHome newInstance(String param1, String param2) {
         FragmentMembersHome fragment = new FragmentMembersHome();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,15 +36,46 @@ public class FragmentMembersHome extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_members_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_members_home, container, false);
+
+        // Assuming you have a button with id "button" in your fragment_members_home layout
+        view.findViewById(R.id.active_card_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new Fragment_Member_list(), true);
+            }
+        });
+        view.findViewById(R.id.active_card_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new Fragment_Member_Data_List(), true);
+            }
+        });
+
+        return view;
+    }
+    public void loadFragment(Fragment fragment, boolean flag) {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if (flag)
+            ft.add(R.id.fragment_container, fragment);
+        else
+            ft.replace(R.id.fragment_container, fragment);
+        ft.commit();
+
+        // Set title based on the loaded fragment
+//        if (fragment instanceof Fragment_Member_list) {
+//            text_title.setText("Members List");
+//        }
+//        else {
+//            // Handle other fragments accordingly
+//        }
     }
 }

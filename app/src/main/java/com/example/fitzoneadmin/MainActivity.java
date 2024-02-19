@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     //   loadFragment(new HomeFragment(), false);
                     showToast("Dashbord");
                 } else if (itemId == R.id.nav_members) {
-                    loadFragment(new Fragment_Member_list(), false);
+                    loadFragment(new FragmentMembersHome(), false);
                 } else if (itemId == R.id.nav_Trainers) {
                     //  loadFragment(new SettingsFragment(), false);
                     showToast("Traines");
