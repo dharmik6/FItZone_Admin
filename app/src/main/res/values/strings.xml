@@ -60,7 +60,7 @@
     <string name="Update">Update</string>
 
     <!-- Add Member -->
-    <string name="add_member">Add Member</string>
+    <string name="add_member">Update Member</string>
     <string name="Member_Information">Member Information</string>
     <string name="Name">Name</string>
     <string name="Member_Data">Member Data</string>
@@ -71,6 +71,7 @@
 
     <!-- members home -->
     <string name="Member_List">Member List</string>
+
 
 
     <!-- Trainer home -->
@@ -105,7 +106,7 @@
     <string name="description">Description</string>
 
     <!-- add trainer -->
-    <string name="add_trainer">Add Trainer</string>
+    <string name="add_trainer">Update Trainer</string>
     <string name="trainer_information">Trainer Information</string>
     <string name="specialist">Specialist</string>
 
@@ -114,7 +115,7 @@
 
     <!--trainer booking list-->
     <string name="booking_list">Trainer Booking List</string>
-    
+
     <!--Booking  details-->
     <string name="booking_details">Booking  details</string>
     <string name="booking_id">Booking ID</string>
@@ -130,5 +131,22 @@
     <string name="see_all_details">See all details</string>
     <string name="cancel_request">Cancel request</string>
 
+    <!--Workout plans-->
+    <string name="workout_plans">Workout plans</string>
+    <string name="exercises_list">Exercises list</string>
+    <string name="created">Created</string>
+    <string name="difficulty_level">Difficulty Level</string>
+    <string name="created_date">Created Date</string>
+    <string name="edit">Edit</string>
 
+    <!--workout plans list-->
+    <string name="workout_plans_list">Workout Plans List</string>
+
+    <!--edit workout-->
+    <string name="edit_workout">Edit Workout</string>
+    <string name="add_exercise">Add Exercise</string>
+
+
+
+    
 </resources>

@@ -13,6 +13,18 @@
         android:theme="@style/Theme.FitZoneAdmin"
         tools:targetApi="31">
         <activity
+            android:name=".ExercisesList"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutPlans"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutPlansList"
+            android:exported="false" />
+        <activity
             android:name=".Aadhaar"
             android:exported="false" />
         <activity
@@ -61,7 +73,7 @@
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".EditWorkout"
             android:exported="true"
             android:theme="@style/Base.Theme.FitZoneAdmin">
             <intent-filter>
