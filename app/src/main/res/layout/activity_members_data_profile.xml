@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/member_profile_bg"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_arrow_small_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_toStartOf="@+id/back"
+                android:layout_toEndOf="@+id/back"
+                android:fontFamily="@font/opensans_bold"
+                android:text="@string/member_data_profile"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+
+
+            <ImageView
+                android:id="@+id/settings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_popup_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/people_imge"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensans_bold"
+                android:gravity="center"
+                android:text="@string/Member_Name"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SpUsage" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensans_bold"
+                android:gravity="center"
+                android:text="@string/user_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SpUsage" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="@string/Active"
+                android:textStyle="bold"
+                android:textColor="#43C6AC"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/profile_information_bg"
+            android:elevation="10dp"
+            android:paddingTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="Orientation">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Height"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:padding="10dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:paddingStart="15dp"
+                    android:textColor="@color/black"
+                    android:text="dharmik@gmail.com"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Weight"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:padding="10dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:paddingStart="15dp"
+                    android:text="0000000000"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Goal"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="Male"
+                    android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="@string/Activity_level"
+                    android:textColor="@color/text"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:text="20"
+                    android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line"
+                    android:layout_marginEnd="25dp"
+                    tools:ignore="ContentDescription" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    tools:ignore="ObsoleteLayoutParam">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_Weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="25dp"
+                    android:background="@color/card_view"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/Weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@color/black"
+                        android:text="@string/Weight"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Weight"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            tools:ignore="UselessLeaf">
+                            
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="200dp"
+                                android:orientation="vertical"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                tools:ignore="UselessParent">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvCurrent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/current"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_alignParentStart="true"
+                                    tools:ignore="HardcodedText,TooDeepLayout" />
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="60.6kg"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_below="@+id/tvCurrent"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentBottom="true"
+                                    tools:ignore="HardcodedText,TooDeepLayout" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rl_hori_he"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="200dp"
+                                android:orientation="horizontal"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                tools:ignore="UselessParent">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvHeaviest"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:text="@string/heaviest"
+                                    android:textColor="@color/text"
+                                    android:textSize="14sp"
+                                    tools:ignore="HardcodedText,TooDeepLayout" />
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="66.00kg"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    tools:ignore="HardcodedText,TooDeepLayout" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="200dp"
+                                android:orientation="horizontal"
+                                android:layout_below="@+id/rl_hori_he"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                tools:ignore="UselessParent">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:text="@string/lightest"
+                                    android:textColor="@color/text"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:textSize="14sp"
+                                    tools:ignore="HardcodedText,TooDeepLayout" />
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="66.00kg"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    tools:ignore="HardcodedText,TooDeepLayout" />
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="140dp"
+                        android:layout_marginBottom="10dp">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/lineChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingClass" />
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="25dp"
+                        android:background="@color/card_view"
+                        android:layout_below="@+id/cv_Weight"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginBottom="20dp"
+                            tools:ignore="UselessLeaf">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/BMI"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="20dp"
+                                android:text="@string/bmi"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/nunito_bold"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                            <RelativeLayout
+                                android:id="@+id/rl_BMI"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="80dp">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="15.7"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:textSize="20sp"
+                                    android:layout_marginStart="20dp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+
+                                    <androidx.cardview.widget.CardView
+                                        android:id="@+id/cardView"
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:layout_marginStart="140dp"
+                                        android:backgroundTint="#E53935"
+                                        android:elevation="8dp"
+                                        app:cardCornerRadius="25dp" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_toEndOf="@+id/cardView"
+                                        android:fontFamily="@font/nunito_bold"
+                                        android:text="Severely underweight"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp"
+                                        tools:ignore="HardcodedText" />
+
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rl_halfGauge"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_below="@+id/rl_BMI">
+
+                                <com.ekn.gruzer.gaugelibrary.HalfGauge
+                                    android:id="@+id/halfGauge"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="200dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_marginStart="20dp"
+                                    tools:ignore="MissingClass" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@+id/rl_halfGauge"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentStart="true"
+                                tools:ignore="NotSibling">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/Height"
+                                    android:textStyle="bold"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/text"
+                                    android:fontFamily="@font/nunito_bold"
+                                    tools:ignore="HardcodedText,RelativeOverlap"/>
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="224cm"
+                                    android:textSize="25sp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentTop="true"
+                                    tools:ignore="HardcodedText,SpUsage" />
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -80,5 +80,55 @@
     <string name="trainer_booking">Trainer Booking</string>
     <string name="rating_review">Rating &amp; Review</string>
 
+    <!-- Member Data Profile -->
+    <string name="member_data_profile">Member Data Profile</string>
+    <string name="current">Current</string>
+    <string name="heaviest">Heaviest</string>
+    <string name="lightest">Lightest</string>
+    <string name="bmi">BMI</string>
+
+    <!-- trainer pendding profile -->
+    <string name="bio">BIO</string>
+    <string name="registration_date">Registration Date</string>
+    <string name="documents">Documents</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+    <string name="change">Change</string>
+
+    <!-- Document -->
+    <string name="aadhaar_card">Aadhaar card</string>
+    <string name="certificates">Certificates</string>
+
+    <!--Aadhaar card-->
+    <string name="front_side">Aadhaar Card Front Side</string>
+    <string name="back_side">Aadhaar Card Back Side</string>
+    <string name="description">Description</string>
+
+    <!-- add trainer -->
+    <string name="add_trainer">Add Trainer</string>
+    <string name="trainer_information">Trainer Information</string>
+    <string name="specialist">Specialist</string>
+
+    <!--Rating List-->
+    <string name="rating_list">Trainer Rating List</string>
+
+    <!--trainer booking list-->
+    <string name="booking_list">Trainer Booking List</string>
+    
+    <!--Booking  details-->
+    <string name="booking_details">Booking  details</string>
+    <string name="booking_id">Booking ID</string>
+    <string name="trainer_name">Trainer Name</string>
+    <string name="member_name">Member Name </string>
+    <string name="booking_time">Booking time</string>
+    <string name="status">Status</string>
+    <string name="payments_details">Payments Details </string>
+    <string name="payment_id">Payment ID</string>
+    <string name="amount">Amount</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="payment_date">Payment Date</string>
+    <string name="see_all_details">See all details</string>
+    <string name="cancel_request">Cancel request</string>
+
 
 </resources>

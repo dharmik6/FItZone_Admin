@@ -17,37 +17,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/card_view"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="10dp"
             app:cardCornerRadius="10dp"
-            app:cardElevation="8dp"
+            app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="10dp">
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:paddingVertical="5dp">
+                android:layout_alignParentTop="true">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_user"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
-                    android:src="@drawable/people_imge"
-                    app:civ_border_color="@color/text"
                     app:civ_border_width="1dp"
+                    app:civ_border_color="@color/text"
+                    android:src="@drawable/people_imge"
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
                 <LinearLayout
@@ -55,17 +52,18 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
                     android:layout_marginStart="70dp"
-                    android:orientation="vertical"
-                    tools:ignore="NotSibling">
+                    android:layout_marginEnd="70dp"
+                    android:layout_alignStart="@id/linner2"
+                    android:layout_marginTop="0dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="user_name"
+                        android:text="trainer_name"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -75,11 +73,38 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="xyz@gmail.com"
+                        android:text="specialization"
                         android:textColor="@color/text"
                         android:textSize="12sp"
                         tools:ignore="HardcodedText,SmallSp,TextContrastCheck,TextSizeCheck" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="experience"
+                        android:textColor="@color/greenish_cyan"
+                        android:textSize="12sp"
+                        tools:ignore="HardcodedText,SmallSp,TextContrastCheck,TextSizeCheck" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/trainer_rating_bg"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="15dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4.45"
+                        android:fontFamily="@font/opensans_bold"
+                        android:textSize="12sp"
+                        android:padding="8dp"
+                        android:textColor="@color/white"
+                        tools:ignore="HardcodedText" />
                 </LinearLayout>
 
             </RelativeLayout>
