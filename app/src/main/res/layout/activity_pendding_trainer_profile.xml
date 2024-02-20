@@ -120,7 +120,9 @@
                             android:id="@+id/change"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/card_view"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@color/card_view"
                             android:layout_below="@+id/Functional_Strength"
                             android:layout_marginTop="20dp"
                             app:cardCornerRadius="20dp">
@@ -188,7 +190,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/change"
-                            android:background="@color/card_view"
+                            android:backgroundTint="@color/card_view"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="20dp"
                             app:cardCornerRadius="20dp">
@@ -445,7 +447,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/information"
-                            android:background="@color/card_view"
+                            android:backgroundTint="@color/card_view"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_marginTop="20dp"
                             app:cardCornerRadius="20dp">
 

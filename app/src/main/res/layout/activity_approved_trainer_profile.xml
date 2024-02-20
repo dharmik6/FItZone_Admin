@@ -169,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/ll_name"
                             android:layout_marginTop="20dp"
-                            android:background="@color/card_view"
+                            android:backgroundTint="@color/card_view"
                             app:cardCornerRadius="20dp">
 
                             <RelativeLayout
@@ -238,7 +238,7 @@
                             android:layout_below="@+id/change"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="20dp"
-                            android:background="@color/card_view"
+                            android:backgroundTint="@color/card_view"
                             app:cardCornerRadius="20dp">
 
                             <RelativeLayout
@@ -493,7 +493,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/information"
                             android:layout_marginTop="20dp"
-                            android:background="@color/card_view"
+                            android:backgroundTint="@color/card_view"
                             app:cardCornerRadius="20dp">
 
                             <RelativeLayout
