@@ -37,13 +37,13 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/default_image"
+                android:src="@drawable/healthy_food_img"
                 tools:ignore="ContentDescription" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Certificate name"
+                android:text="Diet name"
                 android:layout_marginTop="160dp"
                 android:backgroundTint="#C4000000"
                 android:padding="10dp"

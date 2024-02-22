@@ -73,7 +73,6 @@
     <string name="Member_List">Member List</string>
 
 
-
     <!-- Trainer home -->
     <string name="pending_trainer">Pending Trainer</string>
     <string name="approved_trainer">Approved Trainer</string>
@@ -99,7 +98,6 @@
     <!-- Document -->
     <string name="aadhaar_card">Aadhaar card</string>
     <string name="certificates">Certificates</string>
-
     <!--Aadhaar card-->
     <string name="front_side">Aadhaar Card Front Side</string>
     <string name="back_side">Aadhaar Card Back Side</string>
@@ -146,7 +144,44 @@
     <string name="edit_workout">Edit Workout</string>
     <string name="add_exercise">Add Exercise</string>
 
+    <!--Add Exercise-->
+    <string name="body_part">Body Part</string>
+    <string name="equipment">Equipment</string>
+
+    <!--Update Exercises -->
+    <string name="update_exercise">Update Exercises </string>
+
+    <!--Diet list-->
+    <string name="add_diet">Add Diet</string>
+
+    <!--Diet-->
+    <string name="diet">Diet</string>
+
+    <!--Update diet-->
+    <string name="update_diet">Update Diet</string>
+
+    <!--packages_list-->
+    <string name="packages_list">Packages List</string>
+
+    <!--Add Packages-->
+    <string name="add_packages">Add Packages</string>
+    <string name="package_name">Package Name</string>
+    <string name="price">Price</string>
+    <string name="duration">Duration</string>
+
+    <!--Update Package -->
+    <string name="update_package">Update Package </string>
+
+    <!--Purchases -->
+    <string name="purchases">Purchases </string>
+
+    <!--Purchase  details-->
+    <string name="purchase_details">Purchase  details</string>
+    <string name="package_duration">Package duration</string>
+    <string name="package_status">Package Status</string>
+    <string name="paid_amount">Paid Amount</string>
+    <string name="purchase_date">Purchase date</string>
+    <string name="expiration_date">Expiration date</string>
 
 
-    
 </resources>
