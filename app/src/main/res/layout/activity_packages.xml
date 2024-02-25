@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/package_card_view_bg"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Packages">
 
 
     <RelativeLayout

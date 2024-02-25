@@ -182,6 +182,7 @@
     <string name="paid_amount">Paid Amount</string>
     <string name="purchase_date">Purchase date</string>
     <string name="expiration_date">Expiration date</string>
+    <string name="purchases_list">Purchases List</string>
 
     <!--Settings-->
     <string name="settings">Settings</string>

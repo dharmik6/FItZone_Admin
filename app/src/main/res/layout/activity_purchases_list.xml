@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_ground"
-    tools:context=".Review_List">
+    tools:context=".PurchasesList">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                 android:layout_toStartOf="@+id/back"
                 android:layout_toEndOf="@+id/back"
                 android:fontFamily="@font/opensans_bold"
-                android:text="@string/purchases"
+                android:text="@string/purchases_list"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
