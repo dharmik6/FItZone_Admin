@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/member_profile_bg"
+    tools:context=".PenddingTrainerProfile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/trainer_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/people_imge"
+            android:layout_marginBottom="600dp"
+            android:orientation="vertical"
+            tools:ignore="ContentDescription" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#41101010"
+            app:cardCornerRadius="30dp">
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_arrow_small_left"
+                tools:ignore="ContentDescription" />
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/trainer_img"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="-620dp"
+            android:background="@drawable/profile_information_bg">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                tools:ignore="ScrollViewSize">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="vertical"
+                    tools:ignore="ObsoleteLayoutParam,ScrollViewSize,UselessParent">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_Jennifer_James"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="35dp"
+                        tools:ignore="ObsoleteLayoutParam">
+
+                        <LinearLayout
+                            android:id="@+id/ll_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginEnd="100dp"
+                                android:orientation="vertical"
+                                tools:ignore="Orientation">
+
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/trainer_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/opensans_extrabold"
+                                    android:text="Jennifer James"
+                                    android:textColor="@color/black"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/Functional_Strength"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/trainer_name"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/nunito_medium"
+                                    android:text="Functional Strength"
+                                    android:textColor="@color/dark_cyan"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="10dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentBottom="true"
+                                tools:ignore="Orientation">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_below="@+id/trainer_name"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:text="Active"
+                                    android:textColor="@color/dark_cyan"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/rating_review"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_below="@+id/ll_name"
+                            android:orientation="vertical"
+                            tools:ignore="UselessLeaf">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="4.6"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/opensans_bold"
+                                    android:textSize="48sp"
+                                    tools:ignore="HardcodedText,TooDeepLayout" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/review"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginHorizontal="20dp"
+                                    tools:ignore="Orientation">
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_below="@+id/rating_review">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/opensans_condensed_regular"
+                                android:text="174 Ratings"
+                                android:textColor="@color/black"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ll_rating"
+                            android:layout_marginTop="10dp"
+                            tools:ignore="NestedScrolling">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                tools:ignore="UselessLeaf">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:scrollbars="vertical"
+                                    tools:listitem="@layout/rating_review_list_item" />
+                            </LinearLayout>
+
+                        </ScrollView>
+
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
