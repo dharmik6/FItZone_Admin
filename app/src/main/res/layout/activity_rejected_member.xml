@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/member_profile_bg"
-    tools:context=".MembersProfile">
+    tools:context=".RejectedMember">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -355,18 +355,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:orientation="horizontal">
+
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="30dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/delete_btn_bg"
+                        android:background="@drawable/update_btn_bg"
                         android:elevation="10dp"
-                        android:text="@string/Delete"
+                        android:text="Approve"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
