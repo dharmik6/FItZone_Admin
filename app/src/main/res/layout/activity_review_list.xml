@@ -66,29 +66,84 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ScrollView
+        <!--<SearchView
+            android:id="@+id/searchbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout">
+            android:iconifiedByDefault="true"
+            android:background="@drawable/search_bg"
+            android:searchHintIcon="@drawable/ic_search"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_below="@+id/linearLayout"
 
-            <LinearLayout
+            />
+-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/linearLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+
+
+                        <EditText
+                            android:id="@+id/searchbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/search_bg"
+                            android:drawableEnd="@drawable/ic_search"
+                            android:fontFamily="@font/nunito_medium"
+                            android:hint="Search"
+                            android:paddingHorizontal="20dp"
+                            android:textColorHint="@color/hint_color"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.052"
+                            tools:ignore="Autofill,HardcodedText,MissingConstraints,TextContrastCheck,TextFields" />
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                tools:ignore="UselessLeaf">
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/searchbar">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="vertical"
-                    tools:listitem="@layout/approved_list_item" />
-            </LinearLayout>
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    tools:ignore="UselessLeaf">
 
-        </ScrollView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical"
+                        tools:listitem="@layout/approved_list_item" />
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
