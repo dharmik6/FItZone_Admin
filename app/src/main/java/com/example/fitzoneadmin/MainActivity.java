@@ -39,35 +39,53 @@ public class MainActivity extends AppCompatActivity {
         text_title = findViewById(R.id.text_title);
         ImageView menu = findViewById(R.id.show_menu);
 
+// for notification page
+        ImageView notification = findViewById(R.id.notification);
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectActivity(MainActivity.this, Notification.class);
+            }
+        });
+        // for settings page
+        ImageView setting = findViewById(R.id.settings);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               redirectActivity(MainActivity.this, Settings.class);
+            }
+        });
+
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openDrawer(drawerLayout);
             }
         });
-
+        // for defulte fragment show
+        loadFragment(new FragmentDashbord(), true);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
 
                 if (itemId == R.id.nav_dashbord) {
-                    //   loadFragment(new HomeFragment(), false);
-                    showToast("Dashbord");
+                       loadFragment(new FragmentDashbord(), false);
+
                 } else if (itemId == R.id.nav_members) {
                     loadFragment(new FragmentMembersHome(), false);
                 } else if (itemId == R.id.nav_Trainers) {
-                    //  loadFragment(new SettingsFragment(), false);
-                    showToast("Traines");
+                      loadFragment(new FragmentTrainersHome(), false);
+
                 } else if (itemId == R.id.nav_workout_exercises) {
-                    //  loadFragment(new SettingsFragment(), false);
-                    showToast("workout & exercises");
+                      loadFragment(new FragmentWorkoutExercisesHome(), false);
+
                 } else if (itemId == R.id.nav_diet_plans) {
-                    //   loadFragment(new SettingsFragment(), false);
-                    showToast("diet palns");
+                       loadFragment(new FragmentDietList(), false);
+
                 } else if (itemId == R.id.nav_packages_payments) {
-                    //  loadFragment(new SettingsFragment(), false);
-                    showToast("payments & pakage");
+                      loadFragment(new FragmentPackagePaymentsHome(), false);
+
                 }
 
                 closeDrawer(drawerLayout);
@@ -91,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(activity, secondActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         activity.startActivity(intent);
-        activity.finish();
     }
 
     @Override

@@ -23,14 +23,14 @@
     <string name="Members_title">Members</string>
     <string name="Members_List">Members List</string>
     <string name="Membership_list">Membership List</string>
-    <string name="Trainers_title">Trainers Title</string>
+    <string name="Trainers_title">Trainers</string>
     <string name="Trainers">Trainers</string>
     <string name="Booking_details">Booking Details</string>
     <string name="Workout_Exercises_title">Workout &amp; Exercises</string>
     <string name="Workout_plans">Workout Plans</string>
     <string name="Exercises">Exercises</string>
     <string name="Diet_Plans_title">Diet Plans</string>
-    <string name="Packages_payments_title">Packages &amp; Payments</string>
+    <string name="Packages_payments_title">Purchases  &amp; Payments</string>
     <string name="Packages">Packages</string>
     <string name="Payments">Payments</string>
     <!-- header file-->

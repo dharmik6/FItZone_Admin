@@ -115,13 +115,13 @@
             android:name=".MembersProfile"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".ApprovedTrainerProfile"
             android:exported="false" />
         <activity
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
-            android:name=".ApprovedTrainerProfile"
+            android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Base.Theme.FitZoneAdmin">
             <intent-filter>

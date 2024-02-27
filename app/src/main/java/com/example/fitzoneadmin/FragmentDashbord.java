@@ -1,64 +1,96 @@
 package com.example.fitzoneadmin;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentDashbord#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.lang.reflect.Member;
+
 public class FragmentDashbord extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentDashbord() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentDashbord.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentDashbord newInstance(String param1, String param2) {
-        FragmentDashbord fragment = new FragmentDashbord();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    CardView member ;
+    CardView trainer ;
+    CardView workout ;
+    CardView diet ;
+    CardView packages ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_dashbord, container, false) ;
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashbord, container, false);
+        member = view.findViewById(R.id.members);
+        trainer = view.findViewById(R.id.trainer);
+        workout = view.findViewById(R.id.workout);
+        diet = view.findViewById(R.id.diet);
+        packages = view.findViewById(R.id.packages_payments);
+
+
+
+        member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new FragmentMembersHome(), true);
+            }
+        });
+        trainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new FragmentTrainersHome(), true);
+            }
+        });
+        workout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new FragmentWorkoutExercisesHome(), true);
+            }
+        });
+        diet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new FragmentDietList(), true);
+            }
+        });
+        packages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new FragmentPackagePaymentsHome(), true);
+            }
+        });
+
+        return view;
+    }
+
+    public void loadFragment(Fragment fragment, boolean flag) {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if (flag)
+            ft.add(R.id.fragment_container, fragment);
+        else
+            ft.replace(R.id.fragment_container, fragment);
+        ft.addToBackStack(null); // Add fragment transaction to back stack
+        ft.commit();
+    }
+
+    // Override onBackPressed in the parent Activity
+   
+    public void onBackPressed() {
+        // Get the fragment manager
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+        // Check if there are fragments in the back stack
+        if (fragmentManager.getBackStackEntryCount() > 0) {
+            // Pop the last fragment transaction from the back stack
+            fragmentManager.popBackStack();
+        } else {
+            // If no fragments in the back stack, perform default back action (exit the app)
+            super.getActivity().onBackPressed();
+        }
     }
 }
