@@ -16,7 +16,7 @@
             android:id="@+id/active_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/card_view"
+            android:background="@color/card_view"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginHorizontal="10dp"
@@ -38,7 +38,7 @@
                 android:paddingVertical="5dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_user"
+                    android:id="@+id/image_data_member"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
@@ -61,6 +61,7 @@
                     tools:ignore="NotSibling">
 
                     <TextView
+                        android:id="@+id/name_data_member"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -72,6 +73,7 @@
                         tools:ignore="HardcodedText,TextSizeCheck" />
 
                     <TextView
+                        android:id="@+id/email_data_member"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_bold"

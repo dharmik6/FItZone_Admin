@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/member_profile_bg"
-    tools:context=".MembersDataProfile">
+    tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
-                android:id="@+id/back_press"
+                android:id="@+id/back"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentStart="true"
@@ -79,12 +79,14 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/data_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/people_imge"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/data_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -97,6 +99,7 @@
                 tools:ignore="HardcodedText,SpUsage" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/data_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -127,10 +130,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout2"
-            android:layout_marginTop="20dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="129dp"
+            android:layout_marginEnd="-5dp"
+            android:layout_marginBottom="-109dp"
             android:background="@drawable/profile_information_bg"
             android:elevation="10dp"
             android:paddingTop="20dp">
@@ -154,24 +160,25 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_height"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:padding="10dp"
                     android:fontFamily="@font/nunito_regular"
+                    android:padding="10dp"
                     android:paddingStart="15dp"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:text="dharmik@gmail.com"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line"
                     android:layout_marginEnd="25dp"
+                    android:src="@drawable/ic_line"
                     tools:ignore="ContentDescription" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -186,15 +193,16 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:padding="10dp"
                     android:fontFamily="@font/nunito_regular"
+                    android:padding="10dp"
                     android:paddingStart="15dp"
-                    android:text="0000000000"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -202,8 +210,8 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line"
                     android:layout_marginEnd="25dp"
+                    android:src="@drawable/ic_line"
                     tools:ignore="ContentDescription" />
 
 
@@ -219,23 +227,25 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/nunito_regular"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="Male"
-                    android:fontFamily="@font/nunito_regular"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line"
                     android:layout_marginEnd="25dp"
+                    android:src="@drawable/ic_line"
                     tools:ignore="ContentDescription" />
 
 
@@ -251,15 +261,16 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_activity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/nunito_regular"
                     android:padding="10dp"
                     android:paddingStart="15dp"
-                    android:text="20"
-                    android:fontFamily="@font/nunito_regular"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
@@ -267,215 +278,221 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line"
                     android:layout_marginEnd="25dp"
+                    android:src="@drawable/ic_line"
                     tools:ignore="ContentDescription" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     tools:ignore="ObsoleteLayoutParam">
 
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_Weight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="25dp"
-                    android:backgroundTint="@color/card_view"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="true"
-                    app:cardElevation="10dp">
-
-                    <RelativeLayout
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_Weight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentStart="true">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/Weight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@color/black"
-                        android:text="@string/Weight"
-                        android:fontFamily="@font/nunito_bold"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/Weight"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal"
-                            tools:ignore="UselessLeaf">
-                            
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="200dp"
-                                android:orientation="vertical"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                tools:ignore="UselessParent">
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/tvCurrent"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/current"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_alignParentStart="true"
-                                    tools:ignore="HardcodedText,TooDeepLayout" />
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="60.6kg"
-                                    android:textSize="20sp"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_below="@+id/tvCurrent"
-                                    android:layout_alignParentStart="true"
-                                    android:layout_alignParentBottom="true"
-                                    tools:ignore="HardcodedText,TooDeepLayout" />
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:id="@+id/rl_hori_he"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="200dp"
-                                android:orientation="horizontal"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                tools:ignore="UselessParent">
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/tvHeaviest"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:text="@string/heaviest"
-                                    android:textColor="@color/text"
-                                    android:textSize="14sp"
-                                    tools:ignore="HardcodedText,TooDeepLayout" />
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="66.00kg"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                    android:layout_marginEnd="20dp"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_alignParentBottom="true"
-                                    tools:ignore="HardcodedText,TooDeepLayout" />
-                            </RelativeLayout>
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="200dp"
-                                android:orientation="horizontal"
-                                android:layout_below="@+id/rl_hori_he"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                tools:ignore="UselessParent">
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:text="@string/lightest"
-                                    android:textColor="@color/text"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:textSize="14sp"
-                                    tools:ignore="HardcodedText,TooDeepLayout" />
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="66.00kg"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                    android:layout_marginEnd="20dp"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_alignParentBottom="true"
-                                    tools:ignore="HardcodedText,TooDeepLayout" />
-                            </RelativeLayout>
-
-                        </RelativeLayout>
-
-                    </RelativeLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="140dp"
-                        android:layout_marginBottom="10dp">
-
-                        <com.github.mikephil.charting.charts.LineChart
-                            android:id="@+id/lineChart"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="20dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="MissingClass" />
-
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginStart="30dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginEnd="30dp"
-                        android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
+                        android:background="@color/card_view"
                         app:cardCornerRadius="25dp"
-                        android:backgroundTint="@color/card_view"
-                        android:layout_below="@+id/cv_Weight"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentStart="true"
                         app:cardElevation="10dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/Weight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/nunito_bold"
+                                android:text="@string/Weight"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/Weight"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal"
+                                tools:ignore="UselessLeaf">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="200dp"
+                                    android:orientation="vertical"
+                                    tools:ignore="UselessParent">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/tvCurrent"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_marginStart="20dp"
+                                        android:fontFamily="@font/nunito_bold"
+                                        android:text="@string/current"
+                                        android:textColor="@color/text"
+                                        android:textSize="14sp"
+                                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/data_cur_weight"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/tvCurrent"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginStart="20dp"
+                                        android:fontFamily="@font/nunito_bold"
+                                        android:text="60.6kg"
+                                        android:textColor="@color/black"
+                                        android:textSize="20sp"
+                                        tools:ignore="HardcodedText,TooDeepLayout" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_hori_he"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginStart="200dp"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessParent">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/tvHeaviest"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:fontFamily="@font/nunito_bold"
+                                        android:text="@string/heaviest"
+                                        android:textColor="@color/text"
+                                        android:textSize="14sp"
+                                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginEnd="20dp"
+                                        android:fontFamily="@font/nunito_bold"
+                                        android:text="66.00kg"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp"
+                                        tools:ignore="HardcodedText,TooDeepLayout" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/rl_hori_he"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginStart="200dp"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessParent">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:fontFamily="@font/nunito_bold"
+                                        android:text="@string/lightest"
+                                        android:textColor="@color/text"
+                                        android:textSize="14sp"
+                                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginEnd="20dp"
+                                        android:fontFamily="@font/nunito_bold"
+                                        android:text="66.00kg"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp"
+                                        tools:ignore="HardcodedText,TooDeepLayout" />
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="140dp"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="20dp">
+
+                            <com.github.mikephil.charting.charts.LineChart
+                                android:id="@+id/lineChart"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_gravity="center"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="MissingClass" />
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cv_Weight"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/card_view"
+                        app:cardCornerRadius="25dp"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_alignParentStart="true"
                             android:layout_marginBottom="20dp"
                             tools:ignore="UselessLeaf">
 
@@ -483,14 +500,14 @@
                                 android:id="@+id/BMI"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginTop="20dp"
+                                android:fontFamily="@font/nunito_bold"
                                 android:text="@string/bmi"
                                 android:textColor="@color/black"
-                                android:fontFamily="@font/nunito_bold"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText" />
@@ -506,11 +523,11 @@
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:fontFamily="@font/nunito_bold"
                                     android:text="15.7"
                                     android:textColor="@color/black"
-                                    android:fontFamily="@font/nunito_bold"
                                     android:textSize="20sp"
-                                    android:layout_marginStart="20dp"
                                     android:textStyle="bold"
                                     tools:ignore="HardcodedText" />
 
@@ -538,7 +555,7 @@
                                         android:fontFamily="@font/nunito_bold"
                                         android:text="Severely underweight"
                                         android:textColor="@color/black"
-                                        android:textSize="16sp"
+                                        android:textSize="14sp"
                                         tools:ignore="HardcodedText" />
 
                                 </RelativeLayout>
@@ -549,19 +566,19 @@
                                 android:id="@+id/rl_halfGauge"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_alignParentEnd="true"
+                                android:layout_below="@+id/rl_BMI"
                                 android:layout_alignParentStart="true"
-                                android:layout_below="@+id/rl_BMI">
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="20dp">
 
                                 <com.ekn.gruzer.gaugelibrary.HalfGauge
                                     android:id="@+id/halfGauge"
                                     android:layout_width="match_parent"
                                     android:layout_height="200dp"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_alignParentEnd="true"
                                     android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
                                     android:layout_marginStart="20dp"
                                     tools:ignore="MissingClass" />
 
@@ -570,38 +587,38 @@
                             <RelativeLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@+id/rl_halfGauge"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginTop="10dp"
-                                android:layout_below="@+id/rl_halfGauge"
-                                android:layout_alignParentBottom="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentStart="true"
                                 tools:ignore="NotSibling">
 
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/Height"
-                                    android:textStyle="bold"
                                     android:layout_alignParentStart="true"
-                                    android:layout_alignParentBottom="true"
                                     android:layout_alignParentTop="true"
-                                    android:textSize="20sp"
-                                    android:textColor="@color/text"
+                                    android:layout_alignParentBottom="true"
                                     android:fontFamily="@font/nunito_bold"
-                                    tools:ignore="HardcodedText,RelativeOverlap"/>
+                                    android:text="@string/Height"
+                                    android:textColor="@color/text"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText,RelativeOverlap" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="224cm"
-                                    android:textSize="25sp"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:layout_marginEnd="20dp"
+                                    android:layout_alignParentTop="true"
                                     android:layout_alignParentEnd="true"
                                     android:layout_alignParentBottom="true"
-                                    android:layout_alignParentTop="true"
+                                    android:layout_marginEnd="20dp"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:text="224cm"
+                                    android:textColor="@color/black"
+                                    android:textSize="25sp"
                                     tools:ignore="HardcodedText,SpUsage" />
                             </RelativeLayout>
 

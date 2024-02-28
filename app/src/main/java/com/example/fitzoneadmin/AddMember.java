@@ -3,6 +3,9 @@ package com.example.fitzoneadmin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -291,32 +294,42 @@ public class AddMember extends AppCompatActivity {
     }
 
     // Method to save user data to Firestore
-    private void saveUserDataToFirestore(String uid, String username, Map<String, Object> userData) {
-        // Add the UID to the user data
-//        userData.put("uid", uid);
+//    private void saveUserDataToFirestore(String uid, String username, Map<String, Object> userData) {
+//        // Add the UID to the user data
+////        userData.put("uid", uid);
+//
+//        // Save the user data to Firestore
+//        db.collection("users").document(username).set(userData)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        progressDialog.dismiss(); // Dismiss the ProgressDialog
+//
+//                        Toast.makeText(AddMember.this, "User data saved successfully", Toast.LENGTH_SHORT).show();
+//                        startActivity(new Intent(AddMember.this,Fragment_Member_list.class));
+//                        // Clear the input fields after successful data saving
+////                        clearInputFields();
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        progressDialog.dismiss(); // Dismiss the ProgressDialog
+//
+//                        Toast.makeText(AddMember.this, "Failed to save user data", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//    }
 
-        // Save the user data to Firestore
-        db.collection("users").document(username).set(userData)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        progressDialog.dismiss(); // Dismiss the ProgressDialog
+    public void loadFragment(Fragment fragment, boolean flag)
+    {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if(flag)
+            ft.add(R.id.fragment_container,fragment);
+        else
+            ft.replace(R.id.fragment_container,fragment);
+        ft.commit();
 
-                        Toast.makeText(AddMember.this, "User data saved successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddMember.this,Fragment_Member_list.class));
-                        // Clear the input fields after successful data saving
-//                        clearInputFields();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss(); // Dismiss the ProgressDialog
-
-                        Toast.makeText(AddMember.this, "Failed to save user data", Toast.LENGTH_SHORT).show();
-                    }
-                });
     }
-
-
 }

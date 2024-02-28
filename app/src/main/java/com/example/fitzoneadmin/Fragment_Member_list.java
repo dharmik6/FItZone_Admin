@@ -11,11 +11,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -36,7 +39,8 @@ public class Fragment_Member_list extends Fragment {
     private MemberAdapter adapter;
     private List<MemberList> memberList;
     ProgressDialog progressDialog;
-    EditText searchbar;
+    SearchView searchbar;
+    private List<MemberList> originalMemberList;
 
 
 
@@ -49,19 +53,15 @@ public class Fragment_Member_list extends Fragment {
 
         // Initialize search bar
         searchbar = view.findViewById(R.id.searchbar);
+// Set a listener on the search bar
 
-        view.findViewById(R.id.linearLayout2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), AddMember.class));
-            }
-        });
         recyclerView = view.findViewById(R.id.recyc_members);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         memberList = new ArrayList<>();
-        adapter = new MemberAdapter(memberList);
+        originalMemberList = new ArrayList<>();
+        adapter = new MemberAdapter(getContext(),memberList);
         recyclerView.setAdapter(adapter);
 
         // Show ProgressDialog
@@ -76,7 +76,12 @@ public class Fragment_Member_list extends Fragment {
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                 String name = documentSnapshot.getString("name");
                 String email = documentSnapshot.getString("email");
-                memberList.add(new MemberList(name, email));
+                String image = documentSnapshot.getString("image");
+                String uid = documentSnapshot.getString("name");
+//                memberList.add(new MemberList(name, email,image));
+                MemberList member = new MemberList(name, email,image,uid);
+                memberList.add(member);
+                originalMemberList.add(member); // Add to both lists
             }
 
             adapter.notifyDataSetChanged();
@@ -87,13 +92,17 @@ public class Fragment_Member_list extends Fragment {
         }).addOnFailureListener(e -> {
             // Handle failures
 
-            // Dismiss ProgressDialog on failure
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
         });
+
+
         return view; // Return the inflated view
     }
+
+
+
     public void loadFragment(Fragment fragment, boolean flag) {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

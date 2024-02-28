@@ -1,76 +1,151 @@
 package com.example.fitzoneadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatTextView;
+//import matplotlib.pyplot as plt
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.ekn.gruzer.gaugelibrary.HalfGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MembersDataProfile extends AppCompatActivity {
-
+    MaterialTextView data_name,data_username;
+    CircleImageView data_image;
+    AppCompatTextView data_cur_weight,data_activity,data_gender,data_height,data_weight;
+    LineChart lineChart;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members_data_profile);
+        // Initialize your TextView elements
+        data_name = findViewById(R.id.data_name);
+        data_username = findViewById(R.id.data_username);
+        data_activity = findViewById(R.id.data_activity);
+        data_gender = findViewById(R.id.data_gender);
+        data_height = findViewById(R.id.data_height);
+        data_weight = findViewById(R.id.data_weight);
+        data_cur_weight = findViewById(R.id.data_cur_weight);
+        data_image = findViewById(R.id.data_image);
+        lineChart = findViewById(R.id.lineChart);
 
-        ImageView backPress = findViewById(R.id.back_press);
-        backPress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
+        Intent intent = getIntent();
+        String memberid = intent.getStringExtra("uid");
+        String memberemailid = intent.getStringExtra("email");
+
+        // Query Firestore for data
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                String membername = documentSnapshot.getString("name");
+                String memberusername = documentSnapshot.getString("username");
+                String memberactivity = documentSnapshot.getString("activity");
+                String membergoal = documentSnapshot.getString("goal");
+                String memberweight = documentSnapshot.getString("weight");
+                String memberheight = documentSnapshot.getString("height");
+                String memberimage = documentSnapshot.getString("image");
+
+//                 Check if the userNameFromIntent matches the user
+                if (memberid.equals(membername)) {
+                    // Display the data only if they match
+                    data_name.setText(membername != null ? membername : "No name");
+                    data_username.setText(memberusername != null ? memberusername : "No username");
+                    data_activity.setText(memberactivity != null ? memberactivity : "No activity");
+                    data_weight.setText(memberweight != null ? memberweight : "No address");
+                    data_height.setText(memberheight != null ? memberheight : "No age");
+                    data_gender.setText(membergoal != null ? membergoal : "No gender");
+                    data_cur_weight.setText(memberweight != null ? memberweight : "No gender");
+                    if (memberimage != null) {
+                        Glide.with(MembersDataProfile.this)
+                                .load(memberimage)
+                                .into(data_image);
+                    }
+                } else {
+                    // userNameFromIntent and user don't match, handle accordingly
+//                    showToast("User data does not match the intent.");
+                }
             }
         });
 
-        // BMI chat java code code
-
-        HalfGauge halfGauge = findViewById(R.id.halfGauge);
-
-        double value = 0; // Set your value here
-
-        Range range1= new Range();
-        range1.setColor(Color.parseColor("#2739C9"));
-        range1.setFrom(15);
-        range1.setTo(16);
-        halfGauge.addRange(range1);
+        // Create a list of entries representing the data points on the chart
+        // Create a list of entries representing the data points on the chart
+        List<Entry> entries = new ArrayList<>();
+        entries.add(new Entry(0, 10));
+        entries.add(new Entry(1, 20));
+        entries.add(new Entry(2, 15));
+        entries.add(new Entry(3, 25));
+        entries.add(new Entry(4, 300));
 
 
-        Range range2= new Range();
-        range2.setColor(Color.parseColor("#3977F0"));
-        range2.setFrom(16.0);
-        range2.setTo(18.5);
-        halfGauge.addRange(range2);
+        // Create a dataset from the entries
+        LineDataSet dataSet = new LineDataSet(entries, "Label for the dataset");
+        dataSet.setColor(Color.BLUE); // Set the color of the line
+        dataSet.setValueTextColor(Color.RED); // Set the color of the values
+        dataSet.setLineWidth(2f); // Set the width of the line
 
-        Range range3= new Range();
-        range3.setColor(Color.parseColor("#5CC2D8"));
-        range3.setFrom(18.5);
-        range3.setTo(25);
-        halfGauge.addRange(range3);
+        // Create a LineData object with the dataset
+        LineData lineData = new LineData(dataSet);
 
-        Range range4= new Range();
-        range4.setColor(Color.parseColor("#F7CC4A"));
-        range4.setFrom(25);
-        range4.setTo(30.0);
-        halfGauge.addRange(range4);
+        // Set the data to the chart
+        lineChart.setData(lineData);
 
-        Range range5= new Range();
-        range5.setColor(Color.parseColor("#F29837"));
-        range5.setFrom(30.0);
-        range5.setTo(35.0);
-        halfGauge.addRange(range5);
+        // Customize the appearance of the chart
+        lineChart.getDescription().setEnabled(false); // Disable description
+        lineChart.setTouchEnabled(true); // Enable touch gestures
+        lineChart.setDragEnabled(true); // Enable drag and drop gestures
+        lineChart.setScaleEnabled(true); // Enable scaling gestures
+        lineChart.setPinchZoom(true); // Enable pinch zoom
+        lineChart.setDrawGridBackground(false); // Disable grid background
 
-        Range range6= new Range();
-        range6.setColor(Color.parseColor("#D8313B"));
-        range6.setFrom(35.0);
-        range6.setTo(40.0);
-        halfGauge.addRange(range6);
+        // Customize the X axis
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); // Position at the bottom
+        xAxis.setGranularity(1f); // Interval between each X axis value
 
-        halfGauge.setMinValue(15);
-        halfGauge.setMaxValue(40.0);
-        halfGauge.setValue(value);
+        // Customize the Y axis
+        YAxis yAxis = lineChart.getAxisLeft();
+        yAxis.setGranularity(5f); // Interval between each Y axis value
+// Set padding for the Y-axis
+        float padding = 5f; // Adjust this value as needed
+        float minYValue = yAxis.getAxisMinimum() - padding;
+        float maxYValue = yAxis.getAxisMaximum() + padding;
+        yAxis.setAxisMinimum(minYValue);
+        yAxis.setAxisMaximum(maxYValue);
+
+// Format the values on the Y axis
+        yAxis.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getAxisLabel(float value, AxisBase axis) {
+                return String.valueOf((int) value); // Format as integer
+            }
+        });
+
+        // Disable the right Y axis
+        lineChart.getAxisRight().setEnabled(false);
+
+        // Invalidate the chart to refresh
+        lineChart.invalidate();
 
 
     }

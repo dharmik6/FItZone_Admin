@@ -16,12 +16,12 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberAdapter extends RecyclerView.Adapter<MemberViewHolder> {
+public class MemberDataAdapter extends RecyclerView.Adapter<MemberDataViewHolder> {
     private List<MemberList> memberList;
     Context context;
     private List<MemberList> memberListFull;
 
-    public MemberAdapter(Context context, List<MemberList> memberList){
+    public MemberDataAdapter(Context context, List<MemberList> memberList){
         this.memberList = memberList;
         this.context=context;
         memberListFull = new ArrayList<>(memberList);
@@ -34,16 +34,16 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberViewHolder> {
     }
     @NonNull
     @Override
-    public MemberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.member_list_item, parent, false);
-        return new MemberViewHolder(view);
+    public MemberDataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.member_data_list_item, parent, false);
+        return new MemberDataViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MemberViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MemberDataViewHolder holder, int position) {
         MemberList member = memberList.get(position);
-        holder.textName.setText(member.getName());
-        holder.textEmail.setText(member.getEmail());
+        holder.textDataName.setText(member.getName());
+        holder.textDataEmail.setText(member.getEmail());
 
         // Check if the context is not null before loading the image
         if (context != null) {
@@ -52,7 +52,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberViewHolder> {
                     .load(member.getImage()) // Assuming getImage() returns the URL of the image
                     .apply(RequestOptions.circleCropTransform()) // Apply circle crop transformation for CircleImageView
                     .diskCacheStrategy(DiskCacheStrategy.ALL) // Cache image to disk
-                    .into(holder.textImage); // Load image into CircleImageView
+                    .into(holder.textDataImage); // Load image into CircleImageView
         }
 
         // Get the context from the parent view
@@ -66,7 +66,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberViewHolder> {
                     MemberList item = memberList.get(position);
 
                     // Create an intent to start the MembersProfile activity
-                    Intent intent = new Intent(context, MembersProfile.class);
+                    Intent intent = new Intent(context, MembersDataProfile.class);
                     // Pass data to the intent
                     intent.putExtra("image", item.getImage());
                     intent.putExtra("uid", item.getId());
@@ -91,4 +91,5 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberViewHolder> {
         return memberList.size();
     }
 }
+
 
