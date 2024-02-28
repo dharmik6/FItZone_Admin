@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/back_ground"
     android:orientation="vertical"
-    tools:context=".AddTrainer">
+    tools:context=".UpdateAccount">
 
 
     <RelativeLayout
@@ -20,9 +20,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
+            android:background="@color/dark_blue"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/dark_blue"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints">
 
@@ -43,11 +43,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
+                android:gravity="center"
                 android:layout_toStartOf="@+id/back"
                 android:layout_toEndOf="@+id/back"
                 android:fontFamily="@font/opensans_bold"
-                android:gravity="center"
-                android:text="@string/add_trainer"
+                android:text="Edit profile"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -60,8 +60,8 @@
                 android:id="@+id/settings"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="10dp"
+                android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_popup_menu"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -136,11 +136,10 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginVertical="20dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:backgroundTint="@color/card_view"
                         android:elevation="10dp"
+                        android:backgroundTint="@color/card_view"
                         android:shadowColor="@color/black"
                         app:cardCornerRadius="20dp">
 
@@ -151,26 +150,12 @@
                             android:orientation="vertical"
                             tools:ignore="ScrollViewSize">
 
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:paddingStart="15dp"
-                                android:text="@string/trainer_information"
-                                android:textColor="@color/text"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
-
-
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
                                 android:layout_marginTop="25dp"
                                 android:fontFamily="@font/opensans_bold"
+                                android:layout_marginStart="25dp"
                                 android:text="@string/Name"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -184,8 +169,8 @@
                                 android:layout_marginEnd="15dp"
                                 android:background="@drawable/text_bg"
                                 android:fontFamily="@font/opensans_bold"
-                                android:hint="@string/Name"
                                 android:inputType="text"
+                                android:hint="@string/Name"
                                 android:padding="10dp"
                                 android:paddingStart="15dp"
                                 android:textColor="@color/black"
@@ -194,13 +179,12 @@
                                 app:cardCornerRadius="10dp"
                                 tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
-
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
                                 android:layout_marginTop="25dp"
                                 android:fontFamily="@font/opensans_bold"
+                                android:layout_marginStart="25dp"
                                 android:text="@string/Email"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -227,9 +211,9 @@
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
                                 android:layout_marginTop="25dp"
                                 android:fontFamily="@font/opensans_bold"
+                                android:layout_marginStart="25dp"
                                 android:text="@string/Mobile"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -256,38 +240,9 @@
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
                                 android:layout_marginTop="25dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:text="@string/password"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry" />
-
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-                                android:background="@drawable/text_bg"
-                                android:fontFamily="@font/opensans_bold"
-                                android:hint="@string/password"
-                                android:inputType="text"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/text"
-                                android:textSize="18sp"
-                                app:cardCornerRadius="10dp"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-
-                            <androidx.appcompat.widget.AppCompatCheckedTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_marginStart="25dp"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
                                 android:text="@string/Address"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -314,9 +269,9 @@
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
                                 android:layout_marginTop="25dp"
                                 android:fontFamily="@font/opensans_bold"
+                                android:layout_marginStart="25dp"
                                 android:text="@string/Gender"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -328,98 +283,14 @@
                                 android:layout_marginStart="15dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="15dp"
-                                android:background="@drawable/text_bg"
-                                android:fontFamily="@font/opensans_bold"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/black"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-
-                            <androidx.appcompat.widget.AppCompatCheckedTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:text="@string/specialist"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry" />
-
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20sp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-                                android:background="@drawable/text_bg"
-                                android:fontFamily="@font/opensans_bold"
-                                android:hint="@string/specialist"
-                                android:inputType="text"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/text"
-                                android:textSize="18sp"
-                                app:cardCornerRadius="10dp"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-
-
-                            <androidx.appcompat.widget.AppCompatCheckedTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:inputType="text"
-                                android:text="@string/Exercises"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-
-                            <Spinner
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-
-                                android:background="@drawable/text_bg"
-                                android:fontFamily="@font/opensans_bold"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/black"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
-
-                            <androidx.appcompat.widget.AppCompatCheckedTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="25dp"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:text="@string/bio"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry" />
-
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
                                 android:layout_marginBottom="20dp"
                                 android:background="@drawable/text_bg"
                                 android:fontFamily="@font/opensans_bold"
-                                android:hint="@string/bio"
-                                android:inputType="textMultiLine"
                                 android:padding="10dp"
                                 android:paddingStart="15dp"
                                 android:textColor="@color/black"
-                                android:textColorHint="@color/text"
-                                android:textSize="18sp"
-                                app:cardCornerRadius="10dp"
                                 tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+
 
 
 
@@ -435,10 +306,6 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="25dp"
                         android:layout_marginBottom="20dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:paddingTop="12dp"
-                        android:paddingBottom="12dp"
                         android:background="@drawable/btn_background"
                         android:elevation="@dimen/button_elevation"
                         android:fontFamily="@font/opensans_bold"

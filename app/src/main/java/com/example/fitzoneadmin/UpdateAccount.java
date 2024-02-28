@@ -1,13 +1,14 @@
 package com.example.fitzoneadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class AddTrainer extends AppCompatActivity {
+public class UpdateAccount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_trainer);
+        setContentView(R.layout.activity_update_account);
     }
 }
