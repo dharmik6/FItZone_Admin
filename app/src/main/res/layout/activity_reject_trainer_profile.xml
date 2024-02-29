@@ -8,7 +8,7 @@
     tools:context=".RejectTrainerProfile">
 
     <ImageView
-        android:id="@+id/trainer_img"
+        android:id="@+id/reject_img"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
@@ -43,7 +43,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/trainer_img"
+        android:layout_below="@+id/reject_img"
         android:layout_marginTop="280dp"
         android:background="@drawable/profile_information_bg"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -103,7 +103,7 @@
 
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/trainer_name"
+                                android:id="@+id/reject_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
@@ -116,7 +116,7 @@
                                 tools:ignore="HardcodedText" />
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/Functional_Strength"
+                                android:id="@+id/reject_specialization"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/trainer_name"
@@ -209,6 +209,7 @@
                             </LinearLayout>
 
                             <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/reject_change"
                                 android:layout_width="100dp"
                                 android:layout_height="40dp"
                                 android:layout_alignParentEnd="true"
@@ -256,6 +257,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/reject_email"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -288,6 +290,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/reject_number"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -320,6 +323,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/reject_gender"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -352,6 +356,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/reject_boi"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -384,6 +389,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/reject_address"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -416,6 +422,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/reject_date"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -448,6 +455,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/reject_experience"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -465,6 +473,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="10dp"
+                                    android:paddingBottom="20dp"
                                     android:src="@drawable/ic_line"
                                     tools:ignore="ContentDescription" />
 
@@ -474,7 +483,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/document"
+                        android:id="@+id/reject_document"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/information"
@@ -519,10 +528,11 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/document"
+                        android:layout_below="@+id/reject_document"
                         android:layout_marginBottom="20dp">
 
                         <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/reject_button"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_alignParentStart="true"

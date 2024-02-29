@@ -19,43 +19,44 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
-    private List<MemberList> memberList;
+public class TrainersAdapter extends RecyclerView.Adapter<TrainersAdapter.ViewHolder> {
+    private List<TrainersList> trainersLists;
     Context context;
-    private List<MemberList> memberListFull;
+    private List<TrainersList> memberListFull;
 
-    public MemberAdapter(Context context, List<MemberList> memberList){
-        this.memberList = memberList;
+    public TrainersAdapter(Context context, List<TrainersList> trainersLists){
+        this.trainersLists = trainersLists;
         this.context=context;
-        memberListFull = new ArrayList<>(memberList);
+        memberListFull = new ArrayList<>(trainersLists);
 
     }
 
-    public void filterList(List<MemberList> filteredList) {
-        memberList = filteredList;
+    public void filterList(List<TrainersList> filteredList) {
+        trainersLists = filteredList;
         notifyDataSetChanged();
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.member_list_item, parent, false);
-        return new ViewHolder(view);
+        View tra = LayoutInflater.from(parent.getContext()).inflate(R.layout.trainer_pending_list_item, parent, false);
+        return new ViewHolder(tra);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        MemberList member = memberList.get(position);
-        holder.textName.setText(member.getName());
-        holder.textEmail.setText(member.getEmail());
+        TrainersList member = trainersLists.get(position);
+        holder.textTname.setText(member.getTname());
+        holder.textexperience.setText(member.getExperience());
+        holder.textspecialization.setText(member.getSpecialization());
 
         // Check if the context is not null before loading the image
         if (context != null) {
             // Load image into CircleImageView using Glide library
             Glide.with(context)
-                    .load(member.getImage()) // Assuming getImage() returns the URL of the image
+                    .load(member.getTimage()) // Assuming getImage() returns the URL of the image
                     .apply(RequestOptions.circleCropTransform()) // Apply circle crop transformation for CircleImageView
                     .diskCacheStrategy(DiskCacheStrategy.ALL) // Cache image to disk
-                    .into(holder.textImage); // Load image into CircleImageView
+                    .into(holder.textTimage); // Load image into CircleImageView
         }
 
         // Get the context from the parent view
@@ -66,16 +67,15 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                    MemberList item = memberList.get(position);
+                    TrainersList item = trainersLists.get(position);
 
                     // Create an intent to start the MembersProfile activity
-                    Intent intent = new Intent(context, MembersProfile.class);
+                    Intent intent = new Intent(context, PenddingTrainerProfile.class);
                     // Pass data to the intent
-                    intent.putExtra("image", item.getImage());
-                    intent.putExtra("uid", item.getId());
-                    intent.putExtra("name", item.getName());
-                    intent.putExtra("username", item.getUsername());
-                    intent.putExtra("email", item.getEmail());
+                    intent.putExtra("image", item.getTimage());
+                    intent.putExtra("name", item.getTname());
+                    intent.putExtra("specialization", item.getSpecialization());
+                    intent.putExtra("experience", item.getExperience());
 //                    intent.putExtra("number", item.getNumber());
 //                    intent.putExtra("gender", item.getGender());
 //                    intent.putExtra("age", item.getAge());
@@ -91,21 +91,23 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     }
     @Override
     public int getItemCount() {
-        return memberList.size();
+        return trainersLists.size();
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textName;
-        public CircleImageView textImage;
-        public TextView textEmail;
+        public TextView textTname;
+        public CircleImageView textTimage;
+        public TextView textspecialization;
+        public TextView textexperience;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textName = itemView.findViewById(R.id.name_members);
-            textEmail = itemView.findViewById(R.id.email_members);
-            textImage = itemView.findViewById(R.id.image_members);
+            textTname = itemView.findViewById(R.id.trainer_name);
+            textexperience = itemView.findViewById(R.id.trainer_experience);
+            textspecialization = itemView.findViewById(R.id.trainer_specialization);
+            textTimage = itemView.findViewById(R.id.trainer_image);
         }
     }
 }
+
 

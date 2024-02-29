@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/trainer_img"
+        android:id="@+id/approve_img"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
@@ -103,7 +103,7 @@
 
 
                                 <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/trainer_name"
+                                    android:id="@+id/approve_name"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentStart="true"
@@ -116,7 +116,7 @@
                                     tools:ignore="HardcodedText" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/Functional_Strength"
+                                    android:id="@+id/approve_specialization"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/trainer_name"
@@ -133,6 +133,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:paddingEnd="10dp"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentEnd="true"
@@ -211,6 +212,7 @@
                                 </LinearLayout>
 
                                 <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/app_change"
                                     android:layout_width="100dp"
                                     android:layout_height="40dp"
                                     android:layout_alignParentEnd="true"
@@ -258,6 +260,7 @@
                                         tools:ignore="HardcodedText,SpUsage" />
 
                                     <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/approve_email"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -290,6 +293,7 @@
                                         tools:ignore="HardcodedText,SpUsage" />
 
                                     <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/approve_number"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -323,6 +327,7 @@
                                         tools:ignore="HardcodedText,SpUsage" />
 
                                     <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/approve_gender"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -356,6 +361,7 @@
                                         tools:ignore="HardcodedText,SpUsage" />
 
                                     <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/approve_boi"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -389,6 +395,7 @@
                                         tools:ignore="HardcodedText,SpUsage" />
 
                                     <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/approve_address"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -422,6 +429,7 @@
                                         tools:ignore="HardcodedText,SpUsage" />
 
                                     <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/approve_date"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -455,6 +463,7 @@
                                         tools:ignore="HardcodedText,SpUsage" />
 
                                     <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/approve_experience"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -473,6 +482,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="10dp"
+                                        android:paddingBottom="20dp"
                                         android:src="@drawable/ic_line"
                                         tools:ignore="ContentDescription" />
 
@@ -484,7 +494,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/document"
+                            android:id="@+id/approve_document"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/information"
@@ -529,10 +539,11 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/document"
+                            android:layout_below="@+id/approve_document"
                             android:layout_marginBottom="20dp">
 
                             <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/approve_approve"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_alignParentStart="true"

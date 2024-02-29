@@ -1,64 +1,92 @@
 package com.example.fitzoneadmin;
 
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentRejectedList#newInstance} factory method to
+ * Use the {@link FragmentApprovedList#} factory method to
  * create an instance of this fragment.
  */
 public class FragmentRejectedList extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    // Inside FragmentMember class
+    private RecyclerView rec_rejected;
+    private RejectedAdapter adapter;
+    private List<TrainersList> trainersLists;
+    ProgressDialog progressDialog;
+    SearchView searchbar;
+//    private List<MemberList> originalMemberList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentRejectedList() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentRejectedList.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentRejectedList newInstance(String param1, String param2) {
-        FragmentRejectedList fragment = new FragmentRejectedList();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rejected_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_rejected_list, container, false);
+
+        // Initialize search bar
+//        searchbar = view.findViewById(R.id.searchbar);
+// Set a listener on the search bar
+
+        rec_rejected = view.findViewById(R.id.rec_rejected);
+        rec_rejected.setHasFixedSize(true);
+        rec_rejected.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        trainersLists = new ArrayList<>();
+//        originalMemberList = new ArrayList<>();
+        adapter = new RejectedAdapter(getContext(),trainersLists);
+        rec_rejected.setAdapter(adapter);
+
+        // Show ProgressDialog
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        // Query Firestore for data
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("trainers").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                String tname = documentSnapshot.getString("name");
+                String experience = documentSnapshot.getString("experience");
+                String timage = documentSnapshot.getString("image");
+                String specialization = documentSnapshot.getString("specialization");
+                String review = documentSnapshot.getString("review");
+//                memberList.add(new MemberList(name, email,image));
+                TrainersList member = new TrainersList(tname, experience,timage,specialization,review);
+                trainersLists.add(member);
+//                originalMemberList.add(member); // Add to both lists
+            }
+
+            adapter.notifyDataSetChanged();
+            // Dismiss ProgressDialog when data is loaded
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        }).addOnFailureListener(e -> {
+            // Handle failures
+
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        });
+        return view;
     }
 }

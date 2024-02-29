@@ -250,9 +250,10 @@ public class AddMember extends AppCompatActivity {
                         progressDialog.dismiss(); // Dismiss the ProgressDialog
 
                         Toast.makeText(AddMember.this, "User data saved successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddMember.this,Fragment_Member_list.class));
+//                        startActivity(new Intent(AddMember.this,Fragment_Member_list.class));
                         // Clear the input fields after successful data saving
 //                        clearInputFields();
+                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +17,9 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberDataAdapter extends RecyclerView.Adapter<MemberDataViewHolder> {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class MemberDataAdapter extends RecyclerView.Adapter<MemberDataAdapter.ViewHolder> {
     private List<MemberList> memberList;
     Context context;
     private List<MemberList> memberListFull;
@@ -34,13 +37,13 @@ public class MemberDataAdapter extends RecyclerView.Adapter<MemberDataViewHolder
     }
     @NonNull
     @Override
-    public MemberDataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.member_data_list_item, parent, false);
-        return new MemberDataViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MemberDataViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MemberList member = memberList.get(position);
         holder.textDataName.setText(member.getName());
         holder.textDataEmail.setText(member.getEmail());
@@ -89,6 +92,19 @@ public class MemberDataAdapter extends RecyclerView.Adapter<MemberDataViewHolder
     @Override
     public int getItemCount() {
         return memberList.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView textDataName;
+        public CircleImageView textDataImage;
+        public TextView textDataEmail;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textDataName = itemView.findViewById(R.id.name_data_member);
+            textDataEmail = itemView.findViewById(R.id.email_data_member);
+            textDataImage = itemView.findViewById(R.id.image_data_member);
+        }
     }
 }
 
