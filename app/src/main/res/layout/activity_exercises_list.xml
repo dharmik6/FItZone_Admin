@@ -85,7 +85,7 @@
             tools:ignore="MissingConstraints,UselessParent">
 
             <EditText
-                android:id="@+id/searchbar"
+                android:id="@+id/exe_searchbar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
@@ -120,6 +120,7 @@
 
 
             <LinearLayout
+                android:id="@+id/add_exe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -175,6 +176,7 @@
                     tools:ignore="UselessLeaf,UselessParent">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/exe_recyc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollbars="vertical"

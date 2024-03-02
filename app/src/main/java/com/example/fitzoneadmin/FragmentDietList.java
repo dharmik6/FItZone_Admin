@@ -1,64 +1,89 @@
 package com.example.fitzoneadmin;
 
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentDietList#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class FragmentDietList extends Fragment {
+    RelativeLayout rl_add_diet;
+    RecyclerView diet_recyc;
+    EditText diet_searchbar;
+    private DietAdapter adapter;
+    private List<DietList> dietLists;
+    private ProgressDialog progressDialog;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentDietList() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentDietList.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentDietList newInstance(String param1, String param2) {
-        FragmentDietList fragment = new FragmentDietList();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_diet_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_diet_list, container, false);
+
+        rl_add_diet = view.findViewById(R.id.rl_add_diet); // Initialize rl_add_diet here
+        rl_add_diet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the activity from the fragment
+                Intent intent = new Intent(getActivity(), AddDiet.class);
+                startActivity(intent);
+            }
+        });
+
+        diet_recyc = view.findViewById(R.id.diet_recyc); // Initialize diet_recyc
+        diet_recyc.setHasFixedSize(true);
+        diet_recyc.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        dietLists = new ArrayList<>(); // Initialize dietLists
+
+        adapter = new DietAdapter(getContext(), dietLists); // Use correct adapter
+        diet_recyc.setAdapter(adapter);
+
+        // Show ProgressDialog
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        // Query Firestore for data
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("diets").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                String name = documentSnapshot.getString("name");
+                String description = documentSnapshot.getString("description");
+                String image = documentSnapshot.getString("imageUrl");
+                DietList diet = new DietList(name, description, image);
+                dietLists.add(diet);
+            }
+
+            adapter.notifyDataSetChanged();
+            // Dismiss ProgressDialog when data is loaded
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        }).addOnFailureListener(e -> {
+            // Handle failures
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        });
+
+        return view;
     }
 }

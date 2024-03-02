@@ -45,7 +45,7 @@ public class MembersProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members_profile);
 
-        user_update = findViewById(R.id.user_update);
+//        user_update = findViewById(R.id.user_update);
         user_delete = findViewById(R.id.user_delete);
 
         // Initialize your TextView elements
@@ -112,12 +112,7 @@ public class MembersProfile extends AppCompatActivity {
             }
         });
 
-        user_update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MembersProfile.this, AddMember.class));
-            }
-        });
+
         user_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -17,4 +17,17 @@
         <item>Get fitter</item>
         <item>Gain more flexible</item>
     </string-array>
+
+    <string-array name="exe_array">
+        <item>Chest</item>
+        <item>Back</item>
+        <item>Arms biceps </item>
+        <item>Arms triceps</item>
+        <item>Legs calves</item>
+        <item>Legs hamstrings</item>
+        <item>Legs quadriceps</item>
+        <item>Core abdominals</item>
+        <item>Core lowerback</item>
+    </string-array>
+
 </resources>

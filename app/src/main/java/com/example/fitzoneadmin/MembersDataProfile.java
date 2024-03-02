@@ -41,7 +41,7 @@ public class MembersDataProfile extends AppCompatActivity {
         setContentView(R.layout.activity_members_data_profile);
         // Initialize your TextView elements
         data_name = findViewById(R.id.data_name);
-        data_username = findViewById(R.id.data_username);
+//        data_username = findViewById(R.id.data_username);
         data_activity = findViewById(R.id.data_activity);
         data_gender = findViewById(R.id.data_gender);
         data_height = findViewById(R.id.data_height);
