@@ -70,7 +70,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <SearchView
+      <!--  <SearchView
             android:id="@+id/searchbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,13 +82,13 @@
             android:layout_below="@+id/linearLayout"
 
             />
-
+-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/searchbar"
+            android:layout_below="@+id/linearLayout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

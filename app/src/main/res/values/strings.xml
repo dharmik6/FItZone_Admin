@@ -119,7 +119,7 @@
     <string name="booking_id">Booking ID</string>
     <string name="trainer_name">Trainer Name</string>
     <string name="member_name">Member Name </string>
-    <string name="booking_time">Booking time</string>
+    <string name="booking_date">Booking date</string>
     <string name="status">Status</string>
     <string name="payments_details">Payments Details </string>
     <string name="payment_id">Payment ID</string>
@@ -128,6 +128,8 @@
     <string name="payment_date">Payment Date</string>
     <string name="see_all_details">See all details</string>
     <string name="cancel_request">Cancel request</string>
+    <string name="Booking_start_time">Booking start time</string>
+    <string name="Booking_end_time">Booking end time</string>
 
     <!--Workout plans-->
     <string name="workout_plans">Workout plans</string>

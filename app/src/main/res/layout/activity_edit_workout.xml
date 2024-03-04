@@ -87,23 +87,102 @@
             android:layout_alignParentEnd="true"
             tools:ignore="ObsoleteLayoutParam">
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/ll_plan_name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="UselessParent">
+                android:scrollbars="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                tools:ignore="UselessLeaf">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Workout plan name"
-                android:textColor="@color/black"
-                android:fontFamily="@font/opensans_bold"
-                android:textSize="22sp"
-                tools:ignore="HardcodedText" />
+                <LinearLayout
+                    android:id="@+id/workout_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
 
-            </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Workout plan name"
+                        android:fontFamily="@font/opensans_bold"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0 exercises"
+                        android:fontFamily="@font/nunito_bold"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="16sp"
+                        android:textColor="@color/text"
+                        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_user"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/dumbbell_img"
+                        app:civ_border_color="@color/text"
+                        app:civ_border_width="1dp"
+                        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            app:cardCornerRadius="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="60dp"
+                            android:backgroundTint="#3D5872"
+                            android:background="@drawable/camera_bg">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginStart="5dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_photo_camera"
+                                tools:ignore="ContentDescription" />
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/plan_list"

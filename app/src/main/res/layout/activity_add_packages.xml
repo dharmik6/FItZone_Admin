@@ -67,30 +67,31 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
         tools:ignore="SpeakableTextPresentCheck">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="ObsoleteLayoutParam">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:ignore="MissingConstraints">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                tools:ignore="MissingConstraints,ObsoleteLayoutParam,ScrollViewSize">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
                     android:orientation="vertical"
                     tools:ignore="UselessParent">
 
@@ -214,10 +215,11 @@
 
                             <androidx.appcompat.widget.AppCompatEditText
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="100dp"
                                 android:layout_marginStart="15dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="15dp"
+                                android:gravity="top"
                                 android:layout_marginBottom="20dp"
                                 android:background="@drawable/text_bg"
                                 android:fontFamily="@font/opensans_bold"
@@ -232,8 +234,6 @@
                                 tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
 
-
-
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -242,7 +242,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="60dp"
                         android:layout_marginEnd="25dp"
                         android:background="@drawable/btn_background"
                         android:elevation="@dimen/button_elevation"
@@ -262,7 +262,6 @@
             </RelativeLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
