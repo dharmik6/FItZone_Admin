@@ -79,12 +79,14 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/data_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/people_imge"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/data_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -141,6 +143,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_height"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -149,8 +152,8 @@
                     android:padding="10dp"
                     android:fontFamily="@font/nunito_regular"
                     android:paddingStart="15dp"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:text="dharmik@gmail.com"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
@@ -173,6 +176,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -181,7 +185,7 @@
                     android:padding="10dp"
                     android:fontFamily="@font/nunito_regular"
                     android:paddingStart="15dp"
-                    android:text="0000000000"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -206,6 +210,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -238,6 +243,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/data_activity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -334,7 +340,9 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_alignParentStart="true"
                                     tools:ignore="HardcodedText,TooDeepLayout" />
+
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/data_cur_weight"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="60.6kg"
@@ -369,6 +377,7 @@
                                     android:textColor="@color/text"
                                     android:textSize="14sp"
                                     tools:ignore="HardcodedText,TooDeepLayout" />
+
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -381,6 +390,7 @@
                                     android:layout_alignParentBottom="true"
                                     tools:ignore="HardcodedText,TooDeepLayout" />
                             </RelativeLayout>
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -400,6 +410,7 @@
                                     android:fontFamily="@font/nunito_bold"
                                     android:textSize="14sp"
                                     tools:ignore="HardcodedText,TooDeepLayout" />
+
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"

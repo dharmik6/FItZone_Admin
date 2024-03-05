@@ -52,7 +52,31 @@
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/healthy_food_img"
                         tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/diet_item_image"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/healthy_food_img"
+                tools:ignore="ContentDescription" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/diet_item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Diet name"
+                android:layout_marginTop="160dp"
+                android:backgroundTint="#C4000000"
+                android:padding="10dp"
+                android:textSize="20dp"
+                android:paddingStart="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/text_bg"
+                tools:ignore="HardcodedText,RtlSymmetry,SpUsage" />
 
 
                     <RelativeLayout

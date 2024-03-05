@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
-        android:src="@drawable/demo2"
+        android:src="@drawable/people_imge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,6 +32,7 @@
 
 
         <ImageView
+            android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -70,51 +71,52 @@
                 android:orientation="vertical"
                 tools:ignore="ObsoleteLayoutParam,ScrollViewSize,UselessParent">
 
-                <RelativeLayout
-                    android:id="@+id/rl_Jennifer_James"
+            <RelativeLayout
+                android:id="@+id/rl_Jennifer_James"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="35dp"
+                android:orientation="vertical"
+                tools:ignore="ObsoleteLayoutParam">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/trainer_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginTop="35dp"
-                    android:orientation="vertical"
-                    tools:ignore="ObsoleteLayoutParam">
+                    android:fontFamily="@font/opensans_extrabold"
+                    android:text="Jennifer James"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/trainer_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:fontFamily="@font/opensans_extrabold"
-                        android:text="Jennifer James"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/Functional_Strength"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/trainer_name"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:fontFamily="@font/nunito_medium"
-                        android:text="Functional Strength"
-                        android:textColor="@color/dark_cyan"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                <!--                    Specialization-->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/trainer_specialization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/trainer_name"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/nunito_medium"
+                    android:text="Functional Strength"
+                    android:textColor="@color/dark_cyan"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/change"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="20dp"
-                        android:layout_below="@+id/Functional_Strength"
+                        android:layout_below="@+id/trainer_specialization"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="20dp"
@@ -162,32 +164,33 @@
                                     tools:ignore="HardcodedText,TooDeepLayout,TextContrastCheck" />
                             </LinearLayout>
 
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:layout_width="100dp"
-                                android:layout_height="40dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:background="@drawable/update_btn_bg"
-                                android:fontFamily="@font/nunito_bold"
-                                android:text="@string/change"
-                                android:textColor="@color/white"
-                                android:textSize="14sp"
-                                tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
-                        </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/mouny_change"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/update_btn_bg"
+                            android:fontFamily="@font/nunito_bold"
+                            android:text="@string/change"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+                    </RelativeLayout>
 
-                    </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/information"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/change"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:backgroundTint="@color/card_view"
-                        app:cardCornerRadius="20dp">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/change"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/card_view"
+                    app:cardCornerRadius="20dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -209,19 +212,20 @@
                                     android:textSize="16sp"
                                     tools:ignore="HardcodedText,SpUsage" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="Jennifer.James@example.com"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/trainer_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:text="Jennifer.James@example.com"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -241,26 +245,27 @@
                                     android:textSize="16sp"
                                     tools:ignore="HardcodedText,SpUsage" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="1234567890"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/trainer_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:text="1234567890"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:src="@drawable/ic_line"
-                                    tools:ignore="ContentDescription" />
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:src="@drawable/ic_line"
+                                tools:ignore="ContentDescription" />
 
 
                                 <androidx.appcompat.widget.AppCompatTextView
@@ -274,19 +279,20 @@
                                     android:textSize="16sp"
                                     tools:ignore="HardcodedText,SpUsage" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="female"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/trainer_gender"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:text="female"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -307,19 +313,20 @@
                                     android:textSize="16sp"
                                     tools:ignore="HardcodedText,SpUsage" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/trainer_boi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -340,19 +347,20 @@
                                     android:textSize="16sp"
                                     tools:ignore="HardcodedText,SpUsage" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="110, bhaktinagar socity, katargam,surat"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/trainer_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:text="110, bhaktinagar socity, katargam,surat"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -373,19 +381,20 @@
                                     android:textSize="16sp"
                                     tools:ignore="HardcodedText,SpUsage" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="21-5-2023"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/trainer_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:text="21-5-2023"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -406,19 +415,20 @@
                                     android:textSize="16sp"
                                     tools:ignore="HardcodedText,SpUsage" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="6 years"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/trainer_experience"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:padding="10dp"
+                                android:paddingStart="15dp"
+                                android:text="6 years"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
 
                                 <ImageView
@@ -436,16 +446,16 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/document"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/information"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/card_view"
-                        app:cardCornerRadius="20dp">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pendding_document"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/information"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/card_view"
+                    app:cardCornerRadius="20dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -481,43 +491,45 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/document"
-                        android:layout_marginBottom="20dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pendding_document"
+                    android:layout_marginBottom="20dp">
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="150dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="20dp"
-                            android:background="@drawable/update_btn_bg"
-                            android:fontFamily="@font/nunito_bold"
-                            android:text="@string/approve"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/approve"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/update_btn_bg"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="@string/approve"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="150dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="20dp"
-                            android:background="@drawable/delete_btn_bg"
-                            android:fontFamily="@font/nunito_bold"
-                            android:text="@string/reject"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,RelativeOverlap,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/reject"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/delete_btn_bg"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="@string/reject"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,RelativeOverlap,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     </RelativeLayout>
 

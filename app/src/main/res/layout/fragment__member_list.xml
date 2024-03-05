@@ -22,7 +22,7 @@
             tools:ignore="MissingConstraints">
 
             <com.mancj.materialsearchbar.MaterialSearchBar
-                android:id="@+id/searchbar"
+                android:id="@+id/user_searchbar"
                 style="@style/MaterialSearchBarLight"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/searchbar">
+                android:layout_below="@+id/user_searchbar">
 
                 <LinearLayout
                     android:layout_width="match_parent"

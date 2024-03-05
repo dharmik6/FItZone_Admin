@@ -8,21 +8,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import com.facebook.shimmer.ShimmerFrameLayout;
-
 @SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {
-
-    ShimmerFrameLayout shimmerFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
-        shimmerFrameLayout.startShimmer(); // Start shimmer animation
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        setContentView(R.layout.activity_splash_screen);
+
+        // on below line we are calling handler to run a task
+        // for specific time interval
         new Handler().postDelayed(() -> {
             // on below line we are
             // creating a new intent
@@ -35,6 +35,7 @@ public class SplashScreen extends AppCompatActivity {
             // on the below line we are finishing
             // our current activity.
             finish();
-        }, 4000);
+        }, 2001);
+
     }
 }

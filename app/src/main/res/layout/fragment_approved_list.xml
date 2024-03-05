@@ -19,7 +19,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintVertical_bias="0.114"
+            tools:ignore="MissingConstraints,UselessParent">
 
             <com.mancj.materialsearchbar.MaterialSearchBar
                 android:id="@+id/searchbar"
@@ -38,7 +39,6 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_below="@+id/searchbar">
 
                 <LinearLayout
@@ -50,6 +50,7 @@
                     tools:ignore="UselessLeaf">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/approved_recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollbars="vertical"
@@ -61,5 +62,4 @@
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

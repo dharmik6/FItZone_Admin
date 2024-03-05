@@ -13,15 +13,6 @@
         android:theme="@style/Theme.FitZoneAdmin"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateAccount"
-            android:exported="false" />
-        <activity
-            android:name=".RejectedMember"
-            android:exported="false" />
-        <activity
-            android:name=".RejectedMemberList"
-            android:exported="false" />
-        <activity
             android:name=".Notification"
             android:exported="false" />
         <activity

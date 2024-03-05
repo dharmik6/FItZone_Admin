@@ -1,14 +1,13 @@
 package com.example.fitzoneadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class RejectedMemberList extends AppCompatActivity {
+public class AddTrainer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rejected_member_list);
+        setContentView(R.layout.activity_add_trainer);
     }
 }

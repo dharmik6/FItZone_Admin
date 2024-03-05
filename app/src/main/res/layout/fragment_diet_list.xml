@@ -22,7 +22,7 @@
             tools:ignore="MissingConstraints">
 
             <com.mancj.materialsearchbar.MaterialSearchBar
-                android:id="@+id/searchbar"
+                android:id="@+id/diet_searchbar"
                 style="@style/MaterialSearchBarLight"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -42,9 +42,10 @@
                 android:layout_marginTop="20dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@+id/searchbar">
+                android:layout_below="@+id/diet_searchbar">
 
                 <LinearLayout
+                    android:id="@+id/add_diet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -91,6 +92,7 @@
                     tools:ignore="UselessLeaf">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/diet_recyc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollbars="vertical"

@@ -19,7 +19,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/back_press"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
@@ -36,14 +36,14 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:gravity="center"
-            android:layout_toStartOf="@+id/back"
-            android:layout_toEndOf="@+id/back"
+            android:layout_toStartOf="@+id/back_press"
+            android:layout_toEndOf="@+id/back_press"
             android:fontFamily="@font/opensans_bold"
             android:text="@string/add_diet"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintStart_toEndOf="@+id/back_press"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText" />
 
@@ -68,18 +68,18 @@
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
-        tools:ignore="SpeakableTextPresentCheck">
+        tools:ignore="SpeakableTextPresentCheck,UselessLeaf">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:ignore="ObsoleteLayoutParam,ScrollViewSize">
+            tools:ignore="ObsoleteLayoutParam,ScrollViewSize,UselessLeaf">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                tools:ignore="MissingConstraints">
+                tools:ignore="MissingConstraints,UselessLeaf">
 
                 <RelativeLayout
                     android:id="@+id/profile_layout"
@@ -113,7 +113,7 @@
                                 android:layout_height="200dp">
 
                                 <ImageView
-                                    android:id="@+id/exe_image"
+                                    android:id="@+id/diet_image"
                                     android:layout_width="300dp"
                                     android:layout_height="200dp"
                                     android:layout_centerHorizontal="true"
@@ -125,7 +125,7 @@
                         </RelativeLayout>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/exe_camera"
+                            android:id="@+id/diet_camera"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             app:cardCornerRadius="40dp"
@@ -167,7 +167,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="NotSibling">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
@@ -200,6 +201,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/diet_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -229,6 +231,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/diet_description"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -238,7 +241,7 @@
                                 android:background="@drawable/text_bg"
                                 android:fontFamily="@font/opensans_bold"
                                 android:hint="@string/description"
-                                android:inputType="phone"
+                                android:inputType="textMultiLine"
                                 android:padding="10dp"
                                 android:paddingStart="15dp"
                                 android:textColor="@color/black"
@@ -253,6 +256,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/diet_add"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"

@@ -77,12 +77,14 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/member_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/people_imge"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/member_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -93,6 +95,20 @@
                 android:textSize="25sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText,SpUsage" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/member_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensans_bold"
+                android:gravity="center"
+                android:text="@string/user_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SpUsage" />
+
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
@@ -140,6 +156,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/member_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -171,6 +188,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/member_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -203,6 +221,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/member_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -214,6 +233,7 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -234,6 +254,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/member_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -266,6 +287,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/member_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -298,6 +320,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/member_activity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -330,6 +353,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/member_joidate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -358,6 +382,7 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/user_delete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
