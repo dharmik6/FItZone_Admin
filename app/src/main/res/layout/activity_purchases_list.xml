@@ -70,19 +70,35 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <SearchView
+        <com.mancj.materialsearchbar.MaterialSearchBar
             android:id="@+id/searchbar"
+            style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="true"
-            android:background="@drawable/search_bg"
-            android:searchHintIcon="@drawable/ic_search"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:mt_hint="Search"
             android:layout_below="@+id/linearLayout"
+            android:background="@drawable/search_bg"
+            app:mt_maxSuggestionsCount="10"
+            android:pointerIcon="crosshair"
+            tools:ignore="MissingClass,MissingConstraints" />
 
-            />
 
+        <!-- <SearchView
+             android:id="@+id/searchbar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:iconifiedByDefault="true"
+             android:background="@drawable/search_bg"
+             android:searchHintIcon="@drawable/ic_search"
+             android:layout_marginTop="20dp"
+             android:layout_marginHorizontal="20dp"
+             android:layout_below="@+id/linearLayout"
+
+             />
+ -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

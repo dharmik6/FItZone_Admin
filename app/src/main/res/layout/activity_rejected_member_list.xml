@@ -83,29 +83,19 @@
             app:layout_constraintVertical_bias="0.114"
             tools:ignore="MissingConstraints">
 
-            <EditText
+            <com.mancj.materialsearchbar.MaterialSearchBar
                 android:id="@+id/searchbar"
+                style="@style/MaterialSearchBarLight"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginVertical="10dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                app:mt_hint="Search"
                 android:background="@drawable/search_bg"
-                android:drawableEnd="@drawable/ic_search"
-                android:fontFamily="@font/nunito_medium"
-                android:hint="Search"
-                android:paddingHorizontal="20dp"
-                android:textColorHint="@color/hint_color"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.052"
-                tools:ignore="Autofill,HardcodedText,MissingConstraints,TextContrastCheck,TextFields" />
+                app:mt_maxSuggestionsCount="10"
+                android:pointerIcon="crosshair"
+                tools:ignore="MissingClass,MissingConstraints" />
 
             <ScrollView
                 android:layout_width="match_parent"
