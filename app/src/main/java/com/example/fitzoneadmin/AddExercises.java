@@ -162,7 +162,7 @@ public class AddExercises extends AppCompatActivity {
         exerciseData.put("imageUrl", imageUrl);
 
         db.collection("exercises")
-                .document() // Generates a unique ID for the document
+                .document(name) // Generates a unique ID for the document
                 .set(exerciseData, SetOptions.merge())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

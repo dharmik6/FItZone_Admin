@@ -140,7 +140,7 @@ public class AddDiet extends AppCompatActivity {
                                 DietList dietList = new DietList(name, description, image);
 
                                 // Add the diet to Firestore
-                                addDietToFirestore(dietList);
+                                addDietToFirestore(name,dietList);
 
                                 // Hide ProgressDialog
                                 progressDialog.dismiss();
@@ -171,12 +171,14 @@ public class AddDiet extends AppCompatActivity {
     }
 
     // Method to add diet to Firestore
-    private void addDietToFirestore(DietList diet) {
+    // Method to add diet to Firestore
+    private void addDietToFirestore(String name, DietList diet) {
         db.collection("diets")
-                .add(diet)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                .document(name)  // Set the document ID to the diet name
+                .set(diet)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onSuccess(Void aVoid) {
                         // Handle success
                         // You can show a success message or navigate back to the previous screen
                         onBackPressed(); // Example: Navigate back to the previous screen

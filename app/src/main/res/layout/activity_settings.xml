@@ -219,6 +219,7 @@
                                     tools:ignore="HardcodedText" />
 
                                 <Switch
+                                    android:id="@+id/dark_switch"
                                     android:layout_width="match_parent"
                                     android:layout_height="20dp"
                                     android:layout_marginStart="270dp"

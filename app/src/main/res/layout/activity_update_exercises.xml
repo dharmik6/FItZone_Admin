@@ -113,7 +113,7 @@
                                 android:layout_height="wrap_content">
 
                                 <ImageView
-                                    android:id="@+id/exe_image"
+                                    android:id="@+id/exe_up_image"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
                                     android:layout_centerHorizontal="true"
@@ -125,7 +125,7 @@
                         </RelativeLayout>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/exe_camera"
+                            android:id="@+id/exe_up_camera"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             app:cardCornerRadius="40dp"
@@ -199,23 +199,35 @@
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:layout_width="match_parent"
+                            <androidx.appcompat.widget.AppCompatCheckedTextView
+                                android:id="@+id/exe_up_name"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="20sp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-                                android:background="@drawable/text_bg"
+                                android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:inputType="text"
-                                android:hint="@string/Name"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/text"
-                                android:textSize="18sp"
-                                app:cardCornerRadius="10dp"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+                                android:layout_marginStart="25dp"
+                                android:text="@string/Name"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,RtlSymmetry" />
+
+                            <!--                            <androidx.appcompat.widget.AppCompatEditText-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="20sp"-->
+<!--                                android:layout_marginTop="10dp"-->
+<!--                                android:layout_marginEnd="15dp"-->
+<!--                                android:background="@drawable/text_bg"-->
+<!--                                android:fontFamily="@font/opensans_bold"-->
+<!--                                android:inputType="text"-->
+<!--                                android:hint="@string/Name"-->
+<!--                                android:padding="10dp"-->
+<!--                                android:paddingStart="15dp"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textColorHint="@color/text"-->
+<!--                                android:textSize="18sp"-->
+<!--                                app:cardCornerRadius="10dp"-->
+<!--                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />-->
 
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
@@ -229,6 +241,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <Spinner
+                                android:id="@+id/exe_up_spinner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -258,6 +271,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/exe_up_equipment"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -287,6 +301,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/exe_up_description"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -296,7 +311,7 @@
                                 android:fontFamily="@font/opensans_bold"
                                 android:hint="@string/description"
                                 android:layout_marginBottom="20dp"
-                                android:inputType="phone"
+                                android:inputType="textMultiLine"
                                 android:padding="10dp"
                                 android:paddingStart="15dp"
                                 android:textColor="@color/black"
@@ -313,6 +328,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/exe_up_butt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"

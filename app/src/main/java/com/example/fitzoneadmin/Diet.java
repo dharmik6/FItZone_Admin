@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,6 +19,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.io.ByteArrayOutputStream;
 
 public class Diet extends AppCompatActivity {
 
@@ -68,12 +74,28 @@ public class Diet extends AppCompatActivity {
         diet_upe_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the name of the diet
+                // Get the name and description of the diet
                 String dietName = name_diet.getText().toString();
-                Intent up=new Intent(Diet.this,UpdateDiet.class);
-                intent.putExtra("name",dietName);
-                startActivity(up);
+                String ddescription = description_diet.getText().toString();
+                String imageUrl = ""; // Initialize imageUrl variable
 
+                // Get the image URL if available
+                Drawable drawable = image_diet.getDrawable();
+                if (drawable instanceof BitmapDrawable) {
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+                    Bitmap bitmap = bitmapDrawable.getBitmap();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                    byte[] byteArray = baos.toByteArray();
+                    imageUrl = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                }
+
+                // Start the UpdateDiet activity and pass data as extras
+                Intent intent = new Intent(Diet.this, UpdateDiet.class);
+                intent.putExtra("name", dietName);
+                intent.putExtra("description", ddescription);
+                intent.putExtra("imageUrl", imageUrl); // Pass the image URL
+                startActivity(intent);
             }
         });
 

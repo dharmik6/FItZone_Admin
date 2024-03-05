@@ -24,10 +24,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
     private List<DietList> dietLists;
     Context context;
+    private List<DietList> filteredDietLists; // List to hold filtered diet items
 
     public DietAdapter(Context context, List<DietList> dietLists){
         this.dietLists = dietLists;
         this.context=context;
+        this.filteredDietLists = new ArrayList<>(dietLists); // Initialize filtered list
 
     }
 
@@ -93,6 +95,29 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
             dietimage = itemView.findViewById(R.id.diet_item_image);
         }
     }
+    // Filter method to filter the diet lists based on search query
+    public void filter(String text) {
+        filteredDietLists.clear();
+
+        if (text.isEmpty()) {
+            filteredDietLists.addAll(dietLists);
+        } else {
+            String query = text.toLowerCase().trim();
+            for (DietList diet : dietLists) {
+                if (diet.getName().toLowerCase().contains(query)) {
+                    filteredDietLists.add(diet);
+                }
+            }
+        }
+
+        notifyDataSetChanged(); // Update the adapter with filtered list
+    }
+    // Add this method in your DietAdapter class
+    public void filterList(List<DietList> filteredList) {
+        dietLists = filteredList;
+        notifyDataSetChanged();
+    }
+
 }
 
 

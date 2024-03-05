@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/trainer_img"
+        android:id="@+id/admin_img"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
@@ -102,7 +102,7 @@
 
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/trainer_name"
+                                android:id="@+id/admin_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
@@ -166,6 +166,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/admin_email"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -198,6 +199,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/admin_number"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -231,6 +233,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/admin_gender"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -265,6 +268,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/admin_address"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"

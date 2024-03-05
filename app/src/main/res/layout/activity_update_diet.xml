@@ -193,24 +193,18 @@
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
-                            <androidx.appcompat.widget.AppCompatEditText
+                            <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:id="@+id/update_name"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="20sp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-                                android:background="@drawable/text_bg"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="20dp"
                                 android:fontFamily="@font/opensans_bold"
-                                android:hint="@string/Name"
-                                android:inputType="text"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/text"
-                                android:textSize="18sp"
-                                app:cardCornerRadius="10dp"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
+                                android:text="@string/Name"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,RtlSymmetry" />
+
 
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
@@ -234,7 +228,7 @@
                                 android:background="@drawable/text_bg"
                                 android:fontFamily="@font/opensans_bold"
                                 android:hint="@string/description"
-                                android:inputType="text"
+                                android:inputType="textMultiLine"
                                 android:padding="10dp"
                                 android:paddingStart="15dp"
                                 android:textColor="@color/black"
