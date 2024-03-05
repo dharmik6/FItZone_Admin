@@ -10,22 +10,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/active_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/card_view"
+            android:backgroundTint="@color/card_view"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
 
@@ -44,7 +48,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:src="@drawable/ic_profile_circle"
+                    android:src="@drawable/people_imge"
                     app:civ_border_color="@color/text"
                     app:civ_border_width="1dp"
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />

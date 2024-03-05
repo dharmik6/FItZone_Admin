@@ -16,7 +16,7 @@
         android:id="@+id/active_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/card_view"
+        android:backgroundTint="@color/card_view"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
                 android:layout_marginBottom="5dp"
                 app:civ_border_width="1dp"
                 app:civ_border_color="@color/text"
-                android:src="@drawable/ic_profile_circle"
+                android:src="@drawable/people_imge"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
             <LinearLayout

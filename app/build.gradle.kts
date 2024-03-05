@@ -42,7 +42,16 @@ dependencies {
 
     //image circle
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    //graph chart
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    //BMI
+    implementation ("com.github.Gruzer:simple-gauge-android:0.3.1")
 
+    //shimmer
+    implementation ("com.facebook.shimmer:shimmer:0.5.0")
+
+    //searchView
+    implementation ("com.github.mancj:MaterialSearchBar:0.8.5")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
