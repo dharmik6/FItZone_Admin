@@ -94,6 +94,7 @@ public class ExercisesList extends AppCompatActivity {
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
+
         }).addOnFailureListener(e -> {
             // Handle failures
             if (progressDialog != null && progressDialog.isShowing()) {
