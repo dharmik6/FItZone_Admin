@@ -109,6 +109,8 @@ public class ExercisesList extends AppCompatActivity {
             }
         });
     }
+
+
     private void filter(String query) {
         List<ExercisesItemList> filteredList = new ArrayList<>();
         for (ExercisesItemList member : exercisesItemLists) {
