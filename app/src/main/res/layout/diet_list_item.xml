@@ -53,15 +53,16 @@
                         android:src="@drawable/healthy_food_img"
                         tools:ignore="ContentDescription" />
 
-
+                </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:background="#9A000000"
+                        android:background="@drawable/certificates_list_text_bg"
                         android:padding="10dp">
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -75,7 +76,6 @@
                             android:textSize="20dp"
                             tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TextSizeCheck" />
 
-                    </RelativeLayout>
 
                 </RelativeLayout>
 

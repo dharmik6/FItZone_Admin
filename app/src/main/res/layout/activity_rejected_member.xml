@@ -20,6 +20,7 @@
             android:orientation="horizontal"
             tools:ignore="MissingConstraints">
 
+
             <ImageView
                 android:id="@+id/back"
                 android:layout_width="30dp"
