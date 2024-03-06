@@ -152,7 +152,7 @@
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
-                            <androidx.appcompat.widget.AppCompatEditText
+                            <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/show_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
-                            <EditText
+                            <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/show_body"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -212,7 +212,7 @@
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
-                            <androidx.appcompat.widget.AppCompatEditText
+                            <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/show_equipment"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -242,7 +242,7 @@
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
-                            <androidx.appcompat.widget.AppCompatEditText
+                            <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/show_description"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

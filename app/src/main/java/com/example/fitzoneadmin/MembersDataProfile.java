@@ -7,7 +7,10 @@ import androidx.appcompat.widget.AppCompatTextView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.ekn.gruzer.gaugelibrary.HalfGauge;
@@ -32,6 +35,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MembersDataProfile extends AppCompatActivity {
     MaterialTextView data_name,data_username;
     CircleImageView data_image;
+    ImageView member_data_pro_back;
     AppCompatTextView data_cur_weight,data_activity,data_gender,data_height,data_weight;
     LineChart lineChart;
     @SuppressLint("MissingInflatedId")
@@ -49,6 +53,13 @@ public class MembersDataProfile extends AppCompatActivity {
         data_cur_weight = findViewById(R.id.data_cur_weight);
         data_image = findViewById(R.id.data_image);
         lineChart = findViewById(R.id.lineChart);
+        member_data_pro_back = findViewById(R.id.member_data_pro_back);
+        member_data_pro_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         Intent intent = getIntent();
         String memberid = intent.getStringExtra("uid");
@@ -59,7 +70,7 @@ public class MembersDataProfile extends AppCompatActivity {
         db.collection("users").get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                 String membername = documentSnapshot.getString("name");
-                String memberusername = documentSnapshot.getString("username");
+//                String memberusername = documentSnapshot.getString("username");
                 String memberactivity = documentSnapshot.getString("activity");
                 String membergoal = documentSnapshot.getString("goal");
                 String memberweight = documentSnapshot.getString("weight");
@@ -70,7 +81,7 @@ public class MembersDataProfile extends AppCompatActivity {
                 if (memberid.equals(membername)) {
                     // Display the data only if they match
                     data_name.setText(membername != null ? membername : "No name");
-                    data_username.setText(memberusername != null ? memberusername : "No username");
+//                    data_username.setText(memberusername != null ? memberusername : "No username");
                     data_activity.setText(memberactivity != null ? memberactivity : "No activity");
                     data_weight.setText(memberweight != null ? memberweight : "No address");
                     data_height.setText(memberheight != null ? memberheight : "No age");

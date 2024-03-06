@@ -22,6 +22,7 @@ import android.widget.SearchView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,8 @@ public class Fragment_Member_Data_List extends Fragment {
     private MemberDataAdapter dataAdapter;
     private List<MemberList> memberList;
     ProgressDialog progressDialog;
-    SearchView searchbar;
-//    private List<MemberDataList> originalMemberDataList;
+    MaterialSearchBar user_data_searchbar;
+    List<MemberList> filteredList1;
 
 
 
@@ -52,15 +53,34 @@ public class Fragment_Member_Data_List extends Fragment {
         View view = inflater.inflate(R.layout.fragment__member__data__list, container, false);
 
         // Initialize search bar
-//        searchbar = view.findViewById(R.id.searchbar);
-// Set a listener on the search bar
+        user_data_searchbar = view.findViewById(R.id.user_data_searchbar);
+
+        // Setup MaterialSearchBar
+        user_data_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {
+                // Handle search state changes
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+                // Perform search
+                filter1(text.toString());
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+                // Handle button clicks
+            }
+        });
+
 
         recyclerView = view.findViewById(R.id.data_recyc_members);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        filteredList1 = new ArrayList<>();
         memberList = new ArrayList<>();
-//        originalMemberDataList = new ArrayList<>();
         dataAdapter = new MemberDataAdapter(getContext(),memberList);
         recyclerView.setAdapter(dataAdapter);
 
@@ -83,7 +103,7 @@ public class Fragment_Member_Data_List extends Fragment {
                 memberList.add(member);
 //                originalMemberDataList.add(member); // Add to both lists
             }
-
+            filteredList1.addAll(memberList); // Initialize filteredList with all members
             dataAdapter.notifyDataSetChanged();
             // Dismiss ProgressDialog when data is loaded
             if (progressDialog != null && progressDialog.isShowing()) {
@@ -100,15 +120,13 @@ public class Fragment_Member_Data_List extends Fragment {
         return view; // Return the inflated view
     }
 
-
-
-    public void loadFragment(Fragment fragment, boolean flag) {
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        if (flag)
-            ft.add(R.id.fragment_container, fragment);
-        else
-            ft.replace(R.id.fragment_container, fragment);
-        ft.commit();
+    private void filter1(String query) {
+        List<MemberList> filteredList1 = new ArrayList<>();
+        for (MemberList member : memberList) {
+            if (member.getName().toLowerCase().contains(query.toLowerCase())) {
+                filteredList1.add(member);
+            }
+        }
+        dataAdapter.filterList1(filteredList1);
     }
 }

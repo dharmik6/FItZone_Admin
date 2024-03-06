@@ -289,6 +289,7 @@
                                     tools:ignore="HardcodedText,RtlSymmetry" />
 
                                 <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/exe_up_equipment"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="15dp"

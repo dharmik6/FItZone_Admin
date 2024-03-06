@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -49,6 +50,7 @@ public class UpdateExercises extends AppCompatActivity {
     Uri selectedImageUri;
     private static final int PICK_IMAGE_REQUEST = 1;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -200,7 +202,7 @@ public class UpdateExercises extends AppCompatActivity {
 
         // Update the document in Firestore
         db.collection("exercises")
-                .document(newName)  // Replace "your_document_id" with the actual document ID
+                .document(newName)// Replace "your_document_id" with the actual document ID
                 .update(dietData)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

@@ -22,19 +22,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
     private List<MemberList> memberList;
     Context context;
-    private List<MemberList> memberListFull;
 
     public MemberAdapter(Context context, List<MemberList> memberList){
         this.memberList = memberList;
         this.context=context;
-        memberListFull = new ArrayList<>(memberList);
-
     }
 
-    public void filterList(List<MemberList> filteredList) {
-        memberList = filteredList;
-        notifyDataSetChanged();
-    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -76,12 +69,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
                     intent.putExtra("name", item.getName());
                     intent.putExtra("username", item.getUsername());
                     intent.putExtra("email", item.getEmail());
-//                    intent.putExtra("number", item.getNumber());
-//                    intent.putExtra("gender", item.getGender());
-//                    intent.putExtra("age", item.getAge());
-//                    intent.putExtra("address", item.getAddress());
-//                    intent.putExtra("activity", item.getActicity()); // corrected typo
-//                    intent.putExtra("joidate", item.getJoidate()); // corrected typo
 
                     // Start the activity
                     context.startActivity(intent);
@@ -92,6 +79,11 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return memberList.size();
+    }
+
+    public void filterList(List<MemberList> filteredList) {
+        memberList = filteredList;
+        notifyDataSetChanged();
     }
 
 

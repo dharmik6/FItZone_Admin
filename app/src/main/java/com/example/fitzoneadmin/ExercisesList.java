@@ -14,18 +14,20 @@ import android.widget.LinearLayout;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ExercisesList extends AppCompatActivity {
-    EditText exe_searchbar;
+    MaterialSearchBar exe_searchbar;
     LinearLayout add_exe;
     RecyclerView exe_recyc;
 
     private ExercisesAdapter adapter;
     private List<ExercisesItemList> exercisesItemLists;
     private ProgressDialog progressDialog;
+    List<ExercisesItemList> filteredList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,24 @@ public class ExercisesList extends AppCompatActivity {
         add_exe = findViewById(R.id.add_exe);
         exe_searchbar = findViewById(R.id.exe_searchbar);
 
+        // Setup MaterialSearchBar
+        exe_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {
+                // Handle search state changes
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+                // Perform search
+                filter(text.toString());
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+                // Handle button clicks
+            }
+        });
         add_exe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +67,7 @@ public class ExercisesList extends AppCompatActivity {
         exe_recyc.setLayoutManager(new LinearLayoutManager(this));
 
         exercisesItemLists = new ArrayList<>(); // Initialize exercisesItemLists
-
+        filteredList = new ArrayList<>();
         adapter = new ExercisesAdapter(this, exercisesItemLists); // Use correct adapter
         exe_recyc.setAdapter(adapter);
 
@@ -67,6 +87,7 @@ public class ExercisesList extends AppCompatActivity {
                 ExercisesItemList exe = new ExercisesItemList(name, body, image);
                 exercisesItemLists.add(exe);
             }
+            filteredList.addAll(exercisesItemLists); // Initialize filteredList with all members
 
             adapter.notifyDataSetChanged();
             // Dismiss ProgressDialog when data is loaded
@@ -87,5 +108,14 @@ public class ExercisesList extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+    private void filter(String query) {
+        List<ExercisesItemList> filteredList = new ArrayList<>();
+        for (ExercisesItemList member : exercisesItemLists) {
+            if (member.getName().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(member);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 }

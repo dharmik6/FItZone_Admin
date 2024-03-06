@@ -10,6 +10,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -33,6 +34,7 @@ public class MembersProfile extends AppCompatActivity {
     MaterialTextView member_name,member_username;
     CircleImageView member_image;
     AppCompatButton user_update,user_delete;
+    ImageView member_pro_back;
     AppCompatTextView member_joidate,member_activity,member_address,member_age,member_gender,member_email,member_number;
 
     // Declare Firestore instance and references
@@ -59,7 +61,14 @@ public class MembersProfile extends AppCompatActivity {
         member_email = findViewById(R.id.member_email);
         member_number = findViewById(R.id.member_number);
         member_image = findViewById(R.id.member_image);
+        member_pro_back = findViewById(R.id.member_pro_back);
 
+        member_pro_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         Intent intent = getIntent();
         String memberid = intent.getStringExtra("uid");
         String memberemailid = intent.getStringExtra("email");

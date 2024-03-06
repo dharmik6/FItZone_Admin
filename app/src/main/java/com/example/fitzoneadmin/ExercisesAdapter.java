@@ -82,6 +82,11 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         return exercisesItemLists.size();
     }
 
+    public void filterList(List<ExercisesItemList> filteredList) {
+        exercisesItemLists = filteredList;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView exename;
         public TextView exebody;

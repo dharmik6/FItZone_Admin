@@ -22,19 +22,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder> {
     private List<TrainersList> trainersLists;
     Context context;
-    private List<TrainersList> memberListFull;
 
     public ReviewAdapter(Context context, List<TrainersList> trainersLists){
         this.trainersLists = trainersLists;
         this.context=context;
-        memberListFull = new ArrayList<>(trainersLists);
 
     }
 
-    public void filterList(List<TrainersList> filteredList) {
-        trainersLists = filteredList;
-        notifyDataSetChanged();
-    }
     @NonNull
     @Override
     public ReviewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -77,12 +71,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
                     intent.putExtra("name", item.getTname());
                     intent.putExtra("specialization", item.getSpecialization());
                     intent.putExtra("experience", item.getExperience());
-//                    intent.putExtra("number", item.getNumber());
-//                    intent.putExtra("gender", item.getGender());
-//                    intent.putExtra("age", item.getAge());
-//                    intent.putExtra("address", item.getAddress());
-//                    intent.putExtra("activity", item.getActicity()); // corrected typo
-//                    intent.putExtra("joidate", item.getJoidate()); // corrected typo
 
                     // Start the activity
                     context.startActivity(intent);
@@ -93,6 +81,11 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return trainersLists.size();
+    }
+
+    public void filterList(List<TrainersList> filteredList) {
+        trainersLists = filteredList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

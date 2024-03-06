@@ -65,7 +65,13 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".WorkoutPlansList"
             android:exported="false" />
@@ -89,9 +95,6 @@
             android:exported="false" />
         <activity
             android:name=".AddDiet"
-            android:exported="false" />
-        <activity
-            android:name=".AddMember"
             android:exported="false" />
         <activity
             android:name=".DocumentHome"
@@ -122,13 +125,9 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Base.Theme.FitZoneAdmin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

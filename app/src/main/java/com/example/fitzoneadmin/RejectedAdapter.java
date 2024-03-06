@@ -22,19 +22,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RejectedAdapter extends RecyclerView.Adapter<RejectedAdapter.ViewHolder> {
     private List<TrainersList> trainersLists;
     Context context;
-    private List<TrainersList> memberListFull;
 
     public RejectedAdapter(Context context, List<TrainersList> trainersLists){
         this.trainersLists = trainersLists;
         this.context=context;
-        memberListFull = new ArrayList<>(trainersLists);
 
     }
 
-    public void filterList(List<TrainersList> filteredList) {
-        trainersLists = filteredList;
-        notifyDataSetChanged();
-    }
     @NonNull
     @Override
     public RejectedAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -77,12 +71,6 @@ public class RejectedAdapter extends RecyclerView.Adapter<RejectedAdapter.ViewHo
                     intent.putExtra("name", item.getTname());
                     intent.putExtra("specialization", item.getSpecialization());
                     intent.putExtra("experience", item.getExperience());
-//                    intent.putExtra("number", item.getNumber());
-//                    intent.putExtra("gender", item.getGender());
-//                    intent.putExtra("age", item.getAge());
-//                    intent.putExtra("address", item.getAddress());
-//                    intent.putExtra("activity", item.getActicity()); // corrected typo
-//                    intent.putExtra("joidate", item.getJoidate()); // corrected typo
 
                     // Start the activity
                     context.startActivity(intent);
@@ -95,12 +83,17 @@ public class RejectedAdapter extends RecyclerView.Adapter<RejectedAdapter.ViewHo
         return trainersLists.size();
     }
 
+
+    public void filterList(List<TrainersList> filteredList) {
+        trainersLists = filteredList;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textTname;
         public CircleImageView textTimage;
         public TextView textspecialization;
         public TextView textexperience;
-//        public TextView textreview;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -108,7 +101,6 @@ public class RejectedAdapter extends RecyclerView.Adapter<RejectedAdapter.ViewHo
             textexperience = itemView.findViewById(R.id.trainer_experience);
             textspecialization = itemView.findViewById(R.id.trainer_specialization);
             textTimage = itemView.findViewById(R.id.trainer_image);
-//            textreview = itemView.findViewById(R.id.approved_re);
         }
     }
 }

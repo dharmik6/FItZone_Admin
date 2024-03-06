@@ -70,25 +70,28 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <SearchView
-            android:id="@+id/searchbar"
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            android:id="@+id/book_searchbar"
+            style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="true"
-            android:background="@drawable/search_bg"
-            android:searchHintIcon="@drawable/ic_search"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:layout_below="@+id/linearLayout"
+            app:mt_hint="Custom hint"
+            android:background="@drawable/search_bg"
+            app:mt_maxSuggestionsCount="10"
+            android:pointerIcon="crosshair"
+            tools:ignore="MissingClass,MissingConstraints" />
 
-            />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/searchbar"
+            android:layout_below="@+id/book_searchbar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/searchbar"
+                android:layout_below="@+id/book_searchbar"
                 tools:ignore="NotSibling">
 
                 <LinearLayout

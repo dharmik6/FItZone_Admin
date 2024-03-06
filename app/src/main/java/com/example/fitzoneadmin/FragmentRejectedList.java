@@ -15,6 +15,7 @@ import android.widget.SearchView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,9 @@ public class FragmentRejectedList extends Fragment {
     private RejectedAdapter adapter;
     private List<TrainersList> trainersLists;
     ProgressDialog progressDialog;
-    SearchView searchbar;
-//    private List<MemberList> originalMemberList;
+    MaterialSearchBar rej_searchbar;
+    List<TrainersList> filteredList;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,15 +44,31 @@ public class FragmentRejectedList extends Fragment {
         View view = inflater.inflate(R.layout.fragment_rejected_list, container, false);
 
         // Initialize search bar
-//        searchbar = view.findViewById(R.id.searchbar);
-// Set a listener on the search bar
+        rej_searchbar = view.findViewById(R.id.rej_searchbar);
 
+        // Setup MaterialSearchBar
+        rej_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {
+                // Handle search state changes
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+                // Perform search
+                filter(text.toString());
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+                // Handle button clicks
+            }
+        });
         rec_rejected = view.findViewById(R.id.rec_rejected);
         rec_rejected.setHasFixedSize(true);
         rec_rejected.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        filteredList = new ArrayList<>();
         trainersLists = new ArrayList<>();
-//        originalMemberList = new ArrayList<>();
         adapter = new RejectedAdapter(getContext(),trainersLists);
         rec_rejected.setAdapter(adapter);
 
@@ -74,6 +92,7 @@ public class FragmentRejectedList extends Fragment {
                 trainersLists.add(member);
 //                originalMemberList.add(member); // Add to both lists
             }
+            filteredList.addAll(trainersLists); // Initialize filteredList with all members
 
             adapter.notifyDataSetChanged();
             // Dismiss ProgressDialog when data is loaded
@@ -88,5 +107,14 @@ public class FragmentRejectedList extends Fragment {
             }
         });
         return view;
+    }
+    private void filter(String query) {
+        List<TrainersList> filteredList = new ArrayList<>();
+        for (TrainersList member : trainersLists) {
+            if (member.getTname().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(member);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 }

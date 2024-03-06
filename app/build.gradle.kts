@@ -46,7 +46,8 @@ dependencies {
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
     //BMI
     implementation ("com.github.Gruzer:simple-gauge-android:0.3.1")
-
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
     //shimmer
     implementation ("com.facebook.shimmer:shimmer:0.5.0")
 
@@ -59,6 +60,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("com.google.firebase:firebase-firestore:24.10.1")
     implementation("com.google.android.gms:play-services-tasks:18.1.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

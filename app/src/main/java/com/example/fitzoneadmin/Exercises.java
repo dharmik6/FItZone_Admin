@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.app.ProgressDialog;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -27,7 +28,7 @@ import java.io.ByteArrayOutputStream;
 
 public class Exercises extends AppCompatActivity {
     ImageView show_image;
-    EditText show_name,show_body,show_equipment,show_description;
+    TextView show_name,show_body,show_equipment,show_description;
     Button exe_delete,exe_update;
     ProgressDialog progressDialog;
 

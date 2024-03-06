@@ -14,6 +14,7 @@ import android.widget.SearchView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,8 @@ public class FragmentApprovedList extends Fragment {
     private ApprovedAdapter adapter;
     private List<TrainersList> trainersLists;
     ProgressDialog progressDialog;
-    SearchView searchbar;
-//    private List<MemberList> originalMemberList;
+    MaterialSearchBar app_searchbar;
+    List<TrainersList> filteredList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,16 +40,34 @@ public class FragmentApprovedList extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_approved_list, container, false);
 
-        // Initialize search bar
-//        searchbar = view.findViewById(R.id.searchbar);
-// Set a listener on the search bar
 
+        // Initialize search bar
+        app_searchbar = view.findViewById(R.id.app_searchbar);
+
+        // Setup MaterialSearchBar
+        app_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {
+                // Handle search state changes
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+                // Perform search
+                filter(text.toString());
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+                // Handle button clicks
+            }
+        });
         recyclerView = view.findViewById(R.id.approved_recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        filteredList = new ArrayList<>();
 
         trainersLists = new ArrayList<>();
-//        originalMemberList = new ArrayList<>();
         adapter = new ApprovedAdapter(getContext(),trainersLists);
         recyclerView.setAdapter(adapter);
 
@@ -72,6 +91,7 @@ public class FragmentApprovedList extends Fragment {
                 trainersLists.add(member);
 //                originalMemberList.add(member); // Add to both lists
             }
+            filteredList.addAll(trainersLists); // Initialize filteredList with all members
 
             adapter.notifyDataSetChanged();
             // Dismiss ProgressDialog when data is loaded
@@ -86,5 +106,15 @@ public class FragmentApprovedList extends Fragment {
             }
         });
         return view;
+    }
+
+    private void filter(String query) {
+        List<TrainersList> filteredList = new ArrayList<>();
+        for (TrainersList member : trainersLists) {
+            if (member.getTname().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(member);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 }
