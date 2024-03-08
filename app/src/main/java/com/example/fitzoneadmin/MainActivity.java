@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.FirebaseApp;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationview);
         text_title = findViewById(R.id.text_title);
         ImageView menu = findViewById(R.id.show_menu);
+
+        // Initialize Firebase
+//        FirebaseApp.initializeApp(this);
 
 // for notification page
         ImageView notification = findViewById(R.id.notification);
@@ -134,15 +138,15 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
 
         // Set title based on the loaded fragment
-        if (fragment instanceof Fragment_Member_list) {
-            text_title.setText("Members List");
-        }
+//        if (fragment instanceof Fragment_Member_list) {
+//            text_title.setText("Members List");
+//        }
 //        else if (fragment instanceof ) {
 //            text_title.setText("Some Other Title");
 //        }
-        else {
-            // Handle other fragments accordingly
-        }
+//        else {
+//            // Handle other fragments accordingly
+//        }
     }
 
 

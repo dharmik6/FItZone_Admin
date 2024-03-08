@@ -78,12 +78,14 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/rej_mem_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/people_imge"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rej_mem_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -96,6 +98,8 @@
                 tools:ignore="HardcodedText,SpUsage" />
 
             <com.google.android.material.textview.MaterialTextView
+
+                android:id="@+id/rej_mem_active"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -141,6 +145,8 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+
+                    android:id="@+id/rej_mem_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -172,6 +178,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/rej_mem_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -204,6 +211,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/rej_mem_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -235,6 +243,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/rej_mem_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -267,6 +276,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/rej_mem_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -299,6 +309,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/rej_mem_activity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -331,6 +342,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/rej_mem_joi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -362,6 +374,7 @@
 
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/rej_mem_approve"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"

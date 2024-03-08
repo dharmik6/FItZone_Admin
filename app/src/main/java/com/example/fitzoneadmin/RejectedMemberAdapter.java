@@ -14,29 +14,28 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
+public class RejectedMemberAdapter extends RecyclerView.Adapter<RejectedMemberAdapter.ViewHolder> {
     private List<MemberList> memberList;
     Context context;
 
-    public MemberAdapter(Context context, List<MemberList> memberList){
+    public RejectedMemberAdapter(Context context, List<MemberList> memberList){
         this.memberList = memberList;
         this.context=context;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.member_list_item, parent, false);
-        return new ViewHolder(view);
+    public RejectedMemberAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.member_data_list_item, parent, false);
+        return new RejectedMemberAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RejectedMemberAdapter.ViewHolder holder, int position) {
         MemberList member = memberList.get(position);
         holder.textName.setText(member.getName());
         holder.textEmail.setText(member.getEmail());
@@ -62,10 +61,10 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
                     MemberList item = memberList.get(position);
 
                     // Create an intent to start the MembersProfile activity
-                    Intent intent = new Intent(context, MembersProfile.class);
+                    Intent intent = new Intent(context, RejectedMember.class);
                     // Pass data to the intent
                     intent.putExtra("image", item.getImage());
-//                    intent.putExtra("uid", item.getId());
+                    intent.putExtra("uid", item.getId());
                     intent.putExtra("name", item.getName());
                     intent.putExtra("username", item.getUsername());
                     intent.putExtra("email", item.getEmail());
@@ -94,10 +93,9 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textName = itemView.findViewById(R.id.name_members);
-            textEmail = itemView.findViewById(R.id.email_members);
-            textImage = itemView.findViewById(R.id.image_members);
+            textName = itemView.findViewById(R.id.name_data_member);
+            textEmail = itemView.findViewById(R.id.email_data_member);
+            textImage = itemView.findViewById(R.id.image_data_member);
         }
     }
 }
-
