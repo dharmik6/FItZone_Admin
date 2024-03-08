@@ -70,19 +70,9 @@ public class MembersProfile extends AppCompatActivity {
             }
         });
         Intent intent = getIntent();
-        String memberid = intent.getStringExtra("uid");
+        String memberid = intent.getStringExtra("name");
         String memberemailid = intent.getStringExtra("email");
 
-
-//        String currentUser = memberid;
-
-//        if (currentUser != null) {
-//            String userId = currentUser;
-//            FirebaseFirestore db = FirebaseFirestore.getInstance();
-//            DocumentReference docRef = db.collection("users").document(userId);
-//        }
-
-//            String username = "name"; // Replace "user_id" with the actual user ID
 
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();

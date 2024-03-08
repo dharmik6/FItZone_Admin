@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -56,6 +57,13 @@ public class FragmentMembersHome extends Fragment {
             @Override
             public void onClick(View v) {
                 loadFragment(new Fragment_Member_Data_List(), true);
+            }
+        });
+        view.findViewById(R.id.active_card_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new RejectedMemberList(), true);
+//                startActivity(new Intent(FragmentMembersHome.this,RejectedMemberList.class));
             }
         });
 
