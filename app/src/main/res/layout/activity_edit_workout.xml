@@ -1,90 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_ground"
+    android:orientation="vertical"
     tools:context=".EditWorkout">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:background="@color/dark_blue"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UselessLeaf">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
-            android:background="@color/dark_blue"
-            android:layout_width="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints">
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_arrow_small_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="ContentDescription" />
 
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/ic_arrow_small_left"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:gravity="center"
-                android:layout_toStartOf="@+id/back"
-                android:layout_toEndOf="@+id/back"
-                android:fontFamily="@font/opensans_bold"
-                android:text="@string/edit_workout"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/back"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
-
-
-            <ImageView
-                android:id="@+id/settings"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="10dp"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_popup_menu"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
+        <!-- Title -->
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/linearLayout">
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="Workout plans"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
+        tools:ignore="ScrollViewCount">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
             tools:ignore="ObsoleteLayoutParam">
 
             <RelativeLayout
@@ -155,26 +131,26 @@
                         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            app:cardCornerRadius="30dp"
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:cardCornerRadius="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="60dp"
+                        android:backgroundTint="#3D5872"
+                        android:background="@drawable/camera_bg">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_alignParentStart="true"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginTop="60dp"
-                            android:backgroundTint="#3D5872"
-                            android:background="@drawable/camera_bg">
+                            android:src="@drawable/ic_photo_camera"
+                            tools:ignore="ContentDescription" />
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginStart="5dp"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:src="@drawable/ic_photo_camera"
-                                tools:ignore="ContentDescription" />
-
-                        </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
 
 
@@ -184,22 +160,22 @@
 
             </RelativeLayout>
 
-                <LinearLayout
-                    android:id="@+id/plan_list"
+            <LinearLayout
+                android:id="@+id/plan_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/ll_plan_name"
+                tools:ignore="UselessLeaf">
+
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_below="@+id/ll_plan_name"
-                    tools:ignore="UselessLeaf">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentStart="true"
-                        android:scrollbars="vertical"
-                        tools:listitem="@layout/exercise_name_delete_list_item" />
-                </LinearLayout>
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/exercise_name_delete_list_item" />
+            </LinearLayout>
 
 
             <LinearLayout
@@ -222,7 +198,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_exercise"
+                    android:text="Add workout plan"
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     app:fontFamily="@font/nunito_bold"
@@ -232,9 +208,38 @@
 
             </LinearLayout>
 
+
+
+            <!-- Your content goes here -->
+
         </RelativeLayout>
 
     </ScrollView>
-    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Button Layout -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/btn_background"
+            android:elevation="@dimen/button_elevation"
+            android:fontFamily="@font/opensans_bold"
+            android:gravity="center"
+            android:shadowColor="@color/black"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+</LinearLayout>
