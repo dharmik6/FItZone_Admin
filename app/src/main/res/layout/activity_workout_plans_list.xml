@@ -97,12 +97,47 @@
             android:pointerIcon="crosshair"
             tools:ignore="MissingClass,MissingConstraints" />
 
+        <LinearLayout
+            android:id="@+id/add_exercises"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/searchbar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_plus"
+                tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Add exercises"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_bold"
+                tools:ignore="HardcodedText" />
+
+
+        </LinearLayout>
+
+
 
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/searchbar">
+            android:layout_below="@+id/add_exercises">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
