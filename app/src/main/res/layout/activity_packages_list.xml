@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/nunito_bold"
-                    android:text="@string/add_exercise"
+                    android:text="Add Packages"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:fontFamily="@font/nunito_bold"
@@ -114,7 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rl_add"
-            android:layout_marginTop="20dp"
+            android:layout_marginVertical="20dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true">
 
