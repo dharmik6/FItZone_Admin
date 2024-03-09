@@ -14,7 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_height="50dp"
+        android:layout_height="?attr/actionBarSize"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
@@ -98,7 +98,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginVertical="10dp"
                         android:layout_marginEnd="10dp"
                         android:backgroundTint="@color/card_view"
                         android:elevation="10dp"

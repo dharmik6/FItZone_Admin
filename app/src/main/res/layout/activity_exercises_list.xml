@@ -34,7 +34,6 @@
                 style="@style/MaterialSearchBarLight"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 app:mt_hint="Search"
@@ -48,7 +47,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"

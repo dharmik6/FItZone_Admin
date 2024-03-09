@@ -16,7 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="?attr/actionBarSize"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints">
 
@@ -39,14 +39,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginStart="20dp"
-                android:layout_toStartOf="@+id/back"
-                android:layout_toEndOf="@+id/back"
+                android:layout_toStartOf="@+id/member_pro_back"
+                android:layout_toEndOf="@+id/member_pro_back"
                 android:fontFamily="@font/opensans_bold"
                 android:text="@string/member_profile"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintStart_toEndOf="@+id/member_pro_back"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -365,14 +365,6 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line"
-                    android:layout_marginEnd="25dp"
-                    tools:ignore="ContentDescription" />
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
