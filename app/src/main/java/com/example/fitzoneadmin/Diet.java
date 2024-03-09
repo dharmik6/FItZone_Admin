@@ -102,6 +102,9 @@ public class Diet extends AppCompatActivity {
         diet_del_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = getIntent();
+                String dietid = intent.getStringExtra("name");
+
                 progressDialog.show();
                 // Get the name of the diet from the TextView
                 String dietName = name_diet.getText().toString();
@@ -118,7 +121,7 @@ public class Diet extends AppCompatActivity {
 
                                 // Delete the document from Firestore
                                 db.collection("diets")
-                                        .document(documentId)
+                                        .document(dietid)
                                         .delete()
                                         .addOnSuccessListener(aVoid -> {
                                             // Document successfully deleted

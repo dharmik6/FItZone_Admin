@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -24,16 +25,20 @@ public class SplashScreen extends AppCompatActivity {
         // on below line we are calling handler to run a task
         // for specific time interval
         new Handler().postDelayed(() -> {
-            // on below line we are
-            // creating a new intent
-            Intent i = new Intent(SplashScreen.this, AdminLogin.class);
 
-            // on below line we are
-            // starting a new activity.
-            startActivity(i);
+            SharedPreferences pref = getSharedPreferences("login", MODE_PRIVATE);
+            Boolean check = pref.getBoolean("flag", false);
 
-            // on the below line we are finishing
-            // our current activity.
+            Intent inext;
+            if (check) {
+                // User is logged in, navigate to home_page
+                inext = new Intent(SplashScreen.this, MainActivity.class);
+            } else {
+                // User is not logged in, navigate to login_page
+                inext = new Intent(SplashScreen.this, AdminLogin.class);
+            }
+
+            startActivity(inext);
             finish();
         }, 2001);
 

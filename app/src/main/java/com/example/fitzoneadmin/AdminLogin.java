@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -92,6 +91,10 @@ public class AdminLogin extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 pd.dismiss(); // Dismiss the progress dialog
                                                 if (task.isSuccessful()) {
+                                                    SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = pref.edit();
+                                                    editor.putBoolean("flag" ,true);
+                                                    editor.apply();
 
                                                     // Sign-in successful, navigate to the next page
                                                     Intent intent = new Intent(AdminLogin.this, MainActivity.class);
@@ -172,4 +175,11 @@ public class AdminLogin extends AppCompatActivity {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+    // Handle logout action
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        FirebaseAuth.getInstance().signOut();
+        finish();
+    }
 }

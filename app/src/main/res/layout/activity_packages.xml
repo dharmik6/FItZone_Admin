@@ -107,6 +107,7 @@
                         tools:ignore="UselessParent">
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/pac_show_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -146,6 +147,7 @@
                                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
                             <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/pac_show_price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
@@ -171,6 +173,7 @@
                             tools:ignore="HardcodedText" />
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/pac_show_duration"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -191,6 +194,7 @@
                             tools:ignore="HardcodedText" />
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/pac_show_descri"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text=" One Month package offers you premium access to our state-of-the-art fitness facilities and exclusive amenities for a month-long period. Whether you're a fitness enthusiast seeking to achieve your goals or a beginner looking to kickstart your fitness journey, this package provides you with everything you need to succeed."
@@ -225,6 +229,7 @@
                         tools:ignore="UselessParent">
 
                         <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/pac_del"
                             android:layout_width="140dp"
                             android:layout_height="40dp"
                             android:layout_marginStart="30dp"
@@ -240,6 +245,7 @@
                             tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
 
                         <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/pac_up"
                             android:layout_width="140dp"
                             android:layout_height="40dp"
                             android:layout_marginStart="20dp"
