@@ -1,17 +1,74 @@
 package com.example.fitzoneadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PackagesList extends AppCompatActivity {
+    LinearLayout add_payment;
+    RecyclerView payment_recyc;
+    private PackagesAdapter adapter;
+    private List<PackagesItemList> dietLists;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packages_list);
+
+        add_payment = findViewById(R.id.add_payment);
+        payment_recyc = findViewById(R.id.payment_recyc);
+        add_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PackagesList.this,AddPackages.class));
+            }
+        });
+        payment_recyc.setHasFixedSize(true);
+        payment_recyc.setLayoutManager(new LinearLayoutManager(this));
+
+        dietLists = new ArrayList<>();
+        adapter = new PackagesAdapter(this, dietLists);
+        payment_recyc.setAdapter(adapter);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("packages").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                String name = documentSnapshot.getString("name");
+                String price = documentSnapshot.getString("price");
+                String duration = documentSnapshot.getString("duration");
+                String description = documentSnapshot.getString("description");
+                PackagesItemList diet = new PackagesItemList(name,price,duration ,description);
+                dietLists.add(diet);
+            }
+           adapter.notifyDataSetChanged();
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        }).addOnFailureListener(e -> {
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        });
+
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {

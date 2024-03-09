@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -43,7 +44,17 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Call a method to handle logout
-                logoutAdmin();
+                SharedPreferences pref = getSharedPreferences("login", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putBoolean("flag", false);
+                editor.apply();
+
+                finish();
+
+
+                // Start the LoginActivity
+                Intent intent = new Intent(Settings.this, AdminLogin.class);
+                startActivity(intent);
             }
         });
 
@@ -75,16 +86,7 @@ public class Settings extends AppCompatActivity {
         });
     }
 
-    private void logoutAdmin() {
-        // Add code here to perform logout actions
-        // For example, clearing session data, resetting preferences, etc.
 
-        // Redirect to AdminLogin activity
-        redirectActivity(Settings.this, AdminLogin.class);
-
-        // Finish the current activity to prevent going back to Settings
-        finish();
-    }
     private void showToast(String message) {
         // Display a toast message
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
