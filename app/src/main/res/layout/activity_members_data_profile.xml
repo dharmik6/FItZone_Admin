@@ -40,14 +40,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginStart="20dp"
-                android:layout_toStartOf="@+id/back"
-                android:layout_toEndOf="@+id/back"
+                android:layout_toStartOf="@+id/member_data_pro_back"
+                android:layout_toEndOf="@+id/member_data_pro_back"
                 android:fontFamily="@font/opensans_bold"
                 android:text="@string/member_data_profile"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintStart_toEndOf="@+id/member_data_pro_back"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 

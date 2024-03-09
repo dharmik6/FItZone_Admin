@@ -104,7 +104,7 @@
             android:id="@+id/rl_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginVertical="20dp"
             android:layout_below="@+id/ll_Search"
             tools:ignore="NotSibling">
 
@@ -115,7 +115,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginBottom="40dp"
                 tools:ignore="UselessParent">
 
                 <ImageView
