@@ -4,265 +4,207 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/package_card_view_bg"
-    android:orientation="vertical"
-    tools:context=".Packages">
+    android:background="@drawable/package_card_view_bg">
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_arrow_small_left"
+        app:layout_constraintBottom_toBottomOf="@+id/text_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_title" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/Packages"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints">
-
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/ic_arrow_small_left"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:gravity="center"
-                android:layout_toStartOf="@+id/back"
-                android:layout_toEndOf="@+id/back"
-                android:fontFamily="@font/opensans_bold"
-                android:text="@string/Packages"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/back"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
-
-
-            <ImageView
-                android:id="@+id/settings"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="10dp"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_popup_menu"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@id/linearLayout">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                tools:ignore="ObsoleteLayoutParam,ScrollViewSize">
+                android:layout_height="wrap_content">
 
-                <RelativeLayout
-                    android:id="@+id/package_name"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    tools:ignore="UselessParent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        tools:ignore="UselessParent">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Package name"
-                            android:textColor="@color/white"
-                            android:textSize="25sp"
-                            app:fontFamily="@font/nunito_bold"
-                            tools:ignore="HardcodedText" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Price"
-                            android:fontFamily="@font/nunito_bold"
-                            android:layout_marginTop="20dp"
-                            android:textColor="@color/text"
-                            android:textSize="18sp"
-                            tools:ignore="HardcodedText" />
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginStart="10dp"
-                            android:orientation="horizontal">
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:text="₹"
-                                android:fontFamily="@font/opensans_bold"
-                                app:fontFamily="@font/opensans_bold"
-                                android:textColor="@color/white"
-                                android:textSize="20sp"
-                                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                app:fontFamily="@font/opensans_bold"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginStart="10dp"
-                                android:text="9999/-"
-                                android:textColor="@color/white"
-                                android:textSize="35sp"
-                                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
-
-
-                        </LinearLayout>
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/nunito_bold"
-                            android:text="Duration"
-                            android:textSize="18sp"
-                            android:textColor="@color/text"
-                            tools:ignore="HardcodedText" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="6 months"
-                            android:layout_marginStart="10dp"
-                            android:textColor="@color/white"
-                            app:fontFamily="@font/nunito_bold"
-                            android:textSize="20sp"
-                            tools:ignore="HardcodedText" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Description"
-                            android:textColor="@color/text"
-                            android:textSize="18sp"
-                            tools:ignore="HardcodedText" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text=" One Month package offers you premium access to our state-of-the-art fitness facilities and exclusive amenities for a month-long period. Whether you're a fitness enthusiast seeking to achieve your goals or a beginner looking to kickstart your fitness journey, this package provides you with everything you need to succeed."
-                            android:textColor="@color/white"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/nunito_semi_bold"
-                            android:layout_marginTop="10dp"
-                            android:textSize="14sp"
-                            tools:ignore="HardcodedText" />
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="10dp"
                     android:layout_alignParentStart="true"
+                    android:text="Package name"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    app:fontFamily="@font/nunito_bold"
+                    tools:ignore="HardcodedText" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_below="@+id/package_name"
-                    tools:ignore="UselessLeaf">
+                    android:text="Active"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/nunito_bold"
+                    tools:ignore="HardcodedText" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:orientation="horizontal"
-                        tools:ignore="UselessParent">
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="140dp"
-                            android:layout_height="40dp"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="30dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/delete_btn_bg"
-                            android:elevation="10dp"
-                            android:text="@string/Delete"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="140dp"
-                            android:layout_height="40dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/update_btn_bg"
-                            android:elevation="10dp"
-                            android:text="@string/Update"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
-
-
-                    </LinearLayout>
-
-                </RelativeLayout>
 
             </RelativeLayout>
 
-        </ScrollView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/price"
+                android:fontFamily="@font/nunito_bold"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
 
-    </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="₹"
+                    android:fontFamily="@font/opensans_bold"
+                    app:fontFamily="@font/opensans_bold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    app:fontFamily="@font/opensans_bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:text="9999/-"
+                    android:textColor="@color/white"
+                    android:textSize="35sp"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/duration"
+                android:textSize="18sp"
+                android:textColor="@color/text"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="6 months"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                app:fontFamily="@font/nunito_bold"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/description"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" One Month package offers you premium access to our state-of-the-art fitness facilities and exclusive amenities for a month-long period. Whether you're a fitness enthusiast seeking to achieve your goals or a beginner looking to kickstart your fitness journey, this package provides you with everything you need to succeed. "
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginVertical="10dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/delete_btn_bg"
+            android:elevation="10dp"
+            android:text="@string/Delete"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/update_btn_bg"
+            android:elevation="10dp"
+            android:text="@string/Update"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

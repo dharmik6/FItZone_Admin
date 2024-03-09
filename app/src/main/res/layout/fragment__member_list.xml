@@ -29,6 +29,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_alignParentTop="true"
                 app:mt_hint="Search"
                 android:background="@drawable/search_bg"
                 app:mt_maxSuggestionsCount="10"
