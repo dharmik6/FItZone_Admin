@@ -79,32 +79,31 @@ public class FragmentApprovedList extends Fragment {
 
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("trainers").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                String tname = documentSnapshot.getString("name");
-                String experience = documentSnapshot.getString("experience");
-                String timage = documentSnapshot.getString("image");
-                String specialization = documentSnapshot.getString("specialization");
-                String review = documentSnapshot.getString("review");
-//                memberList.add(new MemberList(name, email,image));
-                TrainersList member = new TrainersList(tname, experience,timage,specialization,review);
-                trainersLists.add(member);
-//                originalMemberList.add(member); // Add to both lists
-            }
-            filteredList.addAll(trainersLists); // Initialize filteredList with all members
-
-            adapter.notifyDataSetChanged();
-            // Dismiss ProgressDialog when data is loaded
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        }).addOnFailureListener(e -> {
-            // Handle failures
-
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        });
+        db.collection("trainers")
+                .whereEqualTo("is_active", true)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        String tname = documentSnapshot.getString("name");
+                        String experience = documentSnapshot.getString("experience");
+                        String timage = documentSnapshot.getString("image");
+                        String specialization = documentSnapshot.getString("specialization");
+                        String review = documentSnapshot.getString("review");
+                        TrainersList member = new TrainersList(tname, experience, timage, specialization, review);
+                        trainersLists.add(member);
+                    }
+                    filteredList.addAll(trainersLists); // Initialize filteredList with all members
+                    adapter.notifyDataSetChanged();
+                    // Dismiss ProgressDialog when data is loaded
+                    if (progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                }).addOnFailureListener(e -> {
+                    // Handle failures
+                    if (progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                });
         return view;
     }
 

@@ -1,17 +1,27 @@
 package com.example.fitzoneadmin;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -19,7 +29,8 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
     AppCompatTextView approve_name,approve_specialization,approve_email,approve_number,approve_gender,approve_boi,approve_address,approve_date,approve_experience;
     ImageView approve_img;
     CardView approve_document;
-    Button approve_approve,app_change;
+    Button reject,app_change;
+    ProgressDialog progressDialog;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +52,7 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         approve_img = findViewById(R.id.approve_img);
 
         // Initialize Button
-        approve_approve = findViewById(R.id.approve_approve);
+        reject = findViewById(R.id.reject);
         app_change = findViewById(R.id.app_change);
         approve_document = findViewById(R.id.approve_document);
 
@@ -99,5 +110,104 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Deleting authentication...");
+
+        // Other initialization code
+
+        reject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show progress dialog
+                progressDialog.show();
+
+                // Query Firestore to find the document ID associated with the trainer's email
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("trainers")
+                        .whereEqualTo("email", approve_email.getText().toString())
+                        .get()
+                        .addOnSuccessListener(queryDocumentSnapshots -> {
+                            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                String documentId = documentSnapshot.getId();
+                                String password = documentSnapshot.getString("password");
+                                // Delete user document from Firestore
+                                db.collection("trainers").document(documentId)
+                                        .delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                // After deleting trainer data, also delete authentication
+                                                deleteFirebaseAuthentication(approve_email.getText().toString(), password);
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                // Dismiss progress dialog
+                                                progressDialog.dismiss();
+
+                                                // Handle errors
+                                                Toast.makeText(ApprovedTrainerProfile.this, "Error deleting trainer data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Dismiss progress dialog
+                                progressDialog.dismiss();
+
+                                Toast.makeText(ApprovedTrainerProfile.this, "Error fetching document ID: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        });
+    }
+
+    // Method to delete Firebase authentication
+    private void deleteFirebaseAuthentication(String email, String password) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Authentication successful, proceed to delete the user
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            if (user != null) {
+                                user.delete()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                // Dismiss progress dialog
+                                                progressDialog.dismiss();
+
+                                                if (task.isSuccessful()) {
+                                                    // Authentication deleted successfully
+                                                    Toast.makeText(ApprovedTrainerProfile.this, "Authentication deleted successfully", Toast.LENGTH_SHORT).show();
+                                                    finish(); // Finish the activity after successful deletion
+                                                } else {
+                                                    // Handle errors
+                                                    Toast.makeText(ApprovedTrainerProfile.this, "Error deleting authentication: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            } else {
+                                // Dismiss progress dialog
+                                progressDialog.dismiss();
+
+                                // Handle the case where no user is authenticated
+                                Toast.makeText(ApprovedTrainerProfile.this, "No user authenticated", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            // Dismiss progress dialog
+                            progressDialog.dismiss();
+
+                            // Handle authentication failure
+                            Toast.makeText(ApprovedTrainerProfile.this, "Authentication failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }

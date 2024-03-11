@@ -2,7 +2,7 @@ package com.example.fitzoneadmin;
 
 public class TrainersList {
     private String tname, timage,review;
-    private String temail, tnumber, tgender, tboi, taddress,specialization, experience, tjoidate;
+    private String temail, tnumber, tgender, tboi, taddress,specialization, experience, tjoidate ;
 
     public TrainersList(String tname, String experience, String timage,String specialization,String review) {
         this.tname = tname;
