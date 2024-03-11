@@ -109,6 +109,7 @@
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/up_pac_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20sp"
@@ -138,6 +139,7 @@
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/up_pac_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
@@ -168,6 +170,7 @@
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/up_pac_dur"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20sp"
@@ -197,6 +200,7 @@
                             tools:ignore="HardcodedText,RtlSymmetry" />
 
                         <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/up_pac_des"
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:layout_marginStart="15dp"
@@ -240,6 +244,7 @@
         android:layout_gravity="bottom">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/up_but"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
