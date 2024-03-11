@@ -84,7 +84,8 @@ public class ExercisesList extends AppCompatActivity {
                 String name = documentSnapshot.getString("name");
                 String body = documentSnapshot.getString("body");
                 String image = documentSnapshot.getString("imageUrl");
-                ExercisesItemList exe = new ExercisesItemList(name, body, image);
+                String id = documentSnapshot.getId();
+                ExercisesItemList exe = new ExercisesItemList(name, body, image, id);
                 exercisesItemLists.add(exe);
             }
             filteredList.addAll(exercisesItemLists); // Initialize filteredList with all members

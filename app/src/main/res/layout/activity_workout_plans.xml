@@ -115,6 +115,7 @@
                     tools:ignore="UselessParent">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/plan_name_exe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Workout plan name"
@@ -126,6 +127,7 @@
                         tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/totla_exe_plan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="0 exercises"
@@ -143,7 +145,7 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_user"
+                android:id="@+id/img_wor_plan"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentTop="true"
@@ -315,6 +317,7 @@
                     tools:ignore="UselessLeaf,UselessParent">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyc_exe_data"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollbars="vertical"
@@ -336,6 +339,7 @@
                 android:layout_below="@+id/rl_exercises">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/edit_plan_tr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="20dp"
@@ -351,7 +355,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="20dp"
                         android:layout_marginBottom="10dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
@@ -373,7 +378,7 @@
                         android:fontFamily="@font/nunito_bold"
                         android:textColor="@color/black"
                         android:layout_marginStart="20dp"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
 
                     </LinearLayout>
@@ -389,6 +394,7 @@
                 android:layout_marginBottom="20dp">
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/dele_plan_data"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
