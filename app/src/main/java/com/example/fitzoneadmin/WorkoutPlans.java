@@ -1,5 +1,6 @@
 package com.example.fitzoneadmin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -110,7 +114,6 @@ public class WorkoutPlans extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
-
         edit_plan_tr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +121,37 @@ public class WorkoutPlans extends AppCompatActivity {
                 Intent intent = new Intent(WorkoutPlans.this, EditWorkout.class);
                 intent.putExtra("name", name);
                 startActivity(intent);
+            }
+        });
+
+        dele_plan_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the Firestore instance
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                progressDialog.show();
+                // Access the collection and delete the document
+                db.collection("workout_plans").document(eid)
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // Document successfully deleted
+                                progressDialog.dismiss();
+                                Toast.makeText(WorkoutPlans.this, "Document deleted successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent1=new Intent(WorkoutPlans.this,WorkoutPlansList.class);
+                                startActivity(intent1);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Handle any errors
+                                progressDialog.dismiss();
+                                Log.e("Firestore", "Error deleting document", e);
+                                Toast.makeText(WorkoutPlans.this, "Failed to delete document", Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
         ImageView backPress = findViewById(R.id.back);

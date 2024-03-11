@@ -59,13 +59,13 @@ public class FragmentMembersHome extends Fragment {
                 loadFragment(new Fragment_Member_Data_List(), true);
             }
         });
-        view.findViewById(R.id.active_card_3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(new RejectedMemberList(), true);
-//                startActivity(new Intent(FragmentMembersHome.this,RejectedMemberList.class));
-            }
-        });
+//        view.findViewById(R.id.active_card_3).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                loadFragment(new RejectedMemberList(), true);
+////                startActivity(new Intent(FragmentMembersHome.this,RejectedMemberList.class));
+//            }
+//        });
 
         return view;
     }

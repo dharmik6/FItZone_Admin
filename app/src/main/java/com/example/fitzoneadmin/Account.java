@@ -62,7 +62,7 @@ public class Account extends AppCompatActivity {
             }
         });
 
-        ImageView backPress = findViewById(R.id.back_press);
+        ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

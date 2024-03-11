@@ -36,10 +36,7 @@ public class MembersProfile extends AppCompatActivity {
     AppCompatButton user_update,user_delete;
     ImageView member_pro_back;
     AppCompatTextView member_joidate,member_activity,member_address,member_age,member_gender,member_email,member_number;
-
-    // Declare Firestore instance and references
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    DocumentReference docRef;
+    ProgressDialog progressDialog;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -73,6 +70,11 @@ public class MembersProfile extends AppCompatActivity {
         String memberid = intent.getStringExtra("name");
         String memberemailid = intent.getStringExtra("email");
 
+        // Show ProgressDialog
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
 
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -103,10 +105,12 @@ public class MembersProfile extends AppCompatActivity {
                         Glide.with(MembersProfile.this)
                                 .load(memberimage)
                                 .into(member_image);
+                        progressDialog.dismiss();
                     }
                 } else {
                     // userNameFromIntent and user don't match, handle accordingly
 //                    showToast("User data does not match the intent.");
+                    progressDialog.dismiss();
                 }
             }
         });
@@ -131,6 +135,7 @@ public class MembersProfile extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 // Handle errors
+                                progressDialog.dismiss();
                                 showToast("Error deleting user data: " + e.getMessage());
                             }
                         });
@@ -147,10 +152,12 @@ public class MembersProfile extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 // Authentication deleted successfully
+                                progressDialog.dismiss();
                                 showToast("Authentication deleted successfully");
                                 finish(); // Finish the activity after successful deletion
                             } else {
                                 // Handle errors
+                                progressDialog.dismiss();
                                 showToast("Error deleting authentication: " + task.getException().getMessage());
                             }
                         }
