@@ -21,21 +21,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MembersProfile extends AppCompatActivity {
-    MaterialTextView member_name,member_username;
+    MaterialTextView member_name, member_username;
     CircleImageView member_image;
-    AppCompatButton user_update,user_delete;
+    AppCompatButton user_delete;
     ImageView member_pro_back;
-    AppCompatTextView member_joidate,member_activity,member_address,member_age,member_gender,member_email,member_number;
+    AppCompatTextView member_joidate, member_activity, member_address, member_age, member_gender, member_email, member_number;
     ProgressDialog progressDialog;
 
     @SuppressLint("MissingInflatedId")
@@ -44,10 +41,7 @@ public class MembersProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members_profile);
 
-//        user_update = findViewById(R.id.user_update);
-        user_delete = findViewById(R.id.user_delete);
-
-        // Initialize your TextView elements
+        // Initialize TextView elements
         member_name = findViewById(R.id.member_name);
         member_username = findViewById(R.id.member_username);
         member_joidate = findViewById(R.id.member_joidate);
@@ -60,12 +54,18 @@ public class MembersProfile extends AppCompatActivity {
         member_image = findViewById(R.id.member_image);
         member_pro_back = findViewById(R.id.member_pro_back);
 
+        // Initialize delete button
+        user_delete = findViewById(R.id.user_delete);
+
+        // Set onClickListener for back button
         member_pro_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+
+        // Get member ID and email from intent
         Intent intent = getIntent();
         String memberid = intent.getStringExtra("name");
         String memberemailid = intent.getStringExtra("email");
@@ -78,8 +78,10 @@ public class MembersProfile extends AppCompatActivity {
 
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("users").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+        DocumentReference docRef = db.collection("users").document(memberid);
+        docRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                // Document exists, retrieve data
                 String membername = documentSnapshot.getString("name");
                 String memberusername = documentSnapshot.getString("username");
                 String memberactivity = documentSnapshot.getString("activity");
@@ -90,32 +92,33 @@ public class MembersProfile extends AppCompatActivity {
                 String membernumber = documentSnapshot.getString("number");
                 String memberimage = documentSnapshot.getString("image");
 
-//                 Check if the userNameFromIntent matches the user
-                if (memberid.equals(membername)) {
-                    // Display the data only if they match
-                    member_name.setText(membername != null ? membername : "No name");
-                    member_username.setText(memberusername != null ? memberusername : "No username");
-                    member_activity.setText(memberactivity != null ? memberactivity : "No activity");
-                    member_address.setText(memberaddress != null ? memberaddress : "No address");
-                    member_age.setText(memberage != null ? memberage : "No age");
-                    member_gender.setText(membergender != null ? membergender : "No gender");
-                    member_email.setText(memberemail != null ? memberemail : "No email");
-                    member_number.setText(membernumber != null ? membernumber : "No number");
-                    if (memberimage != null) {
-                        Glide.with(MembersProfile.this)
-                                .load(memberimage)
-                                .into(member_image);
-                        progressDialog.dismiss();
-                    }
-                } else {
-                    // userNameFromIntent and user don't match, handle accordingly
-//                    showToast("User data does not match the intent.");
-                    progressDialog.dismiss();
+                // Display the data
+                member_name.setText(membername != null ? membername : "No name");
+                member_username.setText(memberusername != null ? memberusername : "No username");
+                member_activity.setText(memberactivity != null ? memberactivity : "No activity");
+                member_address.setText(memberaddress != null ? memberaddress : "No address");
+                member_age.setText(memberage != null ? memberage : "No age");
+                member_gender.setText(membergender != null ? membergender : "No gender");
+                member_email.setText(memberemail != null ? memberemail : "No email");
+                member_number.setText(membernumber != null ? membernumber : "No number");
+                if (memberimage != null) {
+                    Glide.with(MembersProfile.this)
+                            .load(memberimage)
+                            .into(member_image);
                 }
+                progressDialog.dismiss(); // Dismiss progress dialog after data retrieval
+            } else {
+                // Document does not exist
+                progressDialog.dismiss(); // Dismiss progress dialog
+                showToast("No such member found");
             }
+        }).addOnFailureListener(e -> {
+            // Handle errors
+            progressDialog.dismiss();
+            showToast("Error retrieving user data: " + e.getMessage());
         });
 
-
+        // Set onClickListener for delete button
         user_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,8 +144,8 @@ public class MembersProfile extends AppCompatActivity {
                         });
             }
         });
-
     }
+
     private void deleteFirebaseAuthentication(String email) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
