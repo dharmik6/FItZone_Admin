@@ -88,6 +88,7 @@
                     tools:ignore="UselessParent">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/img_wor_plan_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Workout plan name"
@@ -99,6 +100,7 @@
                         tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/total_exe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="0 exercises"
@@ -118,7 +120,7 @@
                     android:layout_alignParentEnd="true">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/img_user"
+                        android:id="@+id/img_wor_plan_image"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_alignParentTop="true"
@@ -131,26 +133,26 @@
                         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        app:cardCornerRadius="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="60dp"
-                        android:backgroundTint="#3D5872"
-                        android:background="@drawable/camera_bg">
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        app:cardCornerRadius="30dp"-->
+<!--                        android:layout_alignParentEnd="true"-->
+<!--                        android:layout_marginTop="60dp"-->
+<!--                        android:backgroundTint="#3D5872"-->
+<!--                        android:background="@drawable/camera_bg">-->
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:src="@drawable/ic_photo_camera"
-                            tools:ignore="ContentDescription" />
+<!--                        <ImageView-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="20dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:layout_marginStart="5dp"-->
+<!--                            android:layout_alignParentStart="true"-->
+<!--                            android:layout_alignParentEnd="true"-->
+<!--                            android:src="@drawable/ic_photo_camera"-->
+<!--                            tools:ignore="ContentDescription" />-->
 
-                    </androidx.cardview.widget.CardView>
+<!--                    </androidx.cardview.widget.CardView>-->
 
 
 
@@ -169,6 +171,7 @@
                 tools:ignore="UselessLeaf">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/wor_plan_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -179,6 +182,7 @@
 
 
             <LinearLayout
+                android:id="@+id/add_wor_pan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/plan_list"
@@ -225,6 +229,7 @@
         android:layout_gravity="bottom">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_wor_plan_but"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"

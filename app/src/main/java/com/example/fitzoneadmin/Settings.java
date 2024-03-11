@@ -31,7 +31,7 @@ public class Settings extends AppCompatActivity {
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                startActivity(new Intent(Settings.this, MainActivity.class));
             }
         });
 
@@ -49,12 +49,11 @@ public class Settings extends AppCompatActivity {
                 editor.putBoolean("flag", false);
                 editor.apply();
 
-                finish();
-
 
                 // Start the LoginActivity
                 Intent intent = new Intent(Settings.this, AdminLogin.class);
                 startActivity(intent);
+                finish();
             }
         });
 

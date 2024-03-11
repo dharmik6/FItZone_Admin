@@ -84,7 +84,7 @@
         tools:ignore="MissingConstraints,UselessParent">
 
         <com.mancj.materialsearchbar.MaterialSearchBar
-            android:id="@+id/searchbar"
+            android:id="@+id/plan_searchbar"
             style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -102,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/searchbar"
+            android:layout_below="@+id/plan_searchbar"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:orientation="horizontal"
@@ -148,6 +148,7 @@
                 tools:ignore="UselessLeaf">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/plan_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="vertical"
