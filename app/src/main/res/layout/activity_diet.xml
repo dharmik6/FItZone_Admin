@@ -1,79 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_ground"
+    android:orientation="vertical"
     tools:context=".Diet">
-
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:background="@color/dark_blue"
         android:layout_width="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_height="50dp"
+        android:layout_height="?attr/actionBarSize"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
+        <!-- Back Button -->
         <ImageView
             android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentStart="true"
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_arrow_small_left"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:ignore="ContentDescription" />
 
+        <!-- Title -->
         <TextView
             android:id="@+id/text_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:gravity="center"
-            android:layout_toStartOf="@+id/back"
-            android:layout_toEndOf="@+id/back"
-            android:fontFamily="@font/opensans_bold"
-            android:text="@string/diet"
+            android:text="Diet"
             android:textColor="@color/white"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText" />
 
-
-        <ImageView
-            android:id="@+id/settings"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="10dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_popup_menu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- ScrollView -->
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_weight="1"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
         tools:ignore="ScrollViewCount">
 
         <RelativeLayout
@@ -100,7 +79,7 @@
                         android:textSize="20sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="diet Name"
+                        android:text="Diet Name"
                         tools:ignore="HardcodedText" />
 
                 </RelativeLayout>
@@ -145,22 +124,19 @@
                     tools:ignore="ContentDescription,HardcodedText" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/back_side"
-                tools:ignore="UselessLeaf">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <!-- Button Layout -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/diet_del_butt"
@@ -194,13 +170,5 @@
                         android:textStyle="bold"
                         tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
 
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-        </RelativeLayout>
-
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

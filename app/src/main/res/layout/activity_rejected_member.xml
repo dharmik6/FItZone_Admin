@@ -16,7 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="?attr/actionBarSize"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints">
 
@@ -348,19 +348,13 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
                     android:padding="10dp"
                     android:paddingStart="15dp"
                     android:text="21-05-2023"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line"
-                    android:layout_marginEnd="25dp"
-                    tools:ignore="ContentDescription" />
 
 
                 <LinearLayout

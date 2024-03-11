@@ -23,7 +23,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_height="50dp"
+        android:layout_height="?attr/actionBarSize"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
@@ -282,6 +282,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
                             android:layout_marginEnd="15dp"
                             android:fontFamily="@font/nunito_regular"
                             android:padding="10dp"
@@ -291,15 +292,7 @@
                             android:textSize="18sp"
                             tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="20dp"
-                            android:src="@drawable/ic_line"
-                            tools:ignore="ContentDescription" />
-                    </LinearLayout>
+                        </LinearLayout>
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>

@@ -15,7 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -40,14 +40,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginStart="20dp"
-                android:layout_toStartOf="@+id/back"
-                android:layout_toEndOf="@+id/back"
+                android:layout_toStartOf="@+id/member_data_pro_back"
+                android:layout_toEndOf="@+id/member_data_pro_back"
                 android:fontFamily="@font/opensans_bold"
                 android:text="@string/member_data_profile"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintStart_toEndOf="@+id/member_data_pro_back"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -290,6 +290,13 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_all_text"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
@@ -360,7 +367,7 @@
                                 android:id="@+id/rl_hori_he"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="200dp"
+                                android:layout_marginStart="180dp"
                                 android:orientation="horizontal"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentStart="true"
@@ -371,7 +378,9 @@
                                     android:id="@+id/tvHeaviest"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginEnd="80dp"
                                     android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
                                     android:fontFamily="@font/nunito_bold"
                                     android:text="@string/heaviest"
                                     android:textColor="@color/text"
@@ -394,7 +403,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="200dp"
+                                android:layout_marginStart="180dp"
                                 android:orientation="horizontal"
                                 android:layout_below="@+id/rl_hori_he"
                                 android:layout_alignParentStart="true"
@@ -404,7 +413,9 @@
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginEnd="80dp"
                                     android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
                                     android:text="@string/lightest"
                                     android:textColor="@color/text"
                                     android:fontFamily="@font/nunito_bold"
@@ -429,26 +440,31 @@
                     </RelativeLayout>
 
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="140dp"
+                        android:layout_below="@+id/rl_all_text"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
                         android:layout_marginBottom="10dp">
 
                         <com.github.mikephil.charting.charts.LineChart
                             android:id="@+id/lineChart"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
+                            android:layout_width="300dp"
+                            android:layout_height="200dp"
                             android:layout_marginBottom="20dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_gravity="center"
                             tools:ignore="MissingClass" />
 
 
-                    </LinearLayout>
+                    </RelativeLayout>
+
+                    </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 

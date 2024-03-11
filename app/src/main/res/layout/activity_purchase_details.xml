@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="?attr/actionBarSize"
             android:background="@color/dark_blue"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints">
@@ -447,6 +447,7 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginEnd="15dp"
+                                    android:layout_marginBottom="20dp"
                                     android:fontFamily="@font/nunito_regular"
                                     android:padding="10dp"
                                     android:paddingStart="15dp"
@@ -455,14 +456,7 @@
                                     android:textSize="18sp"
                                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
-                                    android:layout_marginBottom="20dp"
-                                    android:src="@drawable/ic_line"
-                                    tools:ignore="ContentDescription" />
-                            </LinearLayout>
+                               </LinearLayout>
                         </RelativeLayout>
 
                     </androidx.cardview.widget.CardView>

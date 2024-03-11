@@ -9,19 +9,19 @@
     android:background="@color/back_ground"
     android:id="@+id/drawerLayout"
     android:scrollbars="vertical"
-    tools:context=".MainActivity"
-   >
+    tools:context=".MainActivity">
 
 
-  <LinearLayout
+  <RelativeLayout
       android:id="@+id/linearLayout2"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -82,30 +82,29 @@
           tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_bar">
       <ScrollView
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:layout_alignParentEnd="true"
           android:layout_alignParentTop="true"
           android:layout_alignParentStart="true"
-          tools:ignore="SpeakableTextPresentCheck">
-
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentBottom="true"
+          tools:ignore="SpeakableTextPresentCheck,UselessParent">
 
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            tools:ignore="ObsoleteLayoutParam,ScrollViewSize" />
+            android:layout_marginTop="10dp"
+            tools:ignore="ScrollViewSize" />
 
       </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-  </LinearLayout>
+    </RelativeLayout>
+  </RelativeLayout>
   <com.google.android.material.navigation.NavigationView
       android:id="@+id/navigationview"
       android:layout_width="wrap_content"

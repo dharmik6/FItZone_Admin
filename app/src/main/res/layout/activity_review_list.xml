@@ -20,7 +20,7 @@
             android:id="@+id/linearLayout"
             android:background="@color/dark_blue"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="?attr/actionBarSize"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints">
 
@@ -102,7 +102,9 @@
                 style="@style/MaterialSearchBarLight"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 app:mt_hint="Search"
@@ -114,12 +116,12 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_below="@+id/review_searchbar">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     tools:ignore="UselessLeaf">
@@ -130,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:scrollbars="vertical"
                         tools:listitem="@layout/approved_list_item" />
-                </LinearLayout>
+                </RelativeLayout>
 
             </ScrollView>
 

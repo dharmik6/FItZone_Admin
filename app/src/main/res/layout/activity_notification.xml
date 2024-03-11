@@ -20,7 +20,7 @@
             android:id="@+id/linearLayout"
             android:background="@color/dark_blue"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="?attr/actionBarSize"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints">
 
@@ -124,9 +124,7 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/searchbar"
-                tools:ignore="NotSibling">
+                tools:ignore="NotSibling,UselessParent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
