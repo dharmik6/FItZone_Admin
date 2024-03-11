@@ -3,6 +3,7 @@ package com.example.fitzoneadmin;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -25,6 +26,7 @@ public class Packages extends AppCompatActivity {
     AppCompatTextView pac_show_descri,pac_show_duration,pac_show_price,pac_show_name;
     Button pac_del,pac_up;
     ProgressDialog progressDialog;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
