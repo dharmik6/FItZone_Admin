@@ -42,7 +42,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
         holder.textTname.setText(member.getTname());
         holder.textexperience.setText(member.getExperience());
         holder.textspecialization.setText(member.getSpecialization());
-        holder.textreview.setText(member.getReview());
+//        holder.textreview.setText(member.getReview());
 
         // Check if the context is not null before loading the image
         if (context != null) {
@@ -103,7 +103,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
             textexperience = itemView.findViewById(R.id.approved_experience);
             textspecialization = itemView.findViewById(R.id.approved_specialization);
             textTimage = itemView.findViewById(R.id.approved_image);
-            textreview = itemView.findViewById(R.id.approved_re);
+//            textreview = itemView.findViewById(R.id.approved_re);
         }
     }
 }

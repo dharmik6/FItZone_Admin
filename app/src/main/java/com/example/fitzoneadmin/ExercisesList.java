@@ -78,7 +78,7 @@ public class ExercisesList extends AppCompatActivity {
         progressDialog.show();
 
         // Load data initially
-        loadExercisesData();
+//        loadExercisesData();
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
@@ -89,11 +89,11 @@ public class ExercisesList extends AppCompatActivity {
         });
     }
 
-    @Override
+//    @Override
     protected void onResume() {
         super.onResume();
-        // Reload data every time activity is resumed
-        loadExercisesData();
+            // Reload data every time activity is resumed
+            loadExercisesData();
     }
 
     private void loadExercisesData() {

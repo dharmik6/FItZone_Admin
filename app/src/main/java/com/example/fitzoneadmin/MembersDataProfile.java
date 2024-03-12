@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -38,7 +39,7 @@ public class MembersDataProfile extends AppCompatActivity {
     ImageView member_data_pro_back;
     AppCompatTextView data_cur_weight,data_cur_height,data_activity,data_gender,data_height,data_weight;
     LineChart lineChart;
-
+    ProgressDialog progressDialog;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,7 @@ public class MembersDataProfile extends AppCompatActivity {
 
         Intent intent = getIntent();
         String memberid = intent.getStringExtra("uid");
-        String memberemailid = intent.getStringExtra("email");
+//        String memberemailid = intent.getStringExtra("email");
 
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();

@@ -29,7 +29,7 @@ public class FragmentTrainersHome extends Fragment {
         // Inflate the layout for this fragment
         pendingTrainer = view.findViewById(R.id.pendingTrainer);
         approvedTrainer = view.findViewById(R.id.approvTrainer);
-        rejectedTrainer = view.findViewById(R.id.rejectedTrainer);
+//        rejectedTrainer = view.findViewById(R.id.rejectedTrainer);
         trainerBooking = view.findViewById(R.id.trainerBooking);
         ratingRivew = view.findViewById(R.id.ratingReview);
 
@@ -45,12 +45,12 @@ public class FragmentTrainersHome extends Fragment {
              loadFragment(new FragmentApprovedList(),true);
             }
         });
-        rejectedTrainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-             loadFragment(new FragmentRejectedList(),true);
-            }
-        });
+//        rejectedTrainer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//             loadFragment(new FragmentRejectedList(),true);
+//            }
+//        });
         trainerBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

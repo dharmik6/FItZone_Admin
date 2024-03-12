@@ -1,8 +1,10 @@
 package com.example.fitzoneadmin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,7 +19,9 @@ public class Account extends AppCompatActivity {
     ImageView admin_image;
     TextView admin_name;
     TextView admin_email,admin_number,admin_address,admin_gender;
-    String aname="Dhruv Pandav";
+    String aname="dhruvpandav04@gmail.com";
+    String bname="dharmik.kacha.2526@gmail.com";
+    CardView edit_pro_acc;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class Account extends AppCompatActivity {
         admin_number = findViewById(R.id.admin_number);
         admin_address = findViewById(R.id.admin_address);
         admin_gender = findViewById(R.id.admin_gender);
+        edit_pro_acc = findViewById(R.id.edit_pro_acc);
 
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -40,28 +45,47 @@ public class Account extends AppCompatActivity {
                 String number = documentSnapshot.getString("number");
                 String address = documentSnapshot.getString("address");
                 String gender = documentSnapshot.getString("gender");
-//                String image = documentSnapshot.getString("image");
+                String image = documentSnapshot.getString("image");
 
 //                 Check if the userNameFromIntent matches the user
-                if (aname.equals(name)) {
+                if (aname.equals(email)) {
                     // Display the data only if they match
                 admin_name.setText(name != null ? name : "No name");
                 admin_address.setText(address != null ? address : "No address");
                 admin_gender.setText(gender != null ? gender : "No gender");
                 admin_email.setText(email != null ? email : "No email");
                 admin_number.setText(number != null ? number : "No number");
+                    if (image != null) {
+                        Glide.with(Account.this)
+                                .load(image)
+                                .into(admin_image);
+                    }
+                }
+//                else if (bname.equals(name)) {
+//                    // Display the data only if they match
+//                    admin_name.setText(name != null ? name : "No name");
+//                    admin_address.setText(address != null ? address : "No address");
+//                    admin_gender.setText(gender != null ? gender : "No gender");
+//                    admin_email.setText(email != null ? email : "No email");
+//                    admin_number.setText(number != null ? number : "No number");
 //                    if (image != null) {
 //                        Glide.with(Account.this)
 //                                .load(image)
 //                                .into(admin_image);
 //                    }
-                } else {
-                    // userNameFromIntent and user don't match, handle accordingly
-//                    showToast("User data does not match the intent.");
-                }
+//                }
+
             }
         });
-
+        edit_pro_acc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email= admin_email.getText().toString().trim();
+                Intent intent1=new Intent(Account.this,UpdateAccount.class);
+                intent1.putExtra("email",email);
+                startActivity(intent1);
+            }
+        });
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override

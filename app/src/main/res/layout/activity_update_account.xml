@@ -92,7 +92,7 @@
                     tools:ignore="MissingConstraints,UselessLeaf">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circleImageView"
+                        android:id="@+id/admin_up_image"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_centerInParent="true"
@@ -100,10 +100,11 @@
                         tools:ignore="ExtraText,UselessParent,ImageContrastCheck" />
 
                     <LinearLayout
+                        android:id="@+id/admin_camera"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_alignEnd="@+id/circleImageView"
-                        android:layout_alignBottom="@+id/circleImageView"
+                        android:layout_alignEnd="@+id/admin_up_image"
+                        android:layout_alignBottom="@+id/admin_up_image"
                         android:layout_marginStart="170dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/camera_bg">
@@ -162,6 +163,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/admin_up_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -179,34 +181,6 @@
                                 app:cardCornerRadius="10dp"
                                 tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
-                            <androidx.appcompat.widget.AppCompatCheckedTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:fontFamily="@font/opensans_bold"
-                                android:layout_marginStart="25dp"
-                                android:text="@string/Email"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlSymmetry" />
-
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="15dp"
-                                android:background="@drawable/text_bg"
-                                android:fontFamily="@font/opensans_bold"
-                                android:hint="@string/Email"
-                                android:inputType="textEmailAddress"
-                                android:padding="10dp"
-                                android:paddingStart="15dp"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/text"
-                                android:textSize="18sp"
-                                app:cardCornerRadius="10dp"
-                                tools:ignore="HardcodedText,RtlSymmetry,TouchTargetSizeCheck" />
 
                             <androidx.appcompat.widget.AppCompatCheckedTextView
                                 android:layout_width="wrap_content"
@@ -220,6 +194,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/admin_up_number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -249,6 +224,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/admin_up_add"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -278,6 +254,7 @@
                                 tools:ignore="HardcodedText,RtlSymmetry" />
 
                             <Spinner
+                                android:id="@+id/admin_up_gender"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -300,6 +277,7 @@
 
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/update_acc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"

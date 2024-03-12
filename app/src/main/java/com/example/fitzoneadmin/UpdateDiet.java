@@ -116,7 +116,7 @@ public class UpdateDiet extends AppCompatActivity {
             }
         });
 
-        ImageView backPress = findViewById(R.id.back);
+        ImageView backPress = findViewById(R.id.back_press);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

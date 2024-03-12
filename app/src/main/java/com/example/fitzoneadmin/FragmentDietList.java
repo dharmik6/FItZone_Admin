@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
@@ -27,20 +28,26 @@ public class FragmentDietList extends Fragment {
     RecyclerView diet_recyc;
     private DietAdapter adapter;
     private List<DietList> dietLists;
-
+    LinearLayout add_diet;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_diet_list, container, false);
 
         diet_recyc = view.findViewById(R.id.diet_recyc);
+        add_diet = view.findViewById(R.id.add_diet);
         diet_recyc.setHasFixedSize(true);
         diet_recyc.setLayoutManager(new LinearLayoutManager(getContext()));
 
         dietLists = new ArrayList<>();
         adapter = new DietAdapter(getContext(), dietLists);
         diet_recyc.setAdapter(adapter);
-
+        add_diet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),AddDiet.class));
+            }
+        });
         return view;
     }
 
