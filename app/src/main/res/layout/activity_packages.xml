@@ -178,7 +178,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/pac_up"
+            android:id="@+id/pac_del"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -193,7 +193,7 @@
             tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/pac_del"
+            android:id="@+id/pac_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
