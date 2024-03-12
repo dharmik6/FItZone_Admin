@@ -52,28 +52,21 @@ public class Fragment_Member_list extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment__member_list, container, false);
 
-        // Initialize search bar
         user_searchbar = view.findViewById(R.id.user_searchbar);
 
         // Setup MaterialSearchBar
         user_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
-            public void onSearchStateChanged(boolean enabled) {
-                // Handle search state changes
-            }
+            public void onSearchStateChanged(boolean enabled) {}
 
             @Override
             public void onSearchConfirmed(CharSequence text) {
-                // Perform search
                 filter(text.toString());
             }
 
             @Override
-            public void onButtonClicked(int buttonCode) {
-                // Handle button clicks
-            }
+            public void onButtonClicked(int buttonCode) {}
         });
-        
 
         recyclerView = view.findViewById(R.id.recyc_members);
         recyclerView.setHasFixedSize(true);
@@ -81,46 +74,48 @@ public class Fragment_Member_list extends Fragment {
         filteredList = new ArrayList<>();
 
         memberList = new ArrayList<>();
-        adapter = new MemberAdapter(getContext(),memberList);
+        adapter = new MemberAdapter(getContext(), memberList);
         recyclerView.setAdapter(adapter);
 
-        // Show ProgressDialog
+
+
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadMemberData();
+    }
+
+    private void loadMemberData() {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            memberList.clear(); // Clear existing list before adding new data
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                 String name = documentSnapshot.getString("name");
                 String email = documentSnapshot.getString("email");
                 String image = documentSnapshot.getString("image");
-                String uid = documentSnapshot.getString("name");
-//                memberList.add(new MemberList(name, email,image));
-                MemberList member = new MemberList(name, email,image,uid);
+                String uid = documentSnapshot.getString("uid");
+                MemberList member = new MemberList(name, email, image, uid);
                 memberList.add(member);
             }
-            filteredList.addAll(memberList); // Initialize filteredList with all members
+            filteredList.addAll(memberList);
             adapter.notifyDataSetChanged();
-            // Dismiss ProgressDialog when data is loaded
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
         }).addOnFailureListener(e -> {
-            // Handle failures
-
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
         });
-
-
-
-        return view; // Return the inflated view
     }
-
 
     private void filter(String query) {
         List<MemberList> filteredList = new ArrayList<>();

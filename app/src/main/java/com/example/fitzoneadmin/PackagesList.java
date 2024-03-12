@@ -31,12 +31,15 @@ public class PackagesList extends AppCompatActivity {
 
         add_payment = findViewById(R.id.add_payment);
         payment_recyc = findViewById(R.id.payment_recyc);
+
+        // Set click listener for adding payment
         add_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PackagesList.this,AddPackages.class));
+                startActivity(new Intent(PackagesList.this, AddPackages.class));
             }
         });
+
         payment_recyc.setHasFixedSize(true);
         payment_recyc.setLayoutManager(new LinearLayoutManager(this));
 
@@ -44,11 +47,37 @@ public class PackagesList extends AppCompatActivity {
         adapter = new PackagesAdapter(this, dietLists);
         payment_recyc.setAdapter(adapter);
 
+        // Show ProgressDialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
+        // Load data from Firestore
+        loadPackageData();
+
+        // Set back button click listener
+        ImageView backPress = findViewById(R.id.back);
+        backPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Reload data every time activity is resumed
+        loadPackageData();
+    }
+
+    private void loadPackageData() {
+        // Clear previous data
+        dietLists.clear();
+
+        // Fetch data from Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("packages").get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
@@ -56,25 +85,21 @@ public class PackagesList extends AppCompatActivity {
                 String price = documentSnapshot.getString("price");
                 String duration = documentSnapshot.getString("duration");
                 String description = documentSnapshot.getString("description");
-                PackagesItemList diet = new PackagesItemList(name,price,duration ,description);
+                PackagesItemList diet = new PackagesItemList(name, price, duration, description);
                 dietLists.add(diet);
             }
-           adapter.notifyDataSetChanged();
+
+            // Notify adapter about data changes
+            adapter.notifyDataSetChanged();
+
+            // Dismiss ProgressDialog when data is loaded
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
         }).addOnFailureListener(e -> {
+            // Handle failures
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
-            }
-        });
-
-
-        ImageView backPress = findViewById(R.id.back);
-        backPress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
             }
         });
     }

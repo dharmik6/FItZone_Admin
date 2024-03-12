@@ -66,9 +66,9 @@ public class ExercisesList extends AppCompatActivity {
         exe_recyc.setHasFixedSize(true);
         exe_recyc.setLayoutManager(new LinearLayoutManager(this));
 
-        exercisesItemLists = new ArrayList<>(); // Initialize exercisesItemLists
+        exercisesItemLists = new ArrayList<>();
         filteredList = new ArrayList<>();
-        adapter = new ExercisesAdapter(this, exercisesItemLists); // Use correct adapter
+        adapter = new ExercisesAdapter(this, exercisesItemLists);
         exe_recyc.setAdapter(adapter);
 
         // Show ProgressDialog
@@ -77,31 +77,8 @@ public class ExercisesList extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        // Query Firestore for data
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("exercises").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                String name = documentSnapshot.getString("name");
-                String body = documentSnapshot.getString("body");
-                String image = documentSnapshot.getString("imageUrl");
-                String id = documentSnapshot.getId();
-                ExercisesItemList exe = new ExercisesItemList(name, body, image, id);
-                exercisesItemLists.add(exe);
-            }
-            filteredList.addAll(exercisesItemLists); // Initialize filteredList with all members
-
-            adapter.notifyDataSetChanged();
-            // Dismiss ProgressDialog when data is loaded
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-
-        }).addOnFailureListener(e -> {
-            // Handle failures
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        });
+        // Load data initially
+//        loadExercisesData();
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +89,39 @@ public class ExercisesList extends AppCompatActivity {
         });
     }
 
+//    @Override
+    protected void onResume() {
+        super.onResume();
+            // Reload data every time activity is resumed
+            loadExercisesData();
+    }
+
+    private void loadExercisesData() {
+        exercisesItemLists.clear();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("exercises").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                String name = documentSnapshot.getString("name");
+                String body = documentSnapshot.getString("body");
+                String image = documentSnapshot.getString("imageUrl");
+                String id = documentSnapshot.getId();
+                ExercisesItemList exe = new ExercisesItemList(name, body, image, id);
+                exercisesItemLists.add(exe);
+            }
+            filteredList.addAll(exercisesItemLists);
+
+            adapter.notifyDataSetChanged();
+            // Dismiss ProgressDialog when data is loaded
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        }).addOnFailureListener(e -> {
+            // Handle failures
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        });
+    }
 
     private void filter(String query) {
         List<ExercisesItemList> filteredList = new ArrayList<>();

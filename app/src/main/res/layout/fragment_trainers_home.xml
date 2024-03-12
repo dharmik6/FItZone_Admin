@@ -148,67 +148,67 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/rejectedTrainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="8dp"
-                android:backgroundTint="@color/card_view"
-                android:shadowColor="@color/black"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                tools:ignore="MissingConstraints">
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/rejectedTrainer"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginVertical="8dp"-->
+<!--                android:backgroundTint="@color/card_view"-->
+<!--                android:shadowColor="@color/black"-->
+<!--                app:cardCornerRadius="20dp"-->
+<!--                app:cardElevation="10dp"-->
+<!--                tools:ignore="MissingConstraints">-->
 
 
-                <RelativeLayout
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/member_ic_bg"
-                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck">
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:background="@drawable/member_ic_bg"-->
+<!--                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck">-->
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="20dp"
-                        android:src="@drawable/rejected_trainer_image" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentEnd="true"-->
+<!--                        android:layout_alignParentStart="true"-->
+<!--                        android:layout_alignParentTop="true"-->
+<!--                        android:layout_alignParentBottom="true"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        android:src="@drawable/rejected_trainer_image" />-->
 
-                </RelativeLayout>
+<!--                </RelativeLayout>-->
 
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="120dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="25dp"
-                    android:orientation="vertical"
-                    tools:ignore="NotSibling">
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    android:layout_marginStart="120dp"-->
+<!--                    android:layout_marginTop="30dp"-->
+<!--                    android:layout_marginEnd="25dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    tools:ignore="NotSibling">-->
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/rejected_trainer"
-                        android:textColor="@color/black"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/rejected_trainer"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="25dp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />-->
 
-                </RelativeLayout>
+<!--                </RelativeLayout>-->
 
-            </androidx.cardview.widget.CardView>
+<!--            </androidx.cardview.widget.CardView>-->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/trainerBooking"

@@ -306,7 +306,7 @@
                 tools:ignore="NotSibling">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/active_card"
+                    android:id="@+id/edit_pro_acc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
@@ -321,6 +321,7 @@
                     android:layout_marginHorizontal="10dp">
 
                     <ImageView
+                        android:id="@+id/active_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_edit"

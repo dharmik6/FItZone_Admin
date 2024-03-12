@@ -70,45 +70,42 @@ public class EditWorkout extends AppCompatActivity {
         Intent intent = getIntent();
         String eid = intent.getStringExtra("id");
         String did = intent.getStringExtra("name");
-//        String edd = intent.getStringExtra("image");
+        String edd = intent.getStringExtra("image");
 
 
-//        Log.d("id" , id);
 
         // Set the received data to the EditText fields
         img_wor_plan_name.setText(did);
-//        // Set the received data to the ImageView
-//        if (!TextUtils.isEmpty(edd)) {
-//            try {
-//                // Decode the base64 string to a Bitmap
-//                byte[] decodedString = Base64.decode(edd, Base64.DEFAULT);
-//                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-//
-//                // Set the decoded Bitmap to the ImageView
-//                img_wor_plan_image.setImageBitmap(decodedByte);
-//            } catch (IllegalArgumentException e) {
-//                e.printStackTrace();
-//                // Handle the case where the base64 string is invalid
-//            }
-//        }
-        // Retrieve the clicked exercise item from the intent
-//        Intent intent = getIntent();
-//        ExercisesItemList clickedExercise = intent.getParcelableExtra("name1");
+        // Set the received data to the ImageView
+        if (!TextUtils.isEmpty(edd)) {
+            try {
+                // Decode the base64 string to a Bitmap
+                byte[] decodedString = Base64.decode(edd, Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+                // Set the decoded Bitmap to the ImageView
+                img_wor_plan_image.setImageBitmap(decodedByte);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                // Handle the case where the base64 string is invalid
+            }
+        }
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
+        String ddi = img_wor_plan_name.getText().toString().trim();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         if (eid != null) {
-            db.collection("workout_plans").document(did).set(new HashMap<String, Object>(), SetOptions.merge())
+            db.collection("workout_plans").document(ddi).set(new HashMap<String, Object>(), SetOptions.merge())
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Log.d(TAG, "DocumentSnapshot successfully written!");
                             // Now you can fetch the document and retrieve its data
-                            db.collection("exercises").document(eid).get().addOnSuccessListener(documentSnapshot -> {
+                            db.collection("exercises").document(did).get().addOnSuccessListener(documentSnapshot -> {
                                 if (documentSnapshot.exists()) {
                                     String name = documentSnapshot.getString("name");
                                     String body = documentSnapshot.getString("body");
@@ -146,8 +143,6 @@ public class EditWorkout extends AppCompatActivity {
         }
 
 
-
-
         add_wor_pan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,6 +158,7 @@ public class EditWorkout extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override

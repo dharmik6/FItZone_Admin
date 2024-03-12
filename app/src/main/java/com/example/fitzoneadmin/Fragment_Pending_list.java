@@ -20,11 +20,7 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_Pending_list#} factory method to
- * create an instance of this fragment.
- */
+
 public class Fragment_Pending_list extends Fragment {
 
     // Inside FragmentMember class
@@ -34,7 +30,6 @@ public class Fragment_Pending_list extends Fragment {
     ProgressDialog progressDialog;
     MaterialSearchBar panding_searchbar;
     List<TrainersList> filteredList;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -80,34 +75,49 @@ public class Fragment_Pending_list extends Fragment {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        // Query Firestore for data
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("trainers").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                String tname = documentSnapshot.getString("name");
-                String experience = documentSnapshot.getString("experience");
-                String timage = documentSnapshot.getString("image");
-                String specialization = documentSnapshot.getString("specialization");
-                String review = documentSnapshot.getString("review");
-//                memberList.add(new MemberList(name, email,image));
-                TrainersList member = new TrainersList(tname, experience,timage,specialization,review);
-                trainersLists.add(member);
-            }
-            filteredList.addAll(trainersLists); // Initialize filteredList with all members
-            adapter.notifyDataSetChanged();
-            // Dismiss ProgressDialog when data is loaded
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        }).addOnFailureListener(e -> {
-            // Handle failures
+        loadTrainers(); // Load trainers initially
 
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        });
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Reload trainers when the fragment is resumed
+        loadTrainers();
+    }
+
+    private void loadTrainers() {
+        // Query Firestore for data
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("trainers")
+                .whereEqualTo("is_active", false)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    trainersLists.clear(); // Clear the existing list
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        String tname = documentSnapshot.getString("name");
+                        String experience = documentSnapshot.getString("experience");
+                        String timage = documentSnapshot.getString("image");
+                        String specialization = documentSnapshot.getString("specialization");
+                        String review = documentSnapshot.getString("review");
+                        TrainersList member = new TrainersList(tname, experience, timage, specialization, review);
+                        trainersLists.add(member);
+                    }
+                    filteredList.addAll(trainersLists); // Initialize filteredList with all members
+                    adapter.notifyDataSetChanged();
+                    // Dismiss ProgressDialog when data is loaded
+                    if (progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                }).addOnFailureListener(e -> {
+                    // Handle failures
+                    if (progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                });
+    }
+
     private void filter(String query) {
         List<TrainersList> filteredList = new ArrayList<>();
         for (TrainersList member : trainersLists) {
