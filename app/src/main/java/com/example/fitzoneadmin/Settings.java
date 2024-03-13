@@ -20,6 +20,7 @@ public class Settings extends AppCompatActivity {
     RelativeLayout account , notification , logout ;
     Switch dark_switch;
 
+
     boolean isDarkModeEnabled = false;
     @SuppressLint("MissingInflatedId")
     @Override

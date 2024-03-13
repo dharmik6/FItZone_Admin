@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout ;
     NavigationView navigationView;
     TextView text_title;
+    ImageView settings , notification ;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,6 +40,22 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationview);
         text_title = findViewById(R.id.text_title);
         ImageView menu = findViewById(R.id.show_menu);
+        notification = findViewById(R.id.notification);
+        settings = findViewById(R.id.settings);
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectActivity(MainActivity.this, Notification.class);
+            }
+        });
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectActivity(MainActivity.this , Settings.class);
+                finish();
+            }
+        });
 
         // Initialize Firebase
 //        FirebaseApp.initializeApp(this);
