@@ -67,12 +67,21 @@
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <TextView
+            android:id="@+id/trainer_id"
+            android:layout_below="@id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:gravity="center"
+            android:text="hello" />
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/back_ground"
-            android:layout_below="@+id/linearLayout">
+            android:layout_below="@+id/trainer_id">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,7 +90,9 @@
                 android:layout_marginTop="10dp"
                 tools:ignore="UselessLeaf">
 
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/certificates_show"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="vertical"

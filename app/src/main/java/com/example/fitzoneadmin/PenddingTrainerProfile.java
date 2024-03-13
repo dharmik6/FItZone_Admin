@@ -28,7 +28,6 @@
     public class PenddingTrainerProfile extends AppCompatActivity {
         AppCompatTextView trainer_name, trainer_specialization, trainer_email, trainer_number, trainer_gender, trainer_bio, trainer_address, trainer_date, trainer_experience;
         ImageView trainer_img;
-        CardView pendding_document;
         Button approve, reject, mouny_change;
 
         ProgressDialog progressDialog;
@@ -56,7 +55,6 @@
             approve = findViewById(R.id.btn_approve);
             reject = findViewById(R.id.btn_reject);
             mouny_change = findViewById(R.id.mouny_change);
-            pendding_document = findViewById(R.id.pendding_document);
 
             Intent intent = getIntent();
             String memberid = intent.getStringExtra("name");
@@ -75,6 +73,7 @@
                     String email = documentSnapshot.getString("email");
                     String number = documentSnapshot.getString("number");
                     String image = documentSnapshot.getString("image");
+                    String treid=documentSnapshot.getId();
 
                     //                 Check if the userNameFromIntent matches the user
                     if (memberid.equals(name)) {
@@ -99,12 +98,6 @@
                 }
             });
 
-            pendding_document.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(PenddingTrainerProfile.this, DocumentHome.class));
-                }
-            });
 
             // Initialize TextViews
             ImageView backPress = findViewById(R.id.back);

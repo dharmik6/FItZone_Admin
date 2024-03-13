@@ -1,17 +1,12 @@
 package com.example.fitzoneadmin;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,15 +24,35 @@ public class FragmentDietList extends Fragment {
     private DietAdapter adapter;
     private List<DietList> dietLists;
     LinearLayout add_diet;
+    MaterialSearchBar diet_searchbar;
+    List<DietList> filteredList;
+    ProgressDialog progressDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_diet_list, container, false);
 
+        diet_searchbar = view.findViewById(R.id.diet_searchbar);
+
+        // Setup MaterialSearchBar
+        diet_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {}
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+                filter(text.toString());
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {}
+        });
+
         diet_recyc = view.findViewById(R.id.diet_recyc);
         add_diet = view.findViewById(R.id.add_diet);
         diet_recyc.setHasFixedSize(true);
         diet_recyc.setLayoutManager(new LinearLayoutManager(getContext()));
+        filteredList = new ArrayList<>();
 
         dietLists = new ArrayList<>();
         adapter = new DietAdapter(getContext(), dietLists);
@@ -58,6 +73,11 @@ public class FragmentDietList extends Fragment {
     }
 
     private void loadDietData() {
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading diets...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
         dietLists.clear(); // Clear the previous list
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("diets").get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -68,9 +88,22 @@ public class FragmentDietList extends Fragment {
                 DietList diet = new DietList(name, description, image);
                 dietLists.add(diet);
             }
+            filteredList.addAll(dietLists);
             adapter.notifyDataSetChanged(); // Notify adapter about data changes
+            progressDialog.dismiss(); // Dismiss the progress dialog when data is loaded
         }).addOnFailureListener(e -> {
             // Handle failure
+            progressDialog.dismiss(); // Dismiss the progress dialog on failure as well
         });
+    }
+
+    private void filter(String query) {
+        List<DietList> filteredList = new ArrayList<>();
+        for (DietList member : dietLists) {
+            if (member.getName().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(member);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 }

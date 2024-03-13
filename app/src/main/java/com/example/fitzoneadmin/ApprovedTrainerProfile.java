@@ -26,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class ApprovedTrainerProfile extends AppCompatActivity {
-    AppCompatTextView approve_name,approve_specialization,approve_email,approve_number,approve_gender,approve_boi,approve_address,approve_date,approve_experience;
+    AppCompatTextView approve_name,approve_specialization,approve_email,approve_number,approve_gender,approve_boi,approve_address,approve_date,approve_experience,treainerid;
     ImageView approve_img;
     CardView approve_document;
     Button reject,app_change;
@@ -38,6 +38,7 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         setContentView(R.layout.activity_approved_trainer_profile);
 
         // Initialize TextViews
+        treainerid = findViewById(R.id.treainerid);
         approve_name = findViewById(R.id.approve_name);
         approve_specialization = findViewById(R.id.approve_specialization);
         approve_email = findViewById(R.id.approve_email);
@@ -60,6 +61,7 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         String memberid = intent.getStringExtra("name");
 
         // Query Firestore for data
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("trainers").get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
@@ -72,10 +74,14 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                 String emaile = documentSnapshot.getString("email");
                 String numbere = documentSnapshot.getString("number");
                 String imagee = documentSnapshot.getString("image");
-
+                String treid1 = documentSnapshot.getId();
+//
+//                String treid = currentUser.getUid();
 //                 Check if the userNameFromIntent matches the user
                 if (memberid.equals(namee)) {
                     // Display the data only if they match
+
+                    treainerid.setText(treid1 != null ? treid1 : "No name");
                     approve_name.setText(namee != null ? namee : "No name");
                     approve_specialization.setText(specializatione != null ? specializatione : "No specialization");
                     approve_email.setText(emaile != null ? emaile : "No email");
@@ -89,19 +95,20 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                                 .load(imagee)
                                 .into(approve_img);
                     }
-                } else {
-                    // userNameFromIntent and user don't match, handle accordingly
-//                    showToast("User data does not match the intent.");
                 }
+                approve_document.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String treid=treainerid.getText().toString().trim();
+                        Intent intent1=new Intent(ApprovedTrainerProfile.this,DocumentHome.class);
+                        intent1.putExtra("treid",treid);
+                        startActivity(intent1);
+                    }
+                });
+
             }
         });
 
-        approve_document.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ApprovedTrainerProfile.this,DocumentHome.class));
-            }
-        });
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {

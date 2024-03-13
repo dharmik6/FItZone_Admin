@@ -105,9 +105,7 @@
         <activity
             android:name=".AddDiet"
             android:exported="false" />
-        <activity
-            android:name=".AddMember"
-            android:exported="false" />
+
         <activity
             android:name=".DocumentHome"
             android:exported="false" />
@@ -120,9 +118,7 @@
         <activity
             android:name=".BookingDetail"
             android:exported="false" />
-        <activity
-            android:name=".AddTrainer"
-            android:exported="false" />
+
         <activity
             android:name=".MembersDataProfile"
             android:exported="false" />
