@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectActivity(MainActivity.this , Settings.class);
+                finish();
             }
         });
 
