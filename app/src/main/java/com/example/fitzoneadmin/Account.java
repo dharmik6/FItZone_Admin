@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class Account extends AppCompatActivity {
     String aname="dhruvpandav04@gmail.com";
     String bname="dharmik.kacha.2526@gmail.com";
     CardView edit_pro_acc;
+    ProgressDialog progressDialog;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +38,17 @@ public class Account extends AppCompatActivity {
         admin_gender = findViewById(R.id.admin_gender);
         edit_pro_acc = findViewById(R.id.edit_pro_acc);
 
+        progressDialog = new ProgressDialog(this); // Initialize ProgressDialog
+
+        progressDialog.setTitle("Loading");
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false); // Prevent user from cancelling ProgressDialog
+        progressDialog.show(); // Show ProgressDialog
+
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("admins").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            progressDialog.dismiss(); // Dismiss ProgressDialog when data is retrieved
             for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                 String name = documentSnapshot.getString("name");
                 String email = documentSnapshot.getString("email");
@@ -47,36 +57,25 @@ public class Account extends AppCompatActivity {
                 String gender = documentSnapshot.getString("gender");
                 String image = documentSnapshot.getString("image");
 
-//                 Check if the userNameFromIntent matches the user
+                // Check if the userNameFromIntent matches the user
                 if (aname.equals(email)) {
                     // Display the data only if they match
-                admin_name.setText(name != null ? name : "No name");
-                admin_address.setText(address != null ? address : "No address");
-                admin_gender.setText(gender != null ? gender : "No gender");
-                admin_email.setText(email != null ? email : "No email");
-                admin_number.setText(number != null ? number : "No number");
+                    admin_name.setText(name != null ? name : "No name");
+                    admin_address.setText(address != null ? address : "No address");
+                    admin_gender.setText(gender != null ? gender : "No gender");
+                    admin_email.setText(email != null ? email : "No email");
+                    admin_number.setText(number != null ? number : "No number");
                     if (image != null) {
                         Glide.with(Account.this)
                                 .load(image)
                                 .into(admin_image);
                     }
                 }
-//                else if (bname.equals(name)) {
-//                    // Display the data only if they match
-//                    admin_name.setText(name != null ? name : "No name");
-//                    admin_address.setText(address != null ? address : "No address");
-//                    admin_gender.setText(gender != null ? gender : "No gender");
-//                    admin_email.setText(email != null ? email : "No email");
-//                    admin_number.setText(number != null ? number : "No number");
-//                    if (image != null) {
-//                        Glide.with(Account.this)
-//                                .load(image)
-//                                .into(admin_image);
-//                    }
-//                }
 
             }
         });
+
+        // Handle Edit Profile button click
         edit_pro_acc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +85,8 @@ public class Account extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+        // Handle back button click
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override
