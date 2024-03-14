@@ -67,6 +67,7 @@ public class WorkoutPlansAdapter extends RecyclerView.Adapter<WorkoutPlansAdapte
                     intent.putExtra("image", item.getImage());
                     intent.putExtra("name", item.getName());
                     intent.putExtra("body", item.getGoal());
+                    intent.putExtra("id", item.getId());
 
                     // Start the activity
                     context.startActivity(intent);

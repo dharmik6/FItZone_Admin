@@ -11,13 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,6 +27,7 @@ import com.google.firebase.firestore.SetOptions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -44,7 +40,7 @@ public class EditWorkout extends AppCompatActivity {
     RecyclerView wor_plan_recyc;
     ProgressDialog progressDialog;
     private EditWorkoutAdapter adapter;
-    private List<ExercisesItemList> exercisesItemLists;
+    private List<WorExercisesItemList> worExercisesItemLists;
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -63,113 +59,75 @@ public class EditWorkout extends AppCompatActivity {
         wor_plan_recyc.setHasFixedSize(true);
         wor_plan_recyc.setLayoutManager(new LinearLayoutManager(this));
 
-        exercisesItemLists = new ArrayList<>();
-        adapter = new EditWorkoutAdapter(this, exercisesItemLists);
+        worExercisesItemLists = new ArrayList<>();
+        adapter = new EditWorkoutAdapter(this, worExercisesItemLists);
         wor_plan_recyc.setAdapter(adapter);
 
         Intent intent = getIntent();
-        String eid = intent.getStringExtra("id");
-        String did = intent.getStringExtra("name");
-        String edd = intent.getStringExtra("image");
+        String wid = intent.getStringExtra("wid");
+        String name = intent.getStringExtra("name");
 
-
-
-        // Set the received data to the EditText fields
-        img_wor_plan_name.setText(did);
-        // Set the received data to the ImageView
-        if (!TextUtils.isEmpty(edd)) {
-            try {
-                // Decode the base64 string to a Bitmap
-                byte[] decodedString = Base64.decode(edd, Base64.DEFAULT);
-                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-
-                // Set the decoded Bitmap to the ImageView
-                img_wor_plan_image.setImageBitmap(decodedByte);
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-                // Handle the case where the base64 string is invalid
-            }
-        }
+        img_wor_plan_name.setText(name);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
-        progressDialog.show();
 
-        String ddi = img_wor_plan_name.getText().toString().trim();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        if (eid != null) {
-            db.collection("workout_plans").document(ddi).set(new HashMap<String, Object>(), SetOptions.merge())
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "DocumentSnapshot successfully written!");
-                            // Now you can fetch the document and retrieve its data
-                            db.collection("exercises").document(did).get().addOnSuccessListener(documentSnapshot -> {
-                                if (documentSnapshot.exists()) {
-                                    String name = documentSnapshot.getString("name");
-                                    String body = documentSnapshot.getString("body");
-                                    String image = documentSnapshot.getString("imageUrl");
-                                    String sid = documentSnapshot.getId();
-                                    ExercisesItemList exe = new ExercisesItemList(name, body, image, sid);
-                                    exercisesItemLists.add(exe);
+        // Fetch exercise details
+        fetchAndDisplayExerciseDetails(wid);
 
-                                    adapter.notifyDataSetChanged();
-                                    updateTotalExercises(); // Update total exercises count
-                                    if (progressDialog != null && progressDialog.isShowing()) {
-                                        progressDialog.dismiss();
-                                    }
-                                } else {
-                                    // Handle the case where the document does not exist
-                                }
-                            }).addOnFailureListener(e -> {
-                                // Handle the failure
-                                if (progressDialog != null && progressDialog.isShowing()) {
-                                    progressDialog.dismiss();
-                                }
-                            });
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error writing document", e);
-                        }
-                    });
-        } else {
-            progressDialog.dismiss();
-            // Display a toast message indicating that Firestore is not available
-            Toast.makeText(this, "Firestore is not available", Toast.LENGTH_SHORT).show();
-        }
-
-
-        add_wor_pan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = img_wor_plan_name.getText().toString(); // Retrieve the text from plan_name TextView
-                Intent intent = new Intent(EditWorkout.this, WorkoutExercisesList.class);
-                intent.putExtra("name", name);
-                startActivity(intent);
-            }
+        add_wor_pan.setOnClickListener(v -> {
+            Intent intent1 = new Intent(EditWorkout.this, WorkoutExercisesList.class);
+            intent1.putExtra("wid", wid);
+            startActivity(intent1);
         });
-        add_wor_plan_but.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        add_wor_plan_but.setOnClickListener(v -> onBackPressed());
 
         ImageView backPress = findViewById(R.id.back);
-        backPress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backPress.setOnClickListener(view -> onBackPressed());
     }
 
-    // Method to update total exercises count
-    private void updateTotalExercises() {
-        total_exe.setText("Total Exercises: " + exercisesItemLists.size());
+    // Function to fetch and display exercise details
+    private void fetchAndDisplayExerciseDetails(String wid) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("workout_plans")
+                .document(wid)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        List<String> exerciseIds = (List<String>) documentSnapshot.get("exename");
+                        if (exerciseIds != null) {
+                            for (String exerciseId : exerciseIds) {
+                                fetchExerciseDetails(exerciseId);
+                            }
+                            // Update total exercises count
+                            updateTotalExercises(exerciseIds.size());
+                        }
+                    }
+                })
+                .addOnFailureListener(e -> Log.w(TAG, "Error fetching workout document", e));
+    }
+
+    // Function to fetch exercise details
+    private void fetchExerciseDetails(String exerciseId) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("exercises")
+                .document(exerciseId)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        WorExercisesItemList item = documentSnapshot.toObject(WorExercisesItemList.class);
+                        if (item != null) {
+                            worExercisesItemLists.add(item);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                })
+                .addOnFailureListener(e -> Log.w(TAG, "Error fetching exercise document", e));
+    }
+
+    // Function to update total exercises count
+    private void updateTotalExercises(int size) {
+        total_exe.setText("Total Exercises: " + size);
     }
 }

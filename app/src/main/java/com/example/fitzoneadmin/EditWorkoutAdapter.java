@@ -1,8 +1,9 @@
 package com.example.fitzoneadmin;
 
-import android.annotation.SuppressLint;
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,73 +17,82 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
 public class EditWorkoutAdapter extends RecyclerView.Adapter<EditWorkoutAdapter.ViewHolder> {
-    private List<ExercisesItemList> exercisesItemLists;
-    Context context;
+    private List<WorExercisesItemList> worExercisesItemLists;
+    private Context context;
 
-    public EditWorkoutAdapter(Context context, List<ExercisesItemList> exercisesItemLists){
-        this.exercisesItemLists = exercisesItemLists;
-        this.context=context;
-
+    public EditWorkoutAdapter(EditWorkout context, List<WorExercisesItemList> worExercisesItemLists) {
+        this.worExercisesItemLists = worExercisesItemLists;
+        this.context = context;
     }
 
     @NonNull
     @Override
-    public EditWorkoutAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View tra = LayoutInflater.from(parent.getContext()).inflate(R.layout.exercise_name_delete_list_item, parent, false);
-        return new EditWorkoutAdapter.ViewHolder(tra);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exercise_name_delete_list_item, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EditWorkoutAdapter.ViewHolder holder, int position) {
-        ExercisesItemList member = exercisesItemLists.get(position);
-        holder.exename.setText(member.getName());
-        holder.exebody.setText(member.getBody());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        WorExercisesItemList item = worExercisesItemLists.get(position);
+        holder.exename.setText(item.getName());
+        holder.exebody.setText(item.getBody());
 
-        // Check if the context is not null before loading the image
-        if (context != null) {
-            // Load image into CircleImageView using Glide library
-            Glide.with(context)
-                    .load(member.getImageUrl()) // Assuming getImage() returns the URL of the image
-                    .apply(RequestOptions.circleCropTransform()) // Apply circle crop transformation for CircleImageView
-                    .diskCacheStrategy(DiskCacheStrategy.ALL) // Cache image to disk
-                    .into(holder.exeimage); // Load image into CircleImageView
-        }
+        // Load image into ImageView using Glide library
+        Glide.with(context)
+                .load(item.getImageUrl())
+                .apply(RequestOptions.circleCropTransform())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.exeimage);
 
-        // Get the context from the parent view
-        final Context context = holder.itemView.getContext();
-        // Set OnClickListener for the item
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    ExercisesItemList item = exercisesItemLists.get(position);
-
-//                    // Create an intent to start the MembersProfile activity
-//                    Intent intent = new Intent(context, EditWorkout.class);
-//                    // Pass data to the intent
-//                    intent.putExtra("imageUrl", item.getImageUrl());
-//                    intent.putExtra("name", item.getName());
-//                    intent.putExtra("body", item.getBody());
-//
-//                    // Start the activity
-//                    context.startActivity(intent);
-                }
-            }
-        });
+        // OnClickListener for the delete button
+//        holder.add_exe_delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int position = holder.getAdapterPosition();
+//                if (position != RecyclerView.NO_POSITION) {
+//                    WorExercisesItemList item = worExercisesItemLists.get(position);
+//                    // Remove the item from the list
+//                    worExercisesItemLists.remove(position);
+//                    // Update Firestore document to remove the exercise ID from the array
+//                    db.collection("workout_plans")
+//                            .document(wid)
+//                            .update("exename", FieldValue.arrayRemove(item.getId()))
+//                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                @Override
+//                                public void onSuccess(Void aVoid) {
+//                                    Log.d(TAG, "Exercise ID removed from the array");
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    Log.e(TAG, "Error removing exercise ID from the array", e);
+//                                    // If removal fails, add the item back to the list to maintain consistency
+//                                    worExercisesItemLists.add(position, item);
+//                                    notifyItemInserted(position);
+//                                }
+//                            });
+//                }
+//            }
+//        });
     }
+
     @Override
     public int getItemCount() {
-        return exercisesItemLists.size();
-    }
-
-    public void filterList(List<ExercisesItemList> filteredList) {
-        exercisesItemLists = filteredList;
-        notifyDataSetChanged();
+        if (worExercisesItemLists != null) {
+            return worExercisesItemLists.size();
+        } else {
+            return 0; // or handle null case appropriately
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -90,7 +100,7 @@ public class EditWorkoutAdapter extends RecyclerView.Adapter<EditWorkoutAdapter.
         public TextView exebody;
         public ImageView exeimage;
         public Button add_exe_delete;
-        @SuppressLint("WrongViewCast")
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             exename = itemView.findViewById(R.id.add_exe_name);

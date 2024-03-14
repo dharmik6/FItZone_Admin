@@ -1,20 +1,17 @@
 package com.example.fitzoneadmin;
 
-public class ExercisesItemList {
+public class WorkoutExercisesListItem {
     private String name;
-    private String id;
+    private String id,wid;
     private String body;
     private String imageUrl;
 
-    public ExercisesItemList() {
-        // Empty constructor needed for Firestore
-    }
-
-    public ExercisesItemList(String name, String body, String imageUrl, String id) {
+    public WorkoutExercisesListItem(String name, String body, String imageUrl, String id,String wid) {
         this.name = name;
         this.body = body;
         this.imageUrl = imageUrl;
         this.id = id;
+        this.wid = wid;
     }
 
     // Getters and setters for the properties
@@ -22,6 +19,9 @@ public class ExercisesItemList {
         return name;
     }
 
+    public String getWid() {
+        return wid;
+    }
 
     public void setName(String name) {
         this.name = name;

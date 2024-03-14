@@ -3,6 +3,7 @@ package com.example.fitzoneadmin;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,10 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.List;
 
 public class WorkoutExercisesListAdapter  extends RecyclerView.Adapter<WorkoutExercisesListAdapter.ViewHolder> {
-    private List<ExercisesItemList> exercisesItemLists;
+    private List<WorkoutExercisesListItem> exercisesItemLists;
     Context context;
 
-    public WorkoutExercisesListAdapter(Context context, List<ExercisesItemList> exercisesItemLists){
+    public WorkoutExercisesListAdapter(Context context, List<WorkoutExercisesListItem> exercisesItemLists){
         this.exercisesItemLists = exercisesItemLists;
         this.context=context;
 
@@ -37,7 +38,7 @@ public class WorkoutExercisesListAdapter  extends RecyclerView.Adapter<WorkoutEx
 
     @Override
     public void onBindViewHolder(@NonNull WorkoutExercisesListAdapter.ViewHolder holder, int position) {
-        ExercisesItemList member = exercisesItemLists.get(position);
+        WorkoutExercisesListItem member = exercisesItemLists.get(position);
         holder.exename.setText(member.getName());
         holder.exebody.setText(member.getBody());
 
@@ -59,15 +60,18 @@ public class WorkoutExercisesListAdapter  extends RecyclerView.Adapter<WorkoutEx
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                    ExercisesItemList item = exercisesItemLists.get(position);
+                    WorkoutExercisesListItem item = exercisesItemLists.get(position);
 
                     // Create an intent to start the MembersProfile activity
                     Intent intent = new Intent(context, EditWorkout.class);
                     // Pass data to the intent
-                    intent.putExtra("imageUrl", item.getImageUrl());
-                    intent.putExtra("name", item.getName());
-                    intent.putExtra("body", item.getBody());
-                    intent.putExtra("id" , item.getId());
+//                    intent.putExtra("imageUrl", item.getImageUrl());
+                    intent.putExtra("id", item.getId());
+                    intent.putExtra("wid", item.getWid());
+                    Log.d("wid adpter", item.getWid());
+                    Log.d("id adpter", item.getId());
+//                    intent.putExtra("body", item.getBody());
+//                    intent.putExtra("id" , item.getId());
                     // Start the activity
                     context.startActivity(intent);
                 }
@@ -79,7 +83,7 @@ public class WorkoutExercisesListAdapter  extends RecyclerView.Adapter<WorkoutEx
         return exercisesItemLists.size();
     }
 
-    public void filterList(List<ExercisesItemList> filteredList) {
+    public void filterList(List<WorkoutExercisesListItem> filteredList) {
         exercisesItemLists = filteredList;
         notifyDataSetChanged();
     }
