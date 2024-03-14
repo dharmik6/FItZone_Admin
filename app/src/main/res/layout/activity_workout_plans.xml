@@ -219,7 +219,6 @@
                             android:fontFamily="@font/nunito_regular"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:text="12a1dsd1sd1d2fsg"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -252,7 +251,6 @@
                             android:fontFamily="@font/nunito_regular"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:text="Jaymin chavda"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -287,7 +285,6 @@
                             android:fontFamily="@font/nunito_regular"
                             android:padding="10dp"
                             android:paddingStart="15dp"
-                            android:text="1998.00"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />

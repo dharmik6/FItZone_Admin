@@ -132,7 +132,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingEnd="10dp"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentEnd="true"
@@ -268,7 +267,6 @@
                                         android:fontFamily="@font/nunito_regular"
                                         android:padding="10dp"
                                         android:paddingStart="15dp"
-                                        android:text="Jennifer.James@example.com"
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
                                         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -313,7 +311,6 @@
                                         android:fontFamily="@font/nunito_regular"
                                         android:padding="10dp"
                                         android:paddingStart="15dp"
-                                        android:text="1234567890"
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
                                         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -347,7 +344,6 @@
                                         android:fontFamily="@font/nunito_regular"
                                         android:padding="10dp"
                                         android:paddingStart="15dp"
-                                        android:text="female"
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
                                         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
@@ -381,7 +377,6 @@
                                         android:fontFamily="@font/nunito_regular"
                                         android:padding="10dp"
                                         android:paddingStart="15dp"
-                                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
                                         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
@@ -415,7 +410,6 @@
                                         android:fontFamily="@font/nunito_regular"
                                         android:padding="10dp"
                                         android:paddingStart="15dp"
-                                        android:text="110, bhaktinagar socity, katargam,surat"
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
                                         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -449,7 +443,6 @@
                                         android:fontFamily="@font/nunito_regular"
                                         android:padding="10dp"
                                         android:paddingStart="15dp"
-                                        android:text="21-5-2023"
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
                                         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
@@ -484,7 +477,6 @@
                                         android:fontFamily="@font/nunito_regular"
                                         android:padding="10dp"
                                         android:paddingStart="15dp"
-                                        android:text="6 years"
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
                                         tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />

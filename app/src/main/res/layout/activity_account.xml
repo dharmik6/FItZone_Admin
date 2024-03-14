@@ -176,7 +176,6 @@
                                     android:fontFamily="@font/nunito_regular"
                                     android:padding="10dp"
                                     android:paddingStart="15dp"
-                                    android:text="Jennifer.James@example.com"
                                     android:textColor="@color/black"
                                     android:textSize="18sp"
                                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -209,7 +208,6 @@
                                     android:fontFamily="@font/nunito_regular"
                                     android:padding="10dp"
                                     android:paddingStart="15dp"
-                                    android:text="1234567890"
                                     android:textColor="@color/black"
                                     android:textSize="18sp"
                                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
@@ -243,7 +241,6 @@
                                     android:fontFamily="@font/nunito_regular"
                                     android:padding="10dp"
                                     android:paddingStart="15dp"
-                                    android:text="female"
                                     android:textColor="@color/black"
                                     android:textSize="18sp"
                                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
@@ -279,7 +276,6 @@
                                     android:fontFamily="@font/nunito_regular"
                                     android:padding="10dp"
                                     android:paddingStart="15dp"
-                                    android:text="110, bhaktinagar socity, katargam,surat"
                                     android:textColor="@color/black"
                                     android:textSize="18sp"
                                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
