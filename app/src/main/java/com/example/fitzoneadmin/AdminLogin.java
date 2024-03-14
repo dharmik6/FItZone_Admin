@@ -37,7 +37,6 @@ public class AdminLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
 
-
         emailEditText = findViewById(R.id.id_email);
         passwordEditText = findViewById(R.id.id_pass);
         signInButton = findViewById(R.id.btn_singIn);
@@ -65,6 +64,10 @@ public class AdminLogin extends AppCompatActivity {
         }
         if (!isValidEmail(email)) {
             Toast.makeText(AdminLogin.this, "Invalid Email Address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.length() != 6) {
+            passwordEditText.setError("Password must be 6 digits");
             return;
         }
 
@@ -169,7 +172,6 @@ public class AdminLogin extends AppCompatActivity {
         // Show the AlertDialog
         builder.show();
     }
-
 
     private boolean isValidEmail(String email) {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();

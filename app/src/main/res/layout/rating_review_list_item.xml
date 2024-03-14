@@ -123,19 +123,6 @@
 
                 </RelativeLayout>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rl_rating_review"
-                    android:textSize="14sp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/nunito_regular"
-                    android:text="Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits."
-                    tools:ignore="HardcodedText" />
 
             </RelativeLayout>
 

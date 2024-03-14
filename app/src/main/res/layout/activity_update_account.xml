@@ -233,7 +233,7 @@
                                 android:background="@drawable/text_bg"
                                 android:fontFamily="@font/opensans_bold"
                                 android:hint="@string/Address"
-                                android:inputType="textMultiLine"
+                                android:inputType="textEmailAddress"
                                 android:padding="10dp"
                                 android:paddingStart="15dp"
                                 android:textColor="@color/black"

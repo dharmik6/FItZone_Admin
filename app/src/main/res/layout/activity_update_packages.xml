@@ -207,6 +207,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="15dp"
                             android:gravity="top"
+                            android:scrollbars="vertical"
                             android:layout_marginBottom="20dp"
                             android:background="@drawable/text_bg"
                             android:fontFamily="@font/opensans_bold"

@@ -61,7 +61,7 @@ public class UpdateAccount extends AppCompatActivity {
 
         Intent intent = getIntent();
         String eid = intent.getStringExtra("email");
-        Toast.makeText(this, eid, Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(this, eid, Toast.LENGTH_SHORT).show();*/
         // goal spinner
         ArrayAdapter<CharSequence> goalAdapter = ArrayAdapter.createFromResource(this,
                 R.array.gender_array, android.R.layout.simple_spinner_item);
