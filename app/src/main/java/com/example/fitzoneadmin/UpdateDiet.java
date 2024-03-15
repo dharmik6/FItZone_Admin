@@ -91,6 +91,7 @@ public class UpdateDiet extends AppCompatActivity {
 
 
         update_camera.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent iuser = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.cardview.widget.CardView;
 
@@ -31,6 +33,9 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
     CardView approve_document;
     Button reject,app_change;
     ProgressDialog progressDialog;
+    EditText chargeEt ;
+    AppCompatButton btnChange ;
+    String trainerId ;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +53,19 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         approve_address = findViewById(R.id.approve_address);
         approve_date = findViewById(R.id.approve_date);
         approve_experience = findViewById(R.id.approve_experience);
+        chargeEt = findViewById(R.id.charge);
+        btnChange = findViewById(R.id.btn_change);
 
         // Initialize Image
         approve_img = findViewById(R.id.approve_img);
 
         // Initialize Button
         reject = findViewById(R.id.reject);
-        app_change = findViewById(R.id.app_change);
         approve_document = findViewById(R.id.approve_document);
 
         Intent intent = getIntent();
         String memberid = intent.getStringExtra("name");
+
 
         // Query Firestore for data
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -74,6 +81,10 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                 String emaile = documentSnapshot.getString("email");
                 String numbere = documentSnapshot.getString("number");
                 String imagee = documentSnapshot.getString("image");
+                String charge = documentSnapshot.getString("charge");
+                 trainerId = documentSnapshot.getId();
+
+
                 String treid1 = documentSnapshot.getId();
 //
 //                String treid = currentUser.getUid();
@@ -88,6 +99,7 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                     approve_number.setText(numbere != null ? numbere : "No number");
                     approve_gender.setText(gendere != null ? gendere : "No gender");
                     approve_boi.setText(boie != null ? boie : "No boi");
+                    chargeEt.setText(charge != null ? charge : "No charge");
                     approve_address.setText(addresse != null ? addresse : "No address");
                     approve_experience.setText(experiencee != null ? experiencee : "No experience");
                     if (imagee != null) {
@@ -96,6 +108,50 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                                 .into(approve_img);
                     }
                 }
+            }
+        });
+        btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the new charge value from the EditText
+                String newCharge = chargeEt.getText().toString();
+
+                // Show progress dialog
+                progressDialog.setMessage("Updating charge...");
+                progressDialog.show();
+
+                // Update the charge value in Firestore
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("trainers").document(trainerId)
+                        .update("charge", newCharge)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // Dismiss progress dialog
+                                progressDialog.dismiss();
+
+                                // Display success message
+                                Toast.makeText(ApprovedTrainerProfile.this, "Charge updated successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Dismiss progress dialog
+                                progressDialog.dismiss();
+
+                                // Display error message
+                                Toast.makeText(ApprovedTrainerProfile.this, "Error updating charge: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        });
+
+
+        approve_document.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ApprovedTrainerProfile.this,DocumentHome.class));
                 approve_document.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

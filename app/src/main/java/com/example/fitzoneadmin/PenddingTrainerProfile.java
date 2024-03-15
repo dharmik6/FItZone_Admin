@@ -120,9 +120,11 @@
                                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                                     String documentId = documentSnapshot.getId();
 
+                                    String price = "0.00";
+
                                     // Update the document only if it exists
                                     db.collection("trainers").document(documentId)
-                                            .update("is_active", true)
+                                            .update("is_active", true, "charge", price) // Add charge field with default value
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void aVoid) {

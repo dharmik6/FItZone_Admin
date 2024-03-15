@@ -198,10 +198,16 @@
                                         android:textStyle="bold"
                                         tools:ignore="HardcodedText,TooDeepLayout" />
 
-                                    <androidx.appcompat.widget.AppCompatTextView
-                                        android:layout_width="match_parent"
+                                    <EditText
+                                        android:id="@+id/charge"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:background="@drawable/text_bg"
                                         android:fontFamily="@font/opensans_bold"
+                                        android:inputType="number|numberDecimal"
+                                        android:paddingHorizontal="20dp"
+                                        android:paddingVertical="8dp"
                                         android:text="00.00"
                                         android:textColor="@color/black"
                                         android:textSize="18sp"
@@ -210,7 +216,7 @@
                                 </LinearLayout>
 
                                 <androidx.appcompat.widget.AppCompatButton
-                                    android:id="@+id/app_change"
+                                    android:id="@+id/btn_change"
                                     android:layout_width="100dp"
                                     android:layout_height="40dp"
                                     android:layout_alignParentEnd="true"

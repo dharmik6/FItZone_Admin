@@ -83,22 +83,48 @@ public class AddExercises extends AppCompatActivity {
         add_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
- // Get the user input values
-                final String name = exe_name.getText().toString();
-                final String body = exe_body.getSelectedItem().toString();
-                final String equipment= exe_equipment.getText().toString();
-                final String description = exe_description.getText().toString();
+                // Get the user input values
+                final String name = exe_name.getText().toString().trim();
+                final String body = exe_body.getSelectedItem().toString().trim();
+                final String equipment = exe_equipment.getText().toString().trim();
+                final String description = exe_description.getText().toString().trim();
 
-                // Check if name, description, and image URI are not empty
-                if (!name.isEmpty() && !description.isEmpty() && selectedImageUri != null) {
-                    // Upload image to Firebase Storage
-                    uploadImageToStorage(name, description, equipment, body);
-                } else {
-                    // Handle empty fields or no selected image
-                    Toast.makeText(AddExercises.this, "Please fill all the fields and select an image", Toast.LENGTH_SHORT).show();
+                // Validate input fields
+                if (name.isEmpty()) {
+                    exe_name.setError("Please enter exercise name");
+                    exe_name.requestFocus();
+                    return;
                 }
+
+                if (body.isEmpty()) {
+                    // You can set a default selection for the spinner or handle it differently
+                    // For example, you can show a toast message or set a default value programmatically
+                    Toast.makeText(AddExercises.this, "Please select exercise body", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (equipment.isEmpty()) {
+                    exe_equipment.setError("Please enter exercise equipment");
+                    exe_equipment.requestFocus();
+                    return;
+                }
+
+                if (description.isEmpty()) {
+                    exe_description.setError("Please enter exercise description");
+                    exe_description.requestFocus();
+                    return;
+                }
+
+                if (selectedImageUri == null) {
+                    Toast.makeText(AddExercises.this, "Please select an image", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // If all fields are filled, upload image to Firebase Storage and save exercise data to Firestore
+                uploadImageToStorage(name, description, equipment, body);
             }
         });
+
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
