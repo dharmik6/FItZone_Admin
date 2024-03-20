@@ -59,7 +59,7 @@ public class Diet extends AppCompatActivity {
                     // Display the data only if they match
                     name_diet.setText(name != null ? name : "No name");
                     description_diet.setText(description != null ? description : "No username");
-                   if (image != null) {
+                    if (image != null) {
                         Glide.with(Diet.this)
                                 .load(image)
                                 .into(image_diet);

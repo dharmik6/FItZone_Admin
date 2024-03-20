@@ -27,6 +27,7 @@ public class FragmentDietList extends Fragment {
     MaterialSearchBar diet_searchbar;
     List<DietList> filteredList;
     ProgressDialog progressDialog;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -98,12 +99,14 @@ public class FragmentDietList extends Fragment {
     }
 
     private void filter(String query) {
-        List<DietList> filteredList = new ArrayList<>();
+        filteredList.clear(); // Clear the existing filtered list
+
         for (DietList member : dietLists) {
             if (member.getName().toLowerCase().contains(query.toLowerCase())) {
                 filteredList.add(member);
             }
         }
-        adapter.filterList(filteredList);
+
+        adapter.filterList(filteredList); // Pass the filtered list to the adapter
     }
 }

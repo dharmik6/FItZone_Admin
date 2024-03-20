@@ -211,11 +211,13 @@
                             tools:ignore="HardcodedText,SpUsage" />
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/created_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="15dp"
+                            android:text="Admin"
                             android:fontFamily="@font/nunito_regular"
                             android:padding="10dp"
                             android:paddingStart="15dp"
@@ -243,6 +245,7 @@
                             tools:ignore="HardcodedText,SpUsage" />
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/created_level"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
@@ -279,6 +282,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:text="15-03-2024"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="20dp"
                             android:layout_marginEnd="15dp"

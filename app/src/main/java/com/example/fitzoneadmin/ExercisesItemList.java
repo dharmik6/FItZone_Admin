@@ -6,10 +6,12 @@ public class ExercisesItemList {
     private String body;
     private String imageUrl;
 
+    // Default constructor
     public ExercisesItemList() {
-        // Empty constructor needed for Firestore
+        // Required empty constructor
     }
 
+    // Constructor with parameters
     public ExercisesItemList(String name, String body, String imageUrl, String id) {
         this.name = name;
         this.body = body;
@@ -17,11 +19,11 @@ public class ExercisesItemList {
         this.id = id;
     }
 
+
     // Getters and setters for the properties
     public String getName() {
         return name;
     }
-
 
     public void setName(String name) {
         this.name = name;

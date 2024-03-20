@@ -190,11 +190,11 @@ public class MembersDataProfile extends AppCompatActivity {
 
         // Create a list of entries representing the data points on the chart
         List<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(0, 90));
-        entries.add(new Entry(1, 85));
-        entries.add(new Entry(2, 70));
-        entries.add(new Entry(3, 75));
-        entries.add(new Entry(4, 70));
+        entries.add(new Entry(10, 90));
+        entries.add(new Entry(11, 85));
+        entries.add(new Entry(12, 70));
+        entries.add(new Entry(13, 75));
+        entries.add(new Entry(14, 70));
 
         // Create a dataset from the entries
         LineDataSet dataSet = new LineDataSet(entries, "Label for the dataset");

@@ -39,6 +39,7 @@ public class WorkoutPlans extends AppCompatActivity {
     RecyclerView recyc_exe_data;
     Button dele_plan_data;
     CardView edit_plan_tr;
+    TextView created_date,created_level;
     TextView totla_exe_plan,plan_name_exe;
     CircleImageView img_wor_plan;
     private WorkoutPlansShowAdapter adapter;
@@ -55,6 +56,9 @@ public class WorkoutPlans extends AppCompatActivity {
         edit_plan_tr = findViewById(R.id.edit_plan_tr);
         totla_exe_plan = findViewById(R.id.totla_exe_plan);
 
+        created_date = findViewById(R.id.created_date);
+        created_level = findViewById(R.id.created_level);
+
 
         plan_name_exe = findViewById(R.id.plan_name_exe);
         img_wor_plan = findViewById(R.id.img_wor_plan);
@@ -62,10 +66,13 @@ public class WorkoutPlans extends AppCompatActivity {
         Intent intent = getIntent();
         String eid = intent.getStringExtra("name");
         String edd = intent.getStringExtra("image");
+        String level = intent.getStringExtra("body");
+
         String wid = intent.getStringExtra("id");
 
         Log.d("wid" , wid);
         plan_name_exe.setText(eid);
+        created_level.setText(level);
         // Load image into ImageView using Glide library
         Glide.with(this)
                 .load(edd)

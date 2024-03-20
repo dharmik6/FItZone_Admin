@@ -27,10 +27,13 @@ import java.util.List;
 public class EditWorkoutAdapter extends RecyclerView.Adapter<EditWorkoutAdapter.ViewHolder> {
     private List<WorExercisesItemList> worExercisesItemLists;
     private Context context;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private String wid; // Add this variable to hold the wid value
 
-    public EditWorkoutAdapter(EditWorkout context, List<WorExercisesItemList> worExercisesItemLists) {
+    public EditWorkoutAdapter(EditWorkout context, List<WorExercisesItemList> worExercisesItemLists, String wid) {
         this.worExercisesItemLists = worExercisesItemLists;
         this.context = context;
+        this.wid = wid;
     }
 
     @NonNull
@@ -43,7 +46,7 @@ public class EditWorkoutAdapter extends RecyclerView.Adapter<EditWorkoutAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         WorExercisesItemList item = worExercisesItemLists.get(position);
-        holder.exename.setText(item.getName());
+        holder.exenamee.setText(item.getName());
         holder.exebody.setText(item.getBody());
 
         // Load image into ImageView using Glide library
@@ -54,36 +57,36 @@ public class EditWorkoutAdapter extends RecyclerView.Adapter<EditWorkoutAdapter.
                 .into(holder.exeimage);
 
         // OnClickListener for the delete button
-//        holder.add_exe_delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int position = holder.getAdapterPosition();
-//                if (position != RecyclerView.NO_POSITION) {
-//                    WorExercisesItemList item = worExercisesItemLists.get(position);
-//                    // Remove the item from the list
-//                    worExercisesItemLists.remove(position);
-//                    // Update Firestore document to remove the exercise ID from the array
-//                    db.collection("workout_plans")
-//                            .document(wid)
-//                            .update("exename", FieldValue.arrayRemove(item.getId()))
-//                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                @Override
-//                                public void onSuccess(Void aVoid) {
-//                                    Log.d(TAG, "Exercise ID removed from the array");
-//                                }
-//                            })
-//                            .addOnFailureListener(new OnFailureListener() {
-//                                @Override
-//                                public void onFailure(@NonNull Exception e) {
-//                                    Log.e(TAG, "Error removing exercise ID from the array", e);
-//                                    // If removal fails, add the item back to the list to maintain consistency
-//                                    worExercisesItemLists.add(position, item);
-//                                    notifyItemInserted(position);
-//                                }
-//                            });
-//                }
-//            }
-//        });
+        holder.add_exe_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                WorExercisesItemList itemToDelete = worExercisesItemLists.get(position);
+
+                // Get the reference to the document
+                db.collection("workout_plans")
+                        .document(wid)
+                        .update("exename", FieldValue.arrayRemove(itemToDelete.getName()))
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                // Remove the item from the list
+                                worExercisesItemLists.remove(position);
+                                // Notify adapter about data change
+                                notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, worExercisesItemLists.size());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error updating document", e);
+                                // Handle failure
+                            }
+                        });
+            }
+        });
     }
 
     @Override
@@ -96,14 +99,14 @@ public class EditWorkoutAdapter extends RecyclerView.Adapter<EditWorkoutAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView exename;
+        public TextView exenamee;
         public TextView exebody;
         public ImageView exeimage;
         public Button add_exe_delete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            exename = itemView.findViewById(R.id.add_exe_name);
+            exenamee = itemView.findViewById(R.id.add_exe_name);
             exebody = itemView.findViewById(R.id.add_exe_focus);
             exeimage = itemView.findViewById(R.id.add_exe_image);
             add_exe_delete = itemView.findViewById(R.id.add_exe_delete);

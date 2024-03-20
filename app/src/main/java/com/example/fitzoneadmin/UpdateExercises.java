@@ -43,8 +43,7 @@ public class UpdateExercises extends AppCompatActivity {
     Spinner exe_up_spinner;
     TextView exe_up_name;
     Button exe_up_butt;
-
-    ProgressDialog progressDialog; // Progress dialog for showing upload progress
+ProgressDialog progressDialog;
     private FirebaseFirestore db;
     private StorageReference storageRef; // Firebase Storage reference
     Uri selectedImageUri;
