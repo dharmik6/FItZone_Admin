@@ -146,6 +146,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/pyment_id"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -178,6 +179,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/member_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -211,6 +213,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/package_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -244,6 +247,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/package_duration"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -277,6 +281,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/package_status"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -309,6 +314,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/price"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -342,6 +348,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/paid_amount"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -363,37 +370,38 @@
                                     tools:ignore="ContentDescription" />
 
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
-                                    android:layout_marginTop="20dp"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:text="@string/payment_method"
-                                    android:textColor="@color/text"
-                                    android:textSize="16sp"
-                                    tools:ignore="HardcodedText,SpUsage" />
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="30dp"-->
+<!--                                    android:layout_marginTop="20dp"-->
+<!--                                    android:fontFamily="@font/opensans_bold"-->
+<!--                                    android:text="@string/payment_method"-->
+<!--                                    android:textColor="@color/text"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    tools:ignore="HardcodedText,SpUsage" />-->
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="2 hours"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:id="@+id/payment_method"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="20dp"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:layout_marginEnd="15dp"-->
+<!--                                    android:fontFamily="@font/nunito_regular"-->
+<!--                                    android:padding="10dp"-->
+<!--                                    android:paddingStart="15dp"-->
+<!--                                    android:text="2 hours"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="18sp"-->
+<!--                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck" />-->
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
-                                    android:src="@drawable/ic_line"
-                                    tools:ignore="ContentDescription" />
+<!--                                <ImageView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="5dp"-->
+<!--                                    android:src="@drawable/ic_line"-->
+<!--                                    tools:ignore="ContentDescription" />-->
 
 
                                 <androidx.appcompat.widget.AppCompatTextView
@@ -408,6 +416,7 @@
                                     tools:ignore="HardcodedText,SpUsage" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/purchase_date"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
@@ -421,42 +430,43 @@
                                     android:textSize="18sp"
                                     tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
+<!--                                <ImageView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="5dp"-->
 
-                                    android:src="@drawable/ic_line"
-                                    tools:ignore="ContentDescription" />
+<!--                                    android:src="@drawable/ic_line"-->
+<!--                                    tools:ignore="ContentDescription" />-->
 
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
-                                    android:layout_marginTop="20dp"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:text="@string/expiration_date"
-                                    android:textColor="@color/text"
-                                    android:textSize="16sp"
-                                    tools:ignore="HardcodedText,SpUsage" />
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="30dp"-->
+<!--                                    android:layout_marginTop="20dp"-->
+<!--                                    android:fontFamily="@font/opensans_bold"-->
+<!--                                    android:text="experience"-->
+<!--                                    android:textColor="@color/text"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    tools:ignore="HardcodedText,SpUsage" />-->
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:layout_marginBottom="20dp"
-                                    android:fontFamily="@font/nunito_regular"
-                                    android:padding="10dp"
-                                    android:paddingStart="15dp"
-                                    android:text="confirmed"
-                                    android:textColor="@color/black"
-                                    android:textSize="18sp"
-                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:id="@+id/experience"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="20dp"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:layout_marginEnd="15dp"-->
+<!--                                    android:layout_marginBottom="20dp"-->
+<!--                                    android:fontFamily="@font/nunito_regular"-->
+<!--                                    android:padding="10dp"-->
+<!--                                    android:paddingStart="15dp"-->
+<!--                                    android:text="confirmed"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="18sp"-->
+<!--                                    tools:ignore="HardcodedText,RtlSymmetry,SpUsage,TouchTargetSizeCheck,TextSizeCheck" />-->
 
-                               </LinearLayout>
+                            </LinearLayout>
                         </RelativeLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -488,110 +498,110 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/active_card_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/card_view"
-                        app:cardCornerRadius="20dp"
-                        android:layout_marginBottom="20dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints">
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/active_card_4"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:backgroundTint="@color/card_view"-->
+<!--                        app:cardCornerRadius="20dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        tools:ignore="MissingConstraints">-->
 
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true">
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentStart="true"-->
+<!--                            android:layout_alignParentEnd="true"-->
+<!--                            android:layout_alignParentTop="true">-->
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentStart="true"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                app:cardCornerRadius="20dp"
-                                app:civ_border_width="1dp"
-                                app:civ_border_color="@color/text"
-                                android:src="@drawable/people_imge"
-                                tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+<!--                            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                                android:layout_width="80dp"-->
+<!--                                android:layout_height="80dp"-->
+<!--                                android:layout_alignParentTop="true"-->
+<!--                                android:layout_alignParentStart="true"-->
+<!--                                android:layout_marginStart="20dp"-->
+<!--                                android:layout_marginTop="10dp"-->
+<!--                                android:layout_marginBottom="10dp"-->
+<!--                                app:cardCornerRadius="20dp"-->
+<!--                                app:civ_border_width="1dp"-->
+<!--                                app:civ_border_color="@color/text"-->
+<!--                                android:src="@drawable/people_imge"-->
+<!--                                tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />-->
 
-                            <LinearLayout
-                                android:id="@+id/ll_member_name"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginStart="110dp"
-                                android:layout_marginEnd="60dp"
-                                android:layout_marginTop="15dp"
-                                android:orientation="vertical">
+<!--                            <LinearLayout-->
+<!--                                android:id="@+id/ll_member_name"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_alignParentStart="true"-->
+<!--                                android:layout_alignParentEnd="true"-->
+<!--                                android:layout_alignParentTop="true"-->
+<!--                                android:layout_marginStart="110dp"-->
+<!--                                android:layout_marginEnd="60dp"-->
+<!--                                android:layout_marginTop="15dp"-->
+<!--                                android:orientation="vertical">-->
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:text="Member name"
-                                    android:textColor="@color/black"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="HardcodedText,TextSizeCheck" />
+<!--                                <TextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:fontFamily="@font/nunito_bold"-->
+<!--                                    android:text="Member name"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    android:textStyle="bold"-->
+<!--                                    tools:ignore="HardcodedText,TextSizeCheck" />-->
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/nunito_bold"
-                                    android:text="email.address@abc.com"
-                                    android:textColor="@color/text"
-                                    android:textSize="12sp"
-                                    tools:ignore="HardcodedText,SmallSp,TextContrastCheck,TextSizeCheck" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:padding="10dp"
-                                android:orientation="horizontal"
-                                android:layout_below="@id/ll_member_name"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentBottom="true">
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="200dp"
-                                    android:textStyle="bold"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/dark_cyan"
-                                    android:text="@string/see_all_details"
-                                    tools:ignore="HardcodedText" />
-
-                                <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_marginEnd="25dp"
-                                    android:src="@drawable/ic_angle_small_down"
-                                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+<!--                                <TextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:fontFamily="@font/nunito_bold"-->
+<!--                                    android:text="email.address@abc.com"-->
+<!--                                    android:textColor="@color/text"-->
+<!--                                    android:textSize="12sp"-->
+<!--                                    tools:ignore="HardcodedText,SmallSp,TextContrastCheck,TextSizeCheck" />-->
 
 
-                            </LinearLayout>
+<!--                            </LinearLayout>-->
 
-                        </RelativeLayout>
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginTop="5dp"-->
+<!--                                android:padding="10dp"-->
+<!--                                android:orientation="horizontal"-->
+<!--                                android:layout_below="@id/ll_member_name"-->
+<!--                                android:layout_alignParentStart="true"-->
+<!--                                android:layout_alignParentEnd="true"-->
+<!--                                android:layout_alignParentBottom="true">-->
 
-                    </androidx.cardview.widget.CardView>
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="200dp"-->
+<!--                                    android:textStyle="bold"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    android:textColor="@color/dark_cyan"-->
+<!--                                    android:text="@string/see_all_details"-->
+<!--                                    tools:ignore="HardcodedText" />-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="24dp"-->
+<!--                                    android:layout_height="24dp"-->
+<!--                                    android:layout_alignParentEnd="true"-->
+<!--                                    android:layout_marginEnd="25dp"-->
+<!--                                    android:src="@drawable/ic_angle_small_down"-->
+<!--                                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />-->
+
+
+<!--                            </LinearLayout>-->
+
+<!--                        </RelativeLayout>-->
+
+<!--                    </androidx.cardview.widget.CardView>-->
 
                 </LinearLayout>
 

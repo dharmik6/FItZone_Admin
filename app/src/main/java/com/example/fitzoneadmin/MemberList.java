@@ -12,6 +12,12 @@ public class MemberList {
         this.image=image;
         this.id=id;
     }
+public MemberList(String name,String email,String id) {
+        this.name = name;
+        this.email = email;
+        this.image=image;
+        this.id=id;
+    }
 
     public String getName() {return name;}
     public String getId() {return id;}

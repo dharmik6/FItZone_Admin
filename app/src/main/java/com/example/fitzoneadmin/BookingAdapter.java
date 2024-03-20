@@ -2,6 +2,7 @@ package com.example.fitzoneadmin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,90 +21,65 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHolder> {
-    private List<TrainersList> trainersLists;
-    Context context;
+    private List<BookingItemList> acceptedBookingItems;
+    private Context context;
 
-    public BookingAdapter(Context context, List<TrainersList> trainersLists){
-        this.trainersLists = trainersLists;
-        this.context=context;
-
+    public BookingAdapter(Context context, List<BookingItemList> acceptedBookingItems) {
+        this.context = context;
+        this.acceptedBookingItems = acceptedBookingItems;
     }
 
     @NonNull
     @Override
-    public BookingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View tra = LayoutInflater.from(parent.getContext()).inflate(R.layout.approved_list_item, parent, false);
-        return new BookingAdapter.ViewHolder(tra);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pending_appointments_list_item, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BookingAdapter.ViewHolder holder, int position) {
-        TrainersList member = trainersLists.get(position);
-        holder.textTname.setText(member.getTname());
-        holder.textexperience.setText(member.getExperience());
-        holder.textspecialization.setText(member.getSpecialization());
-//        holder.textreview.setText(member.getReview());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        BookingItemList acceptedBookingItem = acceptedBookingItems.get(position);
+        holder.nameTextView.setText(acceptedBookingItem.getName());
+        holder.emailTextView.setText(acceptedBookingItem.getEmail());
+        holder.statusTextView.setText(acceptedBookingItem.getStatus());
 
-        // Check if the context is not null before loading the image
-        if (context != null) {
-            // Load image into CircleImageView using Glide library
-            Glide.with(context)
-                    .load(member.getTimage()) // Assuming getImage() returns the URL of the image
-                    .apply(RequestOptions.circleCropTransform()) // Apply circle crop transformation for CircleImageView
-                    .diskCacheStrategy(DiskCacheStrategy.ALL) // Cache image to disk
-                    .into(holder.textTimage); // Load image into CircleImageView
-        }
-
-        // Get the context from the parent view
-        final Context context = holder.itemView.getContext();
-        // Set OnClickListener for the item
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                    TrainersList item = trainersLists.get(position);
+                    BookingItemList item = acceptedBookingItems.get(position);
 
-                    // Create an intent to start the MembersProfile activity
+                    // Create an intent to start the AcceptedBookingDetail activity
                     Intent intent = new Intent(context, BookingDetail.class);
                     // Pass data to the intent
-                    intent.putExtra("image", item.getTimage());
-                    intent.putExtra("name", item.getTname());
-                    intent.putExtra("specialization", item.getSpecialization());
-                    intent.putExtra("experience", item.getExperience());
-
-
+                    intent.putExtra("email", item.getEmail());
+                    intent.putExtra("name", item.getName());
+                    intent.putExtra("status", item.getStatus());
+                    intent.putExtra("id", item.getId());
+                    Log.d("id adapter", item.getId());
                     // Start the activity
                     context.startActivity(intent);
                 }
             }
         });
     }
+
     @Override
     public int getItemCount() {
-        return trainersLists.size();
+        return acceptedBookingItems.size();
     }
 
-
-    public void filterList(List<TrainersList> filteredList) {
-        trainersLists = filteredList;
-        notifyDataSetChanged();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textTname;
-        public CircleImageView textTimage;
-        public TextView textspecialization;
-        public TextView textexperience;
-        public TextView textreview;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView nameTextView;
+        TextView emailTextView;
+        TextView statusTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textTname = itemView.findViewById(R.id.approved_name);
-            textexperience = itemView.findViewById(R.id.approved_experience);
-            textspecialization = itemView.findViewById(R.id.approved_specialization);
-            textTimage = itemView.findViewById(R.id.approved_image);
-//            textreview = itemView.findViewById(R.id.approved_re);
+            nameTextView = itemView.findViewById(R.id.name);
+            emailTextView = itemView.findViewById(R.id.email);
+            statusTextView = itemView.findViewById(R.id.status);
         }
     }
 }
