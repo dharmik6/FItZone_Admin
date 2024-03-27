@@ -71,10 +71,14 @@ public class FragmentTrainersHome extends Fragment {
     public void loadFragment(Fragment fragment, boolean flag) {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        if (flag)
-            ft.add(R.id.fragment_container, fragment);
+        if(flag)
+            ft.add(R.id.fragment_container,fragment);
         else
-            ft.replace(R.id.fragment_container, fragment);
+            ft.replace(R.id.fragment_container,fragment);
+
+        // Add the transaction to the back stack
+        ft.addToBackStack(null);
+
         ft.commit();
     }
 }

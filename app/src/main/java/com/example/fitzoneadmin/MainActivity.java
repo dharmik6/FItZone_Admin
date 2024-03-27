@@ -109,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                       loadFragment(new FragmentPackagePaymentsHome(), false);
 
                 }
-
                 closeDrawer(drawerLayout);
 
                 return true;
@@ -135,37 +134,33 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            // If drawer is not open, handle back press to switch to the last fragment
+            FragmentManager fm = getSupportFragmentManager();
+            if (fm.getBackStackEntryCount() > 0) {
+                fm.popBackStack();
+            } else {
+                super.onBackPressed();
+            }
         }
-        else{
-            super.onBackPressed();
-        }
-
     }
 
-    public void loadFragment(Fragment fragment, boolean flag)
-    {
+    public void loadFragment(Fragment fragment, boolean flag) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         if(flag)
             ft.add(R.id.fragment_container,fragment);
         else
             ft.replace(R.id.fragment_container,fragment);
-        ft.commit();
 
-        // Set title based on the loaded fragment
-//        if (fragment instanceof Fragment_Member_list) {
-//            text_title.setText("Members List");
-//        }
-//        else if (fragment instanceof ) {
-//            text_title.setText("Some Other Title");
-//        }
-//        else {
-//            // Handle other fragments accordingly
-//        }
+        // Add the transaction to the back stack
+        ft.addToBackStack(null);
+
+        ft.commit();
     }
+
 
 
     private void showToast(String message) {

@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -120,6 +121,20 @@ public class Fragment_Member_list extends Fragment {
             dataNotFoundText.setVisibility(View.VISIBLE);
         } else {
             dataNotFoundText.setVisibility(View.GONE);
+        }
+    }
+
+    public void onBackPressed() {
+        // Get the fragment manager
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+        // Check if there are fragments in the back stack
+        if (fragmentManager.getBackStackEntryCount() > 0) {
+            // Pop the last fragment transaction from the back stack
+            fragmentManager.popBackStack();
+        } else {
+            // If no fragments in the back stack, perform default back action (exit the app)
+            super.getActivity().onBackPressed();
         }
     }
 }

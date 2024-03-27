@@ -66,8 +66,8 @@ public class AdminLogin extends AppCompatActivity {
             Toast.makeText(AdminLogin.this, "Invalid Email Address!", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (password.length() != 6) {
-            passwordEditText.setError("Password must be 6 digits");
+        if (password.length() < 6) { // Check if password is at least 6 characters long
+            passwordEditText.setError("Password must be at least 6 characters ");
             return;
         }
 

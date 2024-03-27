@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/nunito_bold"
-                android:text="Add exercises"
+                android:text="create workout plan"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:fontFamily="@font/nunito_bold"
