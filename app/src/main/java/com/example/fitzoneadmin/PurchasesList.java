@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -20,13 +22,17 @@ public class PurchasesList extends AppCompatActivity {
     private RecyclerView purchasRecyclerView;
     private PurchasAdapter adapter;
     private List<MemberList> purchasLists;
+    private TextView dataNotFoundText;
+
     private ProgressDialog progressDialog; // Declare ProgressDialog
 
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchases_list);
+
+        dataNotFoundText = findViewById(R.id.data_not_show);
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
@@ -47,12 +53,14 @@ public class PurchasesList extends AppCompatActivity {
         progressDialog = new ProgressDialog(this); // Initialize ProgressDialog
         progressDialog.setMessage("Loading..."); // Set message for ProgressDialog
         progressDialog.setCancelable(false); // Make ProgressDialog non-cancelable
-
     }
+
+    @Override
     protected void onResume() {
         super.onResume();
         loadDietData();
     }
+
     private void loadDietData() {
         progressDialog.show(); // Show ProgressDialog before fetching data
         purchasLists.clear(); // Clear the previous list
@@ -76,16 +84,27 @@ public class PurchasesList extends AppCompatActivity {
                                     purchasLists.add(purchasList);
                                     adapter.notifyDataSetChanged(); // Notify adapter about data changes
                                     progressDialog.dismiss(); // Dismiss ProgressDialog after fetching data
+                                    updateDataNotFoundVisibility(); // Update visibility of "Data Not Found" message
                                 })
                                 .addOnFailureListener(e -> {
                                     // Handle failure to fetch user details
                                     progressDialog.dismiss(); // Dismiss ProgressDialog on failure
+                                    updateDataNotFoundVisibility(); // Update visibility of "Data Not Found" message
                                 });
                     }
                 })
                 .addOnFailureListener(e -> {
                     // Handle failure
                     progressDialog.dismiss(); // Dismiss ProgressDialog on failure
+                    updateDataNotFoundVisibility(); // Update visibility of "Data Not Found" message
                 });
+    }
+
+    private void updateDataNotFoundVisibility() {
+        if (purchasLists != null && purchasLists.isEmpty()) {
+            dataNotFoundText.setVisibility(View.VISIBLE);
+        } else {
+            dataNotFoundText.setVisibility(View.GONE);
+        }
     }
 }

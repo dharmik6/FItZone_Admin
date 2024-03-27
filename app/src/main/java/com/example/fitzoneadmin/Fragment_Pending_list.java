@@ -11,38 +11,38 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Fragment_Pending_list extends Fragment {
 
-    // Inside FragmentMember class
     private RecyclerView recyclerView;
     private TrainersAdapter adapter;
     private List<TrainersList> trainersLists;
-    ProgressDialog progressDialog;
-    MaterialSearchBar panding_searchbar;
-    List<TrainersList> filteredList;
+    private TextView dataNotFoundText;
 
-    @SuppressLint("MissingInflatedId")
+    private ProgressDialog progressDialog;
+    private MaterialSearchBar pending_searchbar;
+    private List<TrainersList> filteredList;
+    private ListenerRegistration listenerRegistration;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment__pending_list, container, false);
 
-        // Initialize search bar
-        panding_searchbar = view.findViewById(R.id.panding_searchbar);
+        dataNotFoundText = view.findViewById(R.id.data_not_show);
+        pending_searchbar = view.findViewById(R.id.pending_searchbar);
 
-        // Setup MaterialSearchBar
-        panding_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+        pending_searchbar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
                 // Handle search state changes
@@ -63,19 +63,18 @@ public class Fragment_Pending_list extends Fragment {
         recyclerView = view.findViewById(R.id.recyc_trainer);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        filteredList = new ArrayList<>();
 
+        filteredList = new ArrayList<>();
         trainersLists = new ArrayList<>();
-        adapter = new TrainersAdapter(getContext(),trainersLists);
+        adapter = new TrainersAdapter(getContext(), trainersLists);
         recyclerView.setAdapter(adapter);
 
-        // Show ProgressDialog
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        loadTrainers(); // Load trainers initially
+        loadTrainers();
 
         return view;
     }
@@ -88,13 +87,16 @@ public class Fragment_Pending_list extends Fragment {
     }
 
     private void loadTrainers() {
-        // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("trainers")
+        listenerRegistration = db.collection("trainers")
                 .whereEqualTo("is_active", false)
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    trainersLists.clear(); // Clear the existing list
+                .addSnapshotListener((queryDocumentSnapshots, e) -> {
+                    if (e != null) {
+                        // Handle error
+                        return;
+                    }
+
+                    trainersLists.clear();
                     for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                         String tname = documentSnapshot.getString("name");
                         String experience = documentSnapshot.getString("experience");
@@ -104,14 +106,11 @@ public class Fragment_Pending_list extends Fragment {
                         TrainersList member = new TrainersList(tname, experience, timage, specialization, review);
                         trainersLists.add(member);
                     }
-                    filteredList.addAll(trainersLists); // Initialize filteredList with all members
+
+                    filteredList.addAll(trainersLists);
                     adapter.notifyDataSetChanged();
-                    // Dismiss ProgressDialog when data is loaded
-                    if (progressDialog != null && progressDialog.isShowing()) {
-                        progressDialog.dismiss();
-                    }
-                }).addOnFailureListener(e -> {
-                    // Handle failures
+                    updateDataNotFoundVisibility();
+
                     if (progressDialog != null && progressDialog.isShowing()) {
                         progressDialog.dismiss();
                     }
@@ -126,5 +125,21 @@ public class Fragment_Pending_list extends Fragment {
             }
         }
         adapter.filterList(filteredList);
+    }
+
+    private void updateDataNotFoundVisibility() {
+        if (trainersLists != null && trainersLists.isEmpty()) {
+            dataNotFoundText.setVisibility(View.VISIBLE);
+        } else {
+            dataNotFoundText.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (listenerRegistration != null) {
+            listenerRegistration.remove();
+        }
     }
 }

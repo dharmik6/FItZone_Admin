@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -24,10 +26,16 @@ public class PackagesList extends AppCompatActivity {
     private List<PackagesItemList> dietLists;
     private ProgressDialog progressDialog;
 
+    private TextView dataNotFoundText;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packages_list);
+
+        dataNotFoundText = findViewById(R.id.data_not_show);
 
         add_payment = findViewById(R.id.add_payment);
         payment_recyc = findViewById(R.id.payment_recyc);
@@ -54,7 +62,7 @@ public class PackagesList extends AppCompatActivity {
         progressDialog.show();
 
         // Load data from Firestore
-//        loadPackageData();
+        loadPackageData();
 
         // Set back button click listener
         ImageView backPress = findViewById(R.id.back);
@@ -96,11 +104,22 @@ public class PackagesList extends AppCompatActivity {
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
+
+            // Update visibility of "Data Not Found" message
+            updateDataNotFoundVisibility();
         }).addOnFailureListener(e -> {
             // Handle failures
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
         });
+    }
+
+    private void updateDataNotFoundVisibility() {
+        if (dietLists != null && dietLists.isEmpty()) {
+            dataNotFoundText.setVisibility(View.VISIBLE);
+        } else {
+            dataNotFoundText.setVisibility(View.GONE);
+        }
     }
 }

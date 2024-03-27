@@ -1,20 +1,15 @@
 package com.example.fitzoneadmin;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +18,17 @@ public class CertificatesList extends AppCompatActivity {
     TextView trainer_id;
     private CertificatesAdapter adapter;
     private List<CertificatesItemList> trainersLists;
-    ProgressDialog progressDialog;
-    @SuppressLint("MissingInflatedId")
+    private TextView dataNotFoundText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_certificates_list);
 
-        certificates_show=findViewById(R.id.certificates_show);
-        trainer_id=findViewById(R.id.trainer_id);
+        dataNotFoundText = findViewById(R.id.data_not_show);
+
+        certificates_show = findViewById(R.id.certificates_show);
+        trainer_id = findViewById(R.id.trainer_id);
         Intent intent1 = getIntent();
         String treid = intent1.getStringExtra("treid");
         trainer_id.setText(treid);
@@ -39,39 +36,18 @@ public class CertificatesList extends AppCompatActivity {
         certificates_show.setLayoutManager(new LinearLayoutManager(this));
 
         trainersLists = new ArrayList<>();
-        adapter = new CertificatesAdapter(this,trainersLists);
+        adapter = new CertificatesAdapter(this, trainersLists);
         certificates_show.setAdapter(adapter);
 
-        // Show ProgressDialog
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        // Query Firestore for initial data if treid is not null
+        if (treid != null) {
+            loadCertificatesFromFirestore(treid);
+        }
 
-        // Query Firestore for data
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("trainers").document(treid).collection("certificates").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                String name = documentSnapshot.getString("name");
-                String  imageUrl= documentSnapshot.getString("imageUrl");
-                String  description= documentSnapshot.getString("description");
-                String cerid=documentSnapshot.getId();
-                CertificatesItemList member = new CertificatesItemList(name, imageUrl,description,cerid);
-                trainersLists.add(member);
-            }
-
-            adapter.notifyDataSetChanged();
-            // Dismiss ProgressDialog when data is loaded
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        }).addOnFailureListener(e -> {
-            // Handle failures
-
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        });
+        // Listen for real-time updates if treid is not null
+        if (treid != null) {
+            listenForCertificateChanges(treid);
+        }
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
@@ -80,5 +56,60 @@ public class CertificatesList extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    private void loadCertificatesFromFirestore(String treid) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("trainers").document(treid).collection("certificates").get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()) {
+                        if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                            String name = documentChange.getDocument().getString("name");
+                            String imageUrl = documentChange.getDocument().getString("imageUrl");
+                            String description = documentChange.getDocument().getString("description");
+                            String cerid = documentChange.getDocument().getId();
+                            CertificatesItemList member = new CertificatesItemList(name, imageUrl, description, cerid);
+                            trainersLists.add(member);
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                    updateDataNotFoundVisibility();
+                })
+                .addOnFailureListener(e -> {
+                    // Handle failures
+                });
+    }
+
+    private void listenForCertificateChanges(String treid) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("trainers").document(treid).collection("certificates")
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        // Handle errors
+                        return;
+                    }
+
+                    for (DocumentChange documentChange : value.getDocumentChanges()) {
+                        if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                            String name = documentChange.getDocument().getString("name");
+                            String imageUrl = documentChange.getDocument().getString("imageUrl");
+                            String description = documentChange.getDocument().getString("description");
+                            String cerid = documentChange.getDocument().getId();
+                            CertificatesItemList member = new CertificatesItemList(name, imageUrl, description, cerid);
+                            trainersLists.add(member);
+                        }
+                    }
+
+                    adapter.notifyDataSetChanged();
+                    updateDataNotFoundVisibility();
+                });
+    }
+
+    private void updateDataNotFoundVisibility() {
+        if (trainersLists != null && trainersLists.isEmpty()) {
+            dataNotFoundText.setVisibility(View.VISIBLE);
+        } else {
+            dataNotFoundText.setVisibility(View.GONE);
+        }
     }
 }
