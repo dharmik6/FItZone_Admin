@@ -1,5 +1,6 @@
 package com.example.fitzoneadmin;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ public class CertificatesList extends AppCompatActivity {
     private List<CertificatesItemList> trainersLists;
     private TextView dataNotFoundText;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

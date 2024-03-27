@@ -68,7 +68,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
-            android:id="@+id/trainer_idc"
+            android:id="@+id/trainer_id"
             android:layout_below="@id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
