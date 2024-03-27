@@ -151,17 +151,10 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         approve_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ApprovedTrainerProfile.this,DocumentHome.class));
-                approve_document.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String treid=treainerid.getText().toString().trim();
-                        Intent intent1=new Intent(ApprovedTrainerProfile.this,DocumentHome.class);
-                        intent1.putExtra("treid",treid);
-                        startActivity(intent1);
-                    }
-                });
-
+                String treid=treainerid.getText().toString().trim();
+                Intent intent1=new Intent(ApprovedTrainerProfile.this,DocumentHome.class);
+                intent1.putExtra("treid",treid);
+                startActivity(intent1);
             }
         });
 
