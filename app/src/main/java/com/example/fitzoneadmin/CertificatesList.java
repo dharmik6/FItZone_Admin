@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class CertificatesList extends AppCompatActivity {
     RecyclerView certificates_show;
-    TextView trainer_id;
+    TextView trainer_idc;
     private CertificatesAdapter adapter;
     private List<CertificatesItemList> trainersLists;
     ProgressDialog progressDialog;
@@ -31,10 +32,10 @@ public class CertificatesList extends AppCompatActivity {
         setContentView(R.layout.activity_certificates_list);
 
         certificates_show=findViewById(R.id.certificates_show);
-        trainer_id=findViewById(R.id.trainer_id);
+        trainer_idc=findViewById(R.id.trainer_idc);
         Intent intent1 = getIntent();
         String treid = intent1.getStringExtra("treid");
-        trainer_id.setText(treid);
+        trainer_idc.setText(treid);
         certificates_show.setHasFixedSize(true);
         certificates_show.setLayoutManager(new LinearLayoutManager(this));
 
@@ -51,23 +52,28 @@ public class CertificatesList extends AppCompatActivity {
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("trainers").document(treid).collection("certificates").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                String name = documentSnapshot.getString("name");
-                String  imageUrl= documentSnapshot.getString("imageUrl");
-                String  description= documentSnapshot.getString("description");
-                String cerid=documentSnapshot.getId();
-                CertificatesItemList member = new CertificatesItemList(name, imageUrl,description,cerid);
-                trainersLists.add(member);
+            // Check if the list is empty or null
+            if (queryDocumentSnapshots != null && !queryDocumentSnapshots.isEmpty()) {
+                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                    String name = documentSnapshot.getString("name");
+                    String imageUrl = documentSnapshot.getString("imageUrl");
+                    String description = documentSnapshot.getString("description");
+                    String cerid = documentSnapshot.getId();
+                    CertificatesItemList member = new CertificatesItemList(name, imageUrl, description, cerid);
+                    trainersLists.add(member);
+                }
+                adapter.notifyDataSetChanged();
+            } else {
+                // Show toast message indicating no certificates available
+                Toast.makeText(CertificatesList.this, "No certificates available", Toast.LENGTH_SHORT).show();
             }
 
-            adapter.notifyDataSetChanged();
             // Dismiss ProgressDialog when data is loaded
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
         }).addOnFailureListener(e -> {
             // Handle failures
-
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
