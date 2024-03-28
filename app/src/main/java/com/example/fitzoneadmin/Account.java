@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -20,8 +22,6 @@ public class Account extends AppCompatActivity {
     ImageView admin_image;
     TextView admin_name;
     TextView admin_email,admin_number,admin_address,admin_gender;
-    String aname="dhruvpandav04@gmail.com";
-    String bname="dharmik.kacha.2526@gmail.com";
     CardView edit_pro_acc;
     ProgressDialog progressDialog;
     @SuppressLint("MissingInflatedId")
@@ -45,21 +45,25 @@ public class Account extends AppCompatActivity {
         progressDialog.setCancelable(false); // Prevent user from cancelling ProgressDialog
         progressDialog.show(); // Show ProgressDialog
 
-        // Query Firestore for data
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("admins").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            progressDialog.dismiss(); // Dismiss ProgressDialog when data is retrieved
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                String name = documentSnapshot.getString("name");
-                String email = documentSnapshot.getString("email");
-                String number = documentSnapshot.getString("number");
-                String address = documentSnapshot.getString("address");
-                String gender = documentSnapshot.getString("gender");
-                String image = documentSnapshot.getString("image");
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            progressDialog.show(); // Show progress dialog before fetching user data
+            String userId = currentUser.getUid();
+            // Query Firestore for data
+            // Query Firestore for data
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("admins").document(userId).get().addOnSuccessListener(documentSnapshot -> {
+                progressDialog.dismiss(); // Dismiss ProgressDialog when data is retrieved
+                if (documentSnapshot.exists()) {
+                    String name = documentSnapshot.getString("name");
+                    String email = documentSnapshot.getString("email");
+                    String number = documentSnapshot.getString("number");
+                    String address = documentSnapshot.getString("address");
+                    String gender = documentSnapshot.getString("gender");
+                    String image = documentSnapshot.getString("image");
+                    String aid = documentSnapshot.getId();
 
-                // Check if the userNameFromIntent matches the user
-                if (aname.equals(email)) {
-                    // Display the data only if they match
+                    // Display the data
                     admin_name.setText(name != null ? name : "No name");
                     admin_address.setText(address != null ? address : "No address");
                     admin_gender.setText(gender != null ? gender : "No gender");
@@ -70,21 +74,19 @@ public class Account extends AppCompatActivity {
                                 .load(image)
                                 .into(admin_image);
                     }
+                    // Handle Edit Profile button click
+                    edit_pro_acc.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent1=new Intent(Account.this,UpdateAccount.class);
+                            intent1.putExtra("email",aid);
+                            startActivity(intent1);
+                        }
+                    });
                 }
+            });
+        }
 
-            }
-        });
-
-        // Handle Edit Profile button click
-        edit_pro_acc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email= admin_email.getText().toString().trim();
-                Intent intent1=new Intent(Account.this,UpdateAccount.class);
-                intent1.putExtra("email",email);
-                startActivity(intent1);
-            }
-        });
 
         // Handle back button click
         ImageView backPress = findViewById(R.id.back);
