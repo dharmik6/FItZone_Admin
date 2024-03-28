@@ -8,9 +8,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -23,17 +23,18 @@ public class ExercisesList extends AppCompatActivity {
     MaterialSearchBar exe_searchbar;
     LinearLayout add_exe;
     RecyclerView exe_recyc;
+    TextView dataNotFoundText; // TextView to display "Data Not Found" message
 
     private ExercisesAdapter adapter;
     private List<ExercisesItemList> exercisesItemLists;
     private ProgressDialog progressDialog;
-    List<ExercisesItemList> filteredList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_list);
 
+        dataNotFoundText = findViewById(R.id.data_not_show); // Initialize dataNotFoundText
         exe_recyc = findViewById(R.id.exe_recyc);
         add_exe = findViewById(R.id.add_exe);
         exe_searchbar = findViewById(R.id.exe_searchbar);
@@ -59,7 +60,7 @@ public class ExercisesList extends AppCompatActivity {
         add_exe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ExercisesList.this,AddExercises.class));
+                startActivity(new Intent(ExercisesList.this, AddExercises.class));
             }
         });
 
@@ -67,7 +68,6 @@ public class ExercisesList extends AppCompatActivity {
         exe_recyc.setLayoutManager(new LinearLayoutManager(this));
 
         exercisesItemLists = new ArrayList<>();
-        filteredList = new ArrayList<>();
         adapter = new ExercisesAdapter(this, exercisesItemLists);
         exe_recyc.setAdapter(adapter);
 
@@ -78,7 +78,7 @@ public class ExercisesList extends AppCompatActivity {
         progressDialog.show();
 
         // Load data initially
-//        loadExercisesData();
+        loadExercisesData();
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
@@ -89,11 +89,11 @@ public class ExercisesList extends AppCompatActivity {
         });
     }
 
-//    @Override
+    @Override
     protected void onResume() {
         super.onResume();
-            // Reload data every time activity is resumed
-            loadExercisesData();
+        // Reload data every time activity is resumed
+        loadExercisesData();
     }
 
     private void loadExercisesData() {
@@ -108,9 +108,8 @@ public class ExercisesList extends AppCompatActivity {
                 ExercisesItemList exe = new ExercisesItemList(name, body, image, id);
                 exercisesItemLists.add(exe);
             }
-            filteredList.addAll(exercisesItemLists);
-
             adapter.notifyDataSetChanged();
+            updateDataNotFoundVisibility(); // Update visibility of "Data Not Found" message
             // Dismiss ProgressDialog when data is loaded
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
@@ -131,5 +130,14 @@ public class ExercisesList extends AppCompatActivity {
             }
         }
         adapter.filterList(filteredList);
+        updateDataNotFoundVisibility(); // Update visibility of "Data Not Found" message after filtering
+    }
+
+    private void updateDataNotFoundVisibility() {
+        if (exercisesItemLists.isEmpty()) {
+            dataNotFoundText.setVisibility(View.VISIBLE); // Show "Data Not Found" message if the list is empty
+        } else {
+            dataNotFoundText.setVisibility(View.GONE); // Hide "Data Not Found" message if the list is not empty
+        }
     }
 }

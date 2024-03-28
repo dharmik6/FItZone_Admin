@@ -41,4 +41,5 @@ public class FragmentWorkoutExercisesHome extends Fragment {
 
         return view;
     }
+
 }

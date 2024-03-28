@@ -38,8 +38,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         holder.show_feed_name.setText(member.getFeedback_name());
         holder.show_feed_back.setText(member.getFeedback());
 
-
-
         // Set OnClickListener for the item
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,14 +46,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 if (position != RecyclerView.NO_POSITION) {
                     NotificationItemList item = notificationItemLists.get(position);
 
-                    // Create an intent to start the MembersProfile activity
-//                    Intent intent = new Intent(context, Diet.class);
-                    // Pass data to the intent
-//                    intent.putExtra("name", item.getName());
-//                    intent.putExtra("Description", item.getDescription());
 
-                    // Start the activity
-//                    context.startActivity(intent);
+                    Intent intent = new Intent(context,NotificationDetail.class);
+                    intent.putExtra("name",member.getFeedback_name());
+                    intent.putExtra("msg",member.getFeedback());
+
+                    context.startActivity(intent);
                 }
             }
         });

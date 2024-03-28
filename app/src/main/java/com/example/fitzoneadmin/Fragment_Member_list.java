@@ -2,26 +2,18 @@ package com.example.fitzoneadmin;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.google.android.material.search.SearchBar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.mancj.materialsearchbar.MaterialSearchBar;
@@ -29,28 +21,26 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the  factory method to
- * create an instance of this fragment.
- */
-
 public class Fragment_Member_list extends Fragment {
 
-    // Inside FragmentMember class
     private RecyclerView recyclerView;
     private MemberAdapter adapter;
     private List<MemberList> memberList;
-    ProgressDialog progressDialog;
-    MaterialSearchBar user_searchbar;
-    List<MemberList> filteredList;
+    private TextView dataNotFoundText;
+    private MaterialSearchBar user_searchbar;
+    private ProgressDialog progressDialog;
 
-    @SuppressLint("MissingInflatedId")
+
+    private List<MemberList> filteredList;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment__member_list, container, false);
+
+        // Initialize dataNotFoundText
+        dataNotFoundText = view.findViewById(R.id.data_not_show);
 
         user_searchbar = view.findViewById(R.id.user_searchbar);
 
@@ -76,8 +66,6 @@ public class Fragment_Member_list extends Fragment {
         memberList = new ArrayList<>();
         adapter = new MemberAdapter(getContext(), memberList);
         recyclerView.setAdapter(adapter);
-
-
 
         return view;
     }
@@ -107,6 +95,7 @@ public class Fragment_Member_list extends Fragment {
             }
             filteredList.addAll(memberList);
             adapter.notifyDataSetChanged();
+            updateDataNotFoundVisibility();
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
             }
@@ -125,5 +114,27 @@ public class Fragment_Member_list extends Fragment {
             }
         }
         adapter.filterList(filteredList);
+    }
+
+    private void updateDataNotFoundVisibility() {
+        if (memberList != null && memberList.isEmpty()) {
+            dataNotFoundText.setVisibility(View.VISIBLE);
+        } else {
+            dataNotFoundText.setVisibility(View.GONE);
+        }
+    }
+
+    public void onBackPressed() {
+        // Get the fragment manager
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+        // Check if there are fragments in the back stack
+        if (fragmentManager.getBackStackEntryCount() > 0) {
+            // Pop the last fragment transaction from the back stack
+            fragmentManager.popBackStack();
+        } else {
+            // If no fragments in the back stack, perform default back action (exit the app)
+            super.getActivity().onBackPressed();
+        }
     }
 }
