@@ -111,67 +111,71 @@
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/change"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/change"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/trainer_specialization"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/card_view"
+                    app:cardCornerRadius="20dp">
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:layout_below="@+id/trainer_specialization"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/card_view"
-                        app:cardCornerRadius="20dp">
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
-                            android:orientation="horizontal">
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="120dp"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="vertical">
 
-                            <LinearLayout
+                            <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="120dp"
-                                android:layout_marginBottom="10dp"
-                                android:orientation="vertical">
+                                android:fontFamily="@font/nunito_semi_bold"
+                                android:text="Hourly Charge"
+                                android:textColor="@color/dark_cyan"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,TooDeepLayout" />
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/nunito_semi_bold"
-                                    android:text="Hourly Charge"
-                                    android:textColor="@color/dark_cyan"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="HardcodedText,TooDeepLayout" />
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/opensans_bold"
-                                    android:text="00.00"
-                                    android:textColor="@color/black"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="HardcodedText,TooDeepLayout,TextContrastCheck" />
-                            </LinearLayout>
+                            <EditText
+                                android:id="@+id/charge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/text_bg"
+                                android:fontFamily="@font/opensans_bold"
+                                android:inputType="number|numberDecimal"
+                                android:paddingHorizontal="20dp"
+                                android:paddingVertical="8dp"
+                                android:text="00.00"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,TooDeepLayout,TextContrastCheck" />
+                        </LinearLayout>
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/mouny_change"
+                            android:id="@+id/btn_change"
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="25dp"
                             android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="10dp"
+                            android:layout_marginBottom="20dp"
                             android:background="@drawable/update_btn_bg"
                             android:fontFamily="@font/nunito_bold"
                             android:text="@string/change"

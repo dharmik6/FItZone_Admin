@@ -1,6 +1,9 @@
 package com.example.fitzoneadmin;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -13,15 +16,26 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     TextView text_title;
     ImageView settings , notification ;
+
+    ImageView navImg;
+    TextView navName,navEmail;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,6 +60,49 @@ public class MainActivity extends AppCompatActivity {
         notification = findViewById(R.id.notification);
         settings = findViewById(R.id.settings);
 
+
+        View headerView = navigationView.getHeaderView(0);
+
+        navImg = headerView.findViewById(R.id.nav_imag);
+        navName = headerView.findViewById(R.id.nav_name);
+        navEmail = headerView.findViewById(R.id.nav_email);
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            // Now you can use the userId as needed
+            Log.d(TAG, "Current user ID: " + userId);
+        } else {
+            // Handle the case where the user is not signed in
+            Log.d(TAG, "No user is currently signed in");
+        }
+
+
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            Log.d(TAG, "onCreate: userId "+userId);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("admins").document(userId).get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+                    String aname = documentSnapshot.getString("name");
+                    String aemail = documentSnapshot.getString("email");
+                    String aimg = documentSnapshot.getString("image");
+
+                    Log.d(TAG, "onCreate: aname "+aname+"aemail"+aemail);
+                    navName.setText(aname != null ? aname : "No name");
+                    navEmail.setText(aemail != null ? aemail : "No name");
+                    if (aimg != null) {
+                        Glide.with(MainActivity.this)
+                                .load(aimg)
+                                .into(navImg);
+                    }
+                }
+            }).addOnFailureListener(e -> {
+                Toast.makeText(MainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            });
+        }
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                redirectActivity(MainActivity.this, Settings.class);
-               finish();
             }
         });
 
@@ -114,6 +173,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
+
+
     }
 
     public static void openDrawer(DrawerLayout drawerLayout) {

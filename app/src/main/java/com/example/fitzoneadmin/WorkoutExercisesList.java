@@ -138,6 +138,11 @@ public class WorkoutExercisesList extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
 
     private void filter(String query) {
         List<WorkoutExercisesListItem> filteredList = new ArrayList<>();

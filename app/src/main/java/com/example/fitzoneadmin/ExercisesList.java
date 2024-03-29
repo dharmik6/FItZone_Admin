@@ -77,8 +77,6 @@ public class ExercisesList extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        // Load data initially
-        loadExercisesData();
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {

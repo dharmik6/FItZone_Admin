@@ -61,8 +61,6 @@ public class PackagesList extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        // Load data from Firestore
-        loadPackageData();
 
         // Set back button click listener
         ImageView backPress = findViewById(R.id.back);

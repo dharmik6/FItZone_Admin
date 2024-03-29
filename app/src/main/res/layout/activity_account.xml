@@ -7,17 +7,26 @@
     android:background="@drawable/member_profile_bg"
     tools:context=".Account">
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
     <ImageView
         android:id="@+id/admin_img"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
-        android:src="@drawable/people_imge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="40dp"
