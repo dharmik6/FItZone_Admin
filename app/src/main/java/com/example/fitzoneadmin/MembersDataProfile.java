@@ -74,8 +74,8 @@ public class MembersDataProfile extends AppCompatActivity {
 
         // Query Firestore for data
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("users").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+        db.collection("users").document(memberid).get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
                 String membername = documentSnapshot.getString("name");
                 String memberactivity = documentSnapshot.getString("activity");
                 String membergoal = documentSnapshot.getString("goal");
@@ -91,7 +91,7 @@ public class MembersDataProfile extends AppCompatActivity {
                         String memberweight = documentSnapshot1.getString("weight");
                         String dateStr = documentSnapshot1.getString("date");
 
-                if (memberid.equals(membername)) {
+//                if (memberid.equals(membername)) {
                     // Display the data only if they match
                     data_name.setText(membername != null ? membername : "No name");
                     data_activity.setText(memberactivity != null ? memberactivity : "No activity");
@@ -215,7 +215,7 @@ public class MembersDataProfile extends AppCompatActivity {
                             halfGauge.setValue(value);
                         }
                         setChart(entries);
-                    }
+//                    }
                 });
             }
         });
