@@ -54,18 +54,6 @@
                 tools:ignore="HardcodedText" />
 
 
-            <ImageView
-                android:id="@+id/settings"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="10dp"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_popup_menu"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
@@ -120,8 +108,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/text">
                 <ImageView
+                    android:id="@+id/imgFront"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:src="@drawable/default_image"
                     android:maxHeight="200dp"
                     tools:ignore="ContentDescription" />
@@ -151,7 +140,7 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/nunito_bold"
-                    android:text="@string/front_side"
+                    android:text="@string/back_side"
                     tools:ignore="HardcodedText" />
 
             </LinearLayout>
@@ -164,11 +153,11 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/text2">
                 <ImageView
+                    android:id="@+id/imgBack"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:src="@drawable/default_image"
                     android:maxHeight="200dp"
-
                     tools:ignore="ContentDescription" />
             </LinearLayout>
 

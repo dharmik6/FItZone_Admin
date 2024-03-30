@@ -38,6 +38,7 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
     ProgressDialog progressDialog;
     EditText chargeEt ;
     AppCompatButton btnChange ;
+    String treid;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -85,6 +86,8 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                 String numbere = documentSnapshot.getString("number");
                 String imagee = documentSnapshot.getString("image");
                 String charge = documentSnapshot.getString("charge");
+                treid = documentSnapshot.getId();
+                Log.d(TAG, "onCreate: trainer profile ID"+treid);
 
 //                String treid = currentUser.getUid();
 //                 Check if the userNameFromIntent matches the user
@@ -166,9 +169,9 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         approve_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String treid=treainerid.getText().toString().trim();
                 Intent intent1=new Intent(ApprovedTrainerProfile.this,DocumentHome.class);
                 intent1.putExtra("treid",treid);
+
                 startActivity(intent1);
             }
         });
