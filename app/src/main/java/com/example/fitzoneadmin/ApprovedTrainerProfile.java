@@ -1,9 +1,12 @@
 package com.example.fitzoneadmin;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,7 +38,7 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
     ProgressDialog progressDialog;
     EditText chargeEt ;
     AppCompatButton btnChange ;
-    String trainerId ;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,17 +85,12 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                 String numbere = documentSnapshot.getString("number");
                 String imagee = documentSnapshot.getString("image");
                 String charge = documentSnapshot.getString("charge");
-                 trainerId = documentSnapshot.getId();
 
-
-                String treid1 = documentSnapshot.getId();
-//
 //                String treid = currentUser.getUid();
 //                 Check if the userNameFromIntent matches the user
                 if (memberid.equals(namee)) {
                     // Display the data only if they match
 
-                    treainerid.setText(treid1 != null ? treid1 : "No name");
                     approve_name.setText(namee != null ? namee : "No name");
                     approve_specialization.setText(specializatione != null ? specializatione : "No specialization");
                     approve_email.setText(emaile != null ? emaile : "No email");
@@ -120,18 +118,36 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                 progressDialog.setMessage("Updating charge...");
                 progressDialog.show();
 
-                // Update the charge value in Firestore
+                // Query Firestore to find the document ID associated with the trainer's email
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("trainers").document(trainerId)
-                        .update("charge", newCharge)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                // Dismiss progress dialog
-                                progressDialog.dismiss();
-
-                                // Display success message
-                                Toast.makeText(ApprovedTrainerProfile.this, "Charge updated successfully", Toast.LENGTH_SHORT).show();
+                db.collection("trainers")
+                        .whereEqualTo("email", approve_email.getText().toString())
+                        .get()
+                        .addOnSuccessListener(queryDocumentSnapshots -> {
+                            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                String trainerId = documentSnapshot.getId();
+                                // Update charge in Firestore using the retrieved document ID
+                                db.collection("trainers").document(trainerId)
+                                        .update("charge", newCharge)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                // Dismiss progress dialog
+                                                progressDialog.dismiss();
+                                                Toast.makeText(ApprovedTrainerProfile.this, "Charge updated successfully", Toast.LENGTH_SHORT).show();
+                                                Log.d(TAG, "email: " + approve_email.getText().toString());
+                                                Log.d(TAG, "New Charge: " + newCharge);
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                // Dismiss progress dialog
+                                                progressDialog.dismiss();
+                                                // Handle failure
+                                                Toast.makeText(ApprovedTrainerProfile.this, "Error updating charge: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -139,9 +155,8 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
                             public void onFailure(@NonNull Exception e) {
                                 // Dismiss progress dialog
                                 progressDialog.dismiss();
-
-                                // Display error message
-                                Toast.makeText(ApprovedTrainerProfile.this, "Error updating charge: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                // Handle failure to retrieve document ID
+                                Toast.makeText(ApprovedTrainerProfile.this, "Error fetching document ID: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }

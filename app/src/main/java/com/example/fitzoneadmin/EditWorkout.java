@@ -110,19 +110,33 @@ public class EditWorkout extends AppCompatActivity {
 
         progressDialog.show();
 
-        // Fetch exercise details
-        fetchAndDisplayExerciseDetails(wid, id);
 
         add_wor_pan.setOnClickListener(v -> {
             Intent intent1 = new Intent(EditWorkout.this, WorkoutExercisesList.class);
             intent1.putExtra("wid", wid);
             startActivity(intent1);
+            finish();
         });
         add_wor_plan_but.setOnClickListener(v -> onBackPressed());
 
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(view -> onBackPressed());
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Retrieve the workout ID from Intent extras
+        Intent intent = getIntent();
+        String wid = intent.getStringExtra("wid");
+        String id = intent.getStringExtra("id");
+
+        // Clear the existing list of exercises before reloading
+        exercisesItemLists.clear();
+
+        // Fetch and display exercise details
+        fetchAndDisplayExerciseDetails(wid, id);
+    }
+
 
     // Function to fetch and display exercise details
     private void fetchAndDisplayExerciseDetails(String wid, String id) {

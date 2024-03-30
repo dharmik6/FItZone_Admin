@@ -1,8 +1,8 @@
 package com.example.fitzoneadmin;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.app.ProgressDialog;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -24,10 +23,12 @@ import java.io.ByteArrayOutputStream;
 
 public class Diet extends AppCompatActivity {
 
-    TextView name_diet,description_diet;
+    TextView name_diet, description_diet;
     ImageView image_diet;
-    Button diet_del_butt,diet_upe_butt;
+    Button diet_del_butt, diet_upe_butt;
     ProgressDialog progressDialog;
+    boolean dataLoaded = false;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,36 +41,14 @@ public class Diet extends AppCompatActivity {
         diet_del_butt = findViewById(R.id.diet_del_butt);
         diet_upe_butt = findViewById(R.id.diet_upd_butt);
 
-        Intent intent = getIntent();
-        String dietid = intent.getStringExtra("name");
-
         progressDialog = new ProgressDialog(Diet.this);
-        progressDialog.setMessage("Deleting...");
+        progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
 
-        // Query Firestore for data
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("diets").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                String name = documentSnapshot.getString("name");
-                String description = documentSnapshot.getString("description");
-                String image = documentSnapshot.getString("imageUrl");
-//                 Check if the userNameFromIntent matches the user
-                if (dietid.equals(name)) {
-                    // Display the data only if they match
-                    name_diet.setText(name != null ? name : "No name");
-                    description_diet.setText(description != null ? description : "No username");
-                    if (image != null) {
-                        Glide.with(Diet.this)
-                                .load(image)
-                                .into(image_diet);
-                    }
-                } else {
-                    // userNameFromIntent and user don't match, handle accordingly
-//                    showToast("User data does not match the intent.");
-                }
-            }
-        });
+        if (!dataLoaded) {
+            progressDialog.show();
+            loadDataFromFirestore();
+        }
 
         diet_upe_butt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,8 +124,6 @@ public class Diet extends AppCompatActivity {
                         });
             }
         });
-
-
         ImageView backPress = findViewById(R.id.back);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +133,43 @@ public class Diet extends AppCompatActivity {
         });
     }
 
-    // Method to show a toast message
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Show ProgressDialog when activity is resumed
+        progressDialog.show();
+        // Reload data every time activity is resumed
+        loadDataFromFirestore();
+    }
+
+
+    private void loadDataFromFirestore() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("diets").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            progressDialog.dismiss();
+            dataLoaded = true;
+            Intent intent = getIntent();
+            String dietid = intent.getStringExtra("name");
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                String name = documentSnapshot.getString("name");
+                String description = documentSnapshot.getString("description");
+                String image = documentSnapshot.getString("imageUrl");
+                if (dietid.equals(name)) {
+                    name_diet.setText(name != null ? name : "No name");
+                    description_diet.setText(description != null ? description : "No username");
+                    if (image != null) {
+                        Glide.with(Diet.this)
+                                .load(image)
+                                .into(image_diet);
+                    }
+                }
+            }
+        }).addOnFailureListener(e -> {
+            progressDialog.dismiss();
+            showToast("Failed to load data");
+        });
+    }
+
     private void showToast(String message) {
         Toast.makeText(Diet.this, message, Toast.LENGTH_SHORT).show();
     }

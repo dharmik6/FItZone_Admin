@@ -91,7 +91,6 @@ public class WorkoutPlans extends AppCompatActivity {
         progressDialog.setCancelable(false);
 //        progressDialog.show();
 
-        fetchAndDisplayExerciseDetails(wid);
         edit_plan_tr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,6 +143,7 @@ public class WorkoutPlans extends AppCompatActivity {
             }
         });
     }
+
     private void fetchAndDisplayExerciseDetails(String wid) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("workout_plans")
@@ -162,6 +162,20 @@ public class WorkoutPlans extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> Log.w(TAG, "Error fetching workout document", e));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Retrieve the workout ID from Intent extras
+        Intent intent = getIntent();
+        String wid = intent.getStringExtra("id");
+
+        // Clear the existing list of exercises before reloading
+        exercisesItemLists.clear();
+
+        // Fetch and display exercise details
+        fetchAndDisplayExerciseDetails(wid);
     }
 
     // Function to fetch exercise details

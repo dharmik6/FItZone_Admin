@@ -48,8 +48,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         if (context != null) {
             // Load image into CircleImageView using Glide library
             Glide.with(context)
-                    .load(member.getImageUrl()) // Assuming getImage() returns the URL of the image
-                    .apply(RequestOptions.circleCropTransform()) // Apply circle crop transformation for CircleImageView
+                    .load(member.getImageUrl())
                     .diskCacheStrategy(DiskCacheStrategy.ALL) // Cache image to disk
                     .into(holder.dietimage); // Load image into CircleImageView
         }

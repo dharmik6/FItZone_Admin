@@ -202,7 +202,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Add workout plan"
+                    android:text="Add exercises"
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     app:fontFamily="@font/nunito_bold"
