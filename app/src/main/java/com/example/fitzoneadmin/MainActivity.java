@@ -79,6 +79,13 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "No user is currently signed in");
         }
 
+        navImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectActivity(MainActivity.this,Account.class);
+            }
+        });
+
 
         if (currentUser != null) {
             String userId = currentUser.getUid();
