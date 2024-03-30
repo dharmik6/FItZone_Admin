@@ -50,7 +50,6 @@ public class Account extends AppCompatActivity {
             progressDialog.show(); // Show progress dialog before fetching user data
             String userId = currentUser.getUid();
             // Query Firestore for data
-            // Query Firestore for data
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             db.collection("admins").document(userId).get().addOnSuccessListener(documentSnapshot -> {
                 progressDialog.dismiss(); // Dismiss ProgressDialog when data is retrieved
