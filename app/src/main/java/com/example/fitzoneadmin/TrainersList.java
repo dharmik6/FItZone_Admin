@@ -1,14 +1,14 @@
 package com.example.fitzoneadmin;
 
 public class TrainersList {
-    private String tname, timage,review,trId;
+    private String tname, timage,review,id;
     private String temail, tnumber, tgender, tboi, taddress,specialization, experience, tjoidate ;
 
-    public TrainersList(String tname, String experience, String timage,String specialization,String review) {
+    public TrainersList(String tname, String experience, String timage,String specialization,String id) {
         this.tname = tname;
         this.experience =experience;
         this.timage=timage;
-        this.review=review;
+        this.id=id;
         this.specialization=specialization;
     }
 
@@ -17,7 +17,11 @@ public class TrainersList {
         public String getReview() {return review;}
     public String getTimage() {return timage;}
     public String getSpecialization() {return specialization;}
-    public String getId() {return trId;}
+
+    public String getId() {
+        return id;
+    }
+
     public String getTnumber() {return tnumber;}
     public String getTgender() {return tgender;}
     public String getTboi() {return tboi;}

@@ -56,8 +56,8 @@ public class Review_List extends AppCompatActivity {
                 String experience = documentSnapshot.getString("experience");
                 String timage = documentSnapshot.getString("image");
                 String specialization = documentSnapshot.getString("specialization");
-                String review = documentSnapshot.getString("review");
-                TrainersList member = new TrainersList(tname, experience, timage, specialization, review);
+                String id = documentSnapshot.getId();
+                TrainersList member = new TrainersList(tname, experience, timage, specialization, id);
                 trainersLists.add(member);
             }
             filteredList.addAll(trainersLists); // Initialize filteredList with all members
