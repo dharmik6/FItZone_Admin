@@ -104,9 +104,10 @@ public class Review extends AppCompatActivity {
                             reviewCount++;
                         }
 
+                        String review = documentSnapshot2.getString("review");
                         String rname = documentSnapshot2.getString("review_name");
                         String rimage = documentSnapshot2.getString("review_image");
-                        TrainerReviewList member = new TrainerReviewList(rating, rname, rimage);
+                        TrainerReviewList member = new TrainerReviewList(rating, rname,review, rimage);
                         trainersLists.add(member);
                     }
 

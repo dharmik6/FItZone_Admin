@@ -39,6 +39,7 @@ public class TrainerReviewAdapter extends RecyclerView.Adapter<TrainerReviewAdap
     @Override
     public void onBindViewHolder(@NonNull TrainerReviewAdapter.ViewHolder holder, int position) {
         TrainerReviewList member = trainersLists.get(position);
+        holder.review_show.setText(member.getReview());
         holder.rating_show.setText(member.getRating());
         holder.name_of_review.setText(member.getName());
         if (context != null) {
@@ -81,12 +82,14 @@ public class TrainerReviewAdapter extends RecyclerView.Adapter<TrainerReviewAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView rating_show;
+        public TextView review_show;
         public TextView name_of_review;
         public CircleImageView review_image;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             rating_show = itemView.findViewById(R.id.rating_show);
+            review_show = itemView.findViewById(R.id.review_show);
             name_of_review = itemView.findViewById(R.id.name_of_review);
             review_image = itemView.findViewById(R.id.review_image);
         }

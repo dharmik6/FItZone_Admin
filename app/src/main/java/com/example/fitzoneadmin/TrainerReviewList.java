@@ -2,9 +2,10 @@ package com.example.fitzoneadmin;
 
 public class TrainerReviewList {
     private String rating, review,name,image;
-    public TrainerReviewList( String rating,String name,String image) {
+    public TrainerReviewList( String rating,String name,String review,String image) {
         this.rating =rating;
         this.name =name;
+        this.review =review;
         this.image =image;
 
     }
