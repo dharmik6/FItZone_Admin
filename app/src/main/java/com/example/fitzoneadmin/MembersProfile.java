@@ -6,7 +6,9 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -115,61 +117,81 @@ public class MembersProfile extends AppCompatActivity {
                     // showToast("User data does not match the intent.");
                 }
             }
-            });
+        });
 
 //
+        // Set onClickListener for delete button
         // Set onClickListener for delete button
         user_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Show progress dialog
-                progressDialog.show();
+                // Create AlertDialog.Builder object
+                AlertDialog.Builder builder = new AlertDialog.Builder(MembersProfile.this);
+                builder.setTitle("Delete Confirmation");
+                builder.setMessage("Are you sure you want to delete this member?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Show progress dialog
+                        progressDialog.show();
 
-                // Query Firestore to find the document ID associated with the trainer's email
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("users")
-                        .whereEqualTo("email", member_email.getText().toString())
-                        .get()
-                        .addOnSuccessListener(queryDocumentSnapshots -> {
-                            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                                String documentId = documentSnapshot.getId();
-                                String password = documentSnapshot.getString("password");
-                                // Delete user document from Firestore
-                                db.collection("users").document(documentId)
-                                        .delete()
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                // After deleting trainer data, also delete authentication
-                                                deleteFirebaseAuthentication(member_email.getText().toString(), password);
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                // Dismiss progress dialog
-                                                progressDialog.dismiss();
+                        // Query Firestore to find the document ID associated with the member's email
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        db.collection("users")
+                                .whereEqualTo("email", member_email.getText().toString())
+                                .get()
+                                .addOnSuccessListener(queryDocumentSnapshots -> {
+                                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                        String documentId = documentSnapshot.getId();
+                                        String password = documentSnapshot.getString("password");
+                                        // Delete user document from Firestore
+                                        db.collection("users").document(documentId)
+                                                .delete()
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        // After deleting member data, also delete authentication
+                                                        deleteFirebaseAuthentication(member_email.getText().toString(), password);
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        // Dismiss progress dialog
+                                                        progressDialog.dismiss();
 
-                                                // Handle errors
-                                                Toast.makeText(MembersProfile.this, "Error deleting trainer data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Dismiss progress dialog
-                                progressDialog.dismiss();
+                                                        // Handle errors
+                                                        Toast.makeText(MembersProfile.this, "Error deleting member data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        // Dismiss progress dialog
+                                        progressDialog.dismiss();
 
-                                Toast.makeText(MembersProfile.this, "Error fetching document ID: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                        Toast.makeText(MembersProfile.this, "Error fetching document ID: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dismiss the dialog if "No" is clicked
+                        dialog.dismiss();
+                    }
+                });
+                // Create and show the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
 
-    // Method to delete Firebase authentication
+        // Method to delete Firebase authentication
     private void deleteFirebaseAuthentication(String email, String password) {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

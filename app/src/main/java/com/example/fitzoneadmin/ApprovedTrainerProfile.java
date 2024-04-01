@@ -3,7 +3,9 @@ package com.example.fitzoneadmin;
 import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -193,49 +195,68 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         reject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Show progress dialog
-                progressDialog.show();
+                // Create AlertDialog.Builder object
+                AlertDialog.Builder builder = new AlertDialog.Builder(ApprovedTrainerProfile.this);
+                builder.setTitle("Delete Confirmation");
+                builder.setMessage("Are you sure you want to reject this trainer?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Show progress dialog
+                        progressDialog.show();
 
-                // Query Firestore to find the document ID associated with the trainer's email
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("trainers")
-                        .whereEqualTo("email", approve_email.getText().toString())
-                        .get()
-                        .addOnSuccessListener(queryDocumentSnapshots -> {
-                            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                                String documentId = documentSnapshot.getId();
-                                String password = documentSnapshot.getString("password");
-                                // Delete user document from Firestore
-                                db.collection("trainers").document(documentId)
-                                        .delete()
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                // After deleting trainer data, also delete authentication
-                                                deleteFirebaseAuthentication(approve_email.getText().toString(), password);
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                // Dismiss progress dialog
-                                                progressDialog.dismiss();
+                        // Query Firestore to find the document ID associated with the trainer's email
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        db.collection("trainers")
+                                .whereEqualTo("email", approve_email.getText().toString())
+                                .get()
+                                .addOnSuccessListener(queryDocumentSnapshots -> {
+                                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                        String documentId = documentSnapshot.getId();
+                                        String password = documentSnapshot.getString("password");
+                                        // Delete user document from Firestore
+                                        db.collection("trainers").document(documentId)
+                                                .delete()
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        // After deleting trainer data, also delete authentication
+                                                        deleteFirebaseAuthentication(approve_email.getText().toString(), password);
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        // Dismiss progress dialog
+                                                        progressDialog.dismiss();
 
-                                                // Handle errors
-                                                Toast.makeText(ApprovedTrainerProfile.this, "Error deleting trainer data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Dismiss progress dialog
-                                progressDialog.dismiss();
+                                                        // Handle errors
+                                                        Toast.makeText(ApprovedTrainerProfile.this, "Error deleting trainer data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        // Dismiss progress dialog
+                                        progressDialog.dismiss();
 
-                                Toast.makeText(ApprovedTrainerProfile.this, "Error fetching document ID: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                        Toast.makeText(ApprovedTrainerProfile.this, "Error fetching document ID: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dismiss the dialog if "No" is clicked
+                        dialog.dismiss();
+                    }
+                });
+                // Create and show the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
