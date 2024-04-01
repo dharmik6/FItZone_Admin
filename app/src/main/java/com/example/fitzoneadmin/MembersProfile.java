@@ -36,7 +36,7 @@ public class MembersProfile extends AppCompatActivity {
     CircleImageView member_image;
     AppCompatButton user_delete;
     ImageView member_pro_back;
-    AppCompatTextView member_joidate, member_activity, member_address, member_age, member_gender, member_email, member_number;
+    AppCompatTextView  member_activity, member_address, member_age, member_gender, member_email, member_number;
     ProgressDialog progressDialog;
 
     @SuppressLint("MissingInflatedId")
@@ -48,7 +48,6 @@ public class MembersProfile extends AppCompatActivity {
         // Initialize TextView elements
         member_name = findViewById(R.id.member_name);
         member_username = findViewById(R.id.member_username);
-        member_joidate = findViewById(R.id.member_joidate);
         member_activity = findViewById(R.id.member_activity);
         member_address = findViewById(R.id.member_address);
         member_age = findViewById(R.id.member_age);

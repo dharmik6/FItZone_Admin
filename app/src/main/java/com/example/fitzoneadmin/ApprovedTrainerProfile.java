@@ -33,7 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class ApprovedTrainerProfile extends AppCompatActivity {
-    AppCompatTextView approve_name,approve_specialization,approve_email,approve_number,approve_gender,approve_boi,approve_address,approve_date,approve_experience,treainerid;
+    AppCompatTextView approve_name,approve_specialization,approve_email,approve_number,approve_gender,approve_boi,approve_address,approve_experience,treainerid;
     ImageView approve_img;
     CardView approve_document;
     Button reject,app_change;
@@ -57,7 +57,6 @@ public class ApprovedTrainerProfile extends AppCompatActivity {
         approve_gender = findViewById(R.id.approve_gender);
         approve_boi = findViewById(R.id.approve_boi);
         approve_address = findViewById(R.id.approve_address);
-        approve_date = findViewById(R.id.approve_date);
         approve_experience = findViewById(R.id.approve_experience);
         chargeEt = findViewById(R.id.charge);
         btnChange = findViewById(R.id.btn_change);

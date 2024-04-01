@@ -20,12 +20,6 @@
         android:orientation="vertical"
         tools:ignore="ContentDescription" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </RelativeLayout>
 
     <androidx.cardview.widget.CardView
@@ -132,7 +126,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentEnd="true"
                                 android:fontFamily="@font/nunito_medium"
-                                android:text="Functional Strength"
+                                android:text="Admin"
                                 android:textColor="@color/dark_cyan"
                                 android:textSize="16sp"
                                 android:textStyle="bold"

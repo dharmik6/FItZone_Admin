@@ -63,8 +63,7 @@ public class WorkoutPlansList extends AppCompatActivity {
         adapter = new WorkoutPlansAdapter(this, exercisesItemLists);
         plan_recyc.setAdapter(adapter);
 
-        // Query Firestore for data
-        loadWorkoutPlans();
+
 
         add_exercises.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +80,13 @@ public class WorkoutPlansList extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Load workout plans only when the activity is resumed
+        loadWorkoutPlans();
+    }
+
 
     private void loadWorkoutPlans() {
         progressDialog = new ProgressDialog(this);

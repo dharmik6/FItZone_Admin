@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class Account extends AppCompatActivity {
     ImageView admin_image;
@@ -24,7 +23,7 @@ public class Account extends AppCompatActivity {
     TextView admin_email,admin_number,admin_address,admin_gender;
     CardView edit_pro_acc;
     ProgressDialog progressDialog;
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,20 @@ public class Account extends AppCompatActivity {
         edit_pro_acc = findViewById(R.id.edit_pro_acc);
 
         progressDialog = new ProgressDialog(this); // Initialize ProgressDialog
+
+        // Handle back button click
+        ImageView backPress = findViewById(R.id.back);
+        backPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Please wait...");
@@ -85,15 +98,5 @@ public class Account extends AppCompatActivity {
                 }
             });
         }
-
-
-        // Handle back button click
-        ImageView backPress = findViewById(R.id.back);
-        backPress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
     }
 }

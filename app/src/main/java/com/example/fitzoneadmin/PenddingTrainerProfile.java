@@ -32,7 +32,7 @@
     import com.google.firebase.firestore.QueryDocumentSnapshot;
 
     public class PenddingTrainerProfile extends AppCompatActivity {
-        AppCompatTextView trainer_name, trainer_specialization, trainer_email, trainer_number, trainer_gender, trainer_bio, trainer_address, trainer_date, trainer_experience;
+        AppCompatTextView trainer_name, trainer_specialization, trainer_email, trainer_number, trainer_gender, trainer_bio, trainer_address, trainer_experience;
         ImageView trainer_img;
         Button approve, reject, mouny_change;
 
@@ -56,7 +56,6 @@
             trainer_gender = findViewById(R.id.trainer_gender);
             trainer_bio = findViewById(R.id.trainer_boi);
             trainer_address = findViewById(R.id.trainer_address);
-            trainer_date = findViewById(R.id.trainer_date);
             trainer_experience = findViewById(R.id.trainer_experience);
             chargeEt = findViewById(R.id.charge);
             btnChange = findViewById(R.id.btn_change);
@@ -292,7 +291,7 @@
 
         private void sendEmail() {
             String[] TO = {trainer_email.getText().toString()}; // Replace with the recipient's email address
-            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
             emailIntent.setData(Uri.parse("mailto:"));
             emailIntent.setType("text/plain");
 
@@ -377,7 +376,7 @@
 
         private void sendRejectionEmail(String recipientEmail, String trainerName) {
             String[] TO = {recipientEmail}; // Replace with the recipient's email address
-            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
             emailIntent.setData(Uri.parse("mailto:"));
             emailIntent.setType("text/plain");
 
