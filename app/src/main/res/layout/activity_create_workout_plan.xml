@@ -45,19 +45,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:ignore="HardcodedText" />
 
-        <ImageView
-            android:id="@+id/settings"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="10dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_popup_menu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- ScrollView -->

@@ -165,7 +165,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
-                                tools:ignore="HardcodedText,TooDeepLayout,TextContrastCheck" />
+                                tools:ignore="HardcodedText,TooDeepLayout,TextContrastCheck,TouchTargetSizeCheck" />
                         </LinearLayout>
 
                         <androidx.appcompat.widget.AppCompatButton
